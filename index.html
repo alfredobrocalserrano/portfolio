@@ -703,6 +703,18 @@
     content: '';
     position: absolute; inset: 0;
     background-image: repeating-linear-gradient(45deg, rgba(22,19,16,0.04) 0 1px, transparent 1px 9px);
+    z-index: 1;
+    pointer-events: none;
+  }
+  .modal-img img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    z-index: 0;
+    filter: sepia(12%) contrast(0.96) brightness(0.97);
   }
 
   /* Reveal */
@@ -1021,9 +1033,9 @@
         <div class="cval">/in/alfredo-brocal</div>
         <div class="carr">→</div>
       </a>
-      <a class="contact-item" href="#">
+      <a class="contact-item" href="https://github.com/alfredobrocalserrano" target="_blank" rel="noopener">
         <div class="mono ckey">GitHub</div>
-        <div class="cval">@alfredobrocal</div>
+        <div class="cval">@alfredobrocalserrano</div>
         <div class="carr">→</div>
       </a>
     </div>
@@ -1045,7 +1057,7 @@
     <div class="modal-meta" id="modalMeta"></div>
     <div class="modal-body">
       <div>
-        <div class="modal-img"><span style="position:relative;z-index:1;">dashboard preview</span></div>
+        <div class="modal-img" id="modalImgWrap"><span style="position:relative;z-index:1;">dashboard preview</span></div>
         <h4 data-i18n="modal.h.context">Contexto</h4>
         <p id="modalCtx"></p>
         <h4 data-i18n="modal.h.results">Resultados</h4>
@@ -1172,6 +1184,7 @@ const projects = {
   co2: {
     num: 'PJ.01 · 2026',
     github: 'https://github.com/alfredobrocalserrano/global-co2-analysis-dashboard',
+    image: 'https://raw.githubusercontent.com/alfredobrocalserrano/global-co2-analysis-dashboard/main/HojaEmisionesCO2.png',
     title: { es: 'Análisis end-to-end: <em>emisiones globales de CO₂</em>', en: 'End-to-end analysis: <em>global CO₂ emissions</em>' },
     meta: { es: ['1900–2021', '121 años', 'Our World in Data'], en: ['1900–2021', '121 years', 'Our World in Data'] },
     ctx: { es: 'Transformar un dataset masivo de emisiones de CO₂ en un pipeline de datos profesional, extrayendo insights críticos que los datos brutos ocultaban.', en: 'Turn a massive CO₂ emissions dataset into a professional data pipeline, extracting critical insights hidden in the raw data.' },
@@ -1182,6 +1195,7 @@ const projects = {
   rag: {
     num: 'PJ.02 · 2026',
     github: 'https://github.com/alfredobrocalserrano/rag-analisis-corporativo',
+    image: 'https://raw.githubusercontent.com/alfredobrocalserrano/rag-analisis-corporativo/main/outputs/eda_documentos.png',
     title: { es: 'Sistema de consultas <em>inteligentes (RAG)</em>', en: 'Intelligent <em>query system (RAG)</em>' },
     meta: { es: ['IA Generativa', 'Embeddings', 'NLP'], en: ['Generative AI', 'Embeddings', 'NLP'] },
     ctx: { es: 'Sistema RAG para gestión de conocimiento mediante lenguaje natural con citaciones trazables.', en: 'RAG system for knowledge management via natural language with traceable citations.' },
@@ -1192,6 +1206,7 @@ const projects = {
   play: {
     num: 'PJ.03 · 2025',
     github: 'https://github.com/alfredobrocalserrano/google-play-store-analysis',
+    image: null,
     title: { es: 'Análisis de mercado: <em>Google Play Store</em>', en: 'Market analysis: <em>Google Play Store</em>' },
     meta: { es: ['EDA', 'App market', 'Tableau'], en: ['EDA', 'App market', 'Tableau'] },
     ctx: { es: 'Estudio integral de las métricas que definen el éxito y la valoración de apps móviles en Google Play.', en: 'Comprehensive study of the metrics that define mobile app success and ratings on Google Play.' },
@@ -1202,6 +1217,7 @@ const projects = {
   x: {
     num: 'PJ.04 · 2025',
     github: 'https://github.com/alfredobrocalserrano/twitter-sentiment-cleaning',
+    image: null,
     title: { es: 'Sentiment analysis: <em>limpieza masiva (X)</em>', en: 'Sentiment analysis: <em>massive cleanup (X)</em>' },
     meta: { es: ['NLP', 'X (Twitter)', 'Regex'], en: ['NLP', 'X (Twitter)', 'Regex'] },
     ctx: { es: 'NLP y limpieza profunda de datasets masivos provenientes de redes sociales.', en: 'NLP and deep cleaning of massive datasets from social networks.' },
@@ -1233,6 +1249,13 @@ function renderModal() {
   document.getElementById('modalTools').textContent = p.tools[lang];
   document.getElementById('modalProc').innerHTML = p.proc[lang].map(s => `<li>${s}</li>`).join('');
   document.getElementById('modalGH').href = p.github;
+  const imgWrap = document.getElementById('modalImgWrap');
+  if (p.image) {
+    const fallback = `<span style="position:relative;z-index:1;">dashboard preview</span>`;
+    imgWrap.innerHTML = `<img src="${p.image}" alt="${p.num} preview" onerror="this.outerHTML='${fallback}'" />`;
+  } else {
+    imgWrap.innerHTML = `<span style="position:relative;z-index:1;">dashboard preview</span>`;
+  }
 }
 document.querySelectorAll('.project').forEach(p => {
   p.addEventListener('click', (e) => { e.preventDefault(); openModal(p.dataset.pj); });
