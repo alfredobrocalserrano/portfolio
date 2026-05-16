@@ -1186,44 +1186,44 @@ const projects = {
     github: 'https://github.com/alfredobrocalserrano/global-co2-analysis-dashboard',
     image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&q=80&fit=crop',
     title: { es: 'Análisis end-to-end: <em>emisiones globales de CO₂</em>', en: 'End-to-end analysis: <em>global CO₂ emissions</em>' },
-    meta: { es: ['1900–2021', '121 años', 'Our World in Data'], en: ['1900–2021', '121 years', 'Our World in Data'] },
+    meta: { es: ['1900–2021', '121 años', 'Global Carbon Budget 2022'], en: ['1900–2021', '121 years', 'Global Carbon Budget 2022'] },
     ctx: { es: 'Transformar un dataset masivo de emisiones de CO₂ en un pipeline de datos profesional, extrayendo insights críticos que los datos brutos ocultaban.', en: 'Turn a massive CO₂ emissions dataset into a professional data pipeline, extracting critical insights hidden in the raw data.' },
-    res: { es: ['1.537 Gt CO₂ acumulados desde 1900', 'USA = mayor emisor histórico (411 Gt)', 'Descarbonización real en Europa frente a casos atípicos como la crisis industrial de Venezuela'], en: ['1,537 Gt CO₂ accumulated since 1900', 'USA = largest historical emitter (411 Gt)', 'Real decarbonization in Europe vs. atypical cases like Venezuela\'s industrial crisis'] },
-    tools: { es: 'Python (pandas), SQL (DBeaver), Google Sheets.', en: 'Python (pandas), SQL (DBeaver), Google Sheets.' },
-    proc: { es: ['Limpieza y exclusión de filas agregadas', 'Transformación con pandas + validación SQL', 'Dashboard analítico con conclusiones'], en: ['Cleanup and removal of aggregated rows', 'Pandas transforms + SQL validation', 'Analytical dashboard with conclusions'] }
+    res: { es: ['El carbón domina el mix energético global; el gas creció exponencialmente desde 1950', 'Top 10 histórico: Alemania y UK superan a India y China por industrialización temprana, no por población', 'Europa lidera la descarbonización 2011–2021: UK -26%, Italia -22%, España -18%', 'Venezuela: -54,68% de reducción atípica por colapso económico, no por política climática'], en: ['Coal dominates the global energy mix; gas grew exponentially from 1950', 'Historical top 10: Germany and UK outrank India and China due to early industrialization, not population', 'Europe leads 2011–2021 decarbonization: UK -26%, Italy -22%, Spain -18%', 'Venezuela: -54.68% atypical reduction driven by economic collapse, not climate policy'] },
+    tools: { es: 'Python (Pandas), SQL (DBeaver), Google Sheets.', en: 'Python (Pandas), SQL (DBeaver), Google Sheets.' },
+    proc: { es: ['Limpieza y exclusión de filas agregadas con Pandas', 'Consultas SQL complejas en DBeaver: evolución por fuente, ranking y tendencias', 'Dashboard interactivo en Google Sheets con KPIs y gráficos de área'], en: ['Cleanup and removal of aggregated rows with Pandas', 'Complex SQL queries in DBeaver: source evolution, ranking and trends', 'Interactive Google Sheets dashboard with KPIs and area charts'] }
   },
   rag: {
     num: 'PJ.02 · 2026',
     github: 'https://github.com/alfredobrocalserrano/rag-analisis-corporativo',
     image: 'https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1200&q=80',
-    title: { es: 'Sistema de consultas <em>inteligentes (RAG)</em>', en: 'Intelligent <em>query system (RAG)</em>' },
-    meta: { es: ['IA Generativa', 'Embeddings', 'NLP'], en: ['Generative AI', 'Embeddings', 'NLP'] },
-    ctx: { es: 'Sistema RAG para gestión de conocimiento mediante lenguaje natural con citaciones trazables.', en: 'RAG system for knowledge management via natural language with traceable citations.' },
-    res: { es: ['Consultas en lenguaje natural sobre fuentes propias', 'Citaciones trazables a la fuente', 'Reducción del tiempo de búsqueda interna'], en: ['Natural-language queries over proprietary sources', 'Source-traceable citations', 'Reduced internal search time'] },
-    tools: { es: 'Python, embeddings, vector DB, LLM API.', en: 'Python, embeddings, vector DB, LLM API.' },
-    proc: { es: ['Indexación y chunking', 'Recuperación semántica', 'Generación con citas'], en: ['Indexing and chunking', 'Semantic retrieval', 'Cited generation'] }
+    title: { es: 'Asistente RAG: <em>análisis documental corporativo</em>', en: 'RAG assistant: <em>corporate document analysis</em>' },
+    meta: { es: ['Informes corporativos', 'ChromaDB', 'LangChain'], en: ['Corporate reports', 'ChromaDB', 'LangChain'] },
+    ctx: { es: 'Sistema RAG para consultar en lenguaje natural ~2.199 páginas de informes anuales de Iberdrola, BBVA, Santander e Inditex, con recuperación semántica MMR y respuestas con citas trazables.', en: 'RAG system for querying ~2,199 pages of annual reports from Iberdrola, BBVA, Santander and Inditex in natural language, with MMR semantic retrieval and source-traceable answers.' },
+    res: { es: ['~2.199 páginas de informes procesados: Iberdrola, BBVA, Santander e Inditex', 'Búsqueda MMR sobre ChromaDB con embeddings de HuggingFace', 'Generación con Llama 3.3 70B vía Groq API con citas trazables a la fuente', 'Outputs: análisis de sentimiento, KPIs exportados en CSV y visualizaciones EDA'], en: ['~2,199 report pages processed: Iberdrola, BBVA, Santander and Inditex', 'MMR search over ChromaDB with HuggingFace embeddings', 'Generation with Llama 3.3 70B via Groq API with source-traceable citations', 'Outputs: sentiment analysis, KPIs exported to CSV and EDA visualizations'] },
+    tools: { es: 'Python, LangChain, ChromaDB, HuggingFace, Groq (Llama 3.3 70B), Gradio, Pandas, Matplotlib.', en: 'Python, LangChain, ChromaDB, HuggingFace, Groq (Llama 3.3 70B), Gradio, Pandas, Matplotlib.' },
+    proc: { es: ['Ingesta y chunking de PDFs con PyPDF + LangChain', 'Indexación en ChromaDB con embeddings de HuggingFace', 'Recuperación MMR + generación con Llama 3.3 70B e interfaz en Gradio'], en: ['PDF ingestion and chunking with PyPDF + LangChain', 'Indexing in ChromaDB with HuggingFace embeddings', 'MMR retrieval + generation with Llama 3.3 70B and Gradio UI'] }
   },
   play: {
     num: 'PJ.03 · 2025',
     github: 'https://github.com/alfredobrocalserrano/google-play-store-analysis',
     image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&q=80',
     title: { es: 'Análisis de mercado: <em>Google Play Store</em>', en: 'Market analysis: <em>Google Play Store</em>' },
-    meta: { es: ['EDA', 'App market', 'Tableau'], en: ['EDA', 'App market', 'Tableau'] },
-    ctx: { es: 'Estudio integral de las métricas que definen el éxito y la valoración de apps móviles en Google Play.', en: 'Comprehensive study of the metrics that define mobile app success and ratings on Google Play.' },
-    res: { es: ['Correlación entre instalaciones y rating', 'Categorías con mayor engagement', 'Patrones de monetización'], en: ['Correlation between installs and rating', 'Highest-engagement categories', 'Monetization patterns'] },
-    tools: { es: 'Python (pandas), Tableau, Google Sheets.', en: 'Python (pandas), Tableau, Google Sheets.' },
-    proc: { es: ['EDA exploratorio', 'Limpieza y feature engineering', 'Visualización en Tableau'], en: ['Exploratory EDA', 'Cleanup and feature engineering', 'Tableau visualization'] }
+    meta: { es: ['EDA', '+10.000 apps', 'Power BI'], en: ['EDA', '+10,000 apps', 'Power BI'] },
+    ctx: { es: 'Análisis estratégico de más de 10.000 apps de Google Play para identificar los factores que determinan el éxito en ratings e instalaciones.', en: 'Strategic analysis of more than 10,000 Google Play apps to identify the factors that determine success in ratings and installs.' },
+    res: { es: ['Las apps de pago tienen un rating medio 0,49 puntos superior a las gratuitas', 'Barrera psicológica de descarga a partir de los 100 MB', '"Punto dulce" de éxito masivo: app gratuita de menos de 100 MB', 'Dashboard de 4 páginas: mercado general, precios, tamaño y perfil de éxito'], en: ['Paid apps have an average rating 0.49 points higher than free apps', 'Psychological download barrier at 100 MB', '"Sweet spot" for mass success: free app under 100 MB', '4-page dashboard: general market, pricing, size and success profile'] },
+    tools: { es: 'Python (Colab), Power BI, DAX.', en: 'Python (Colab), Power BI, DAX.' },
+    proc: { es: ['Limpieza con Python: nulos, normalización de unidades (MB/KB)', 'Creación de medidas DAX y segmentos de tamaño en Power BI', 'Dashboard de 4 páginas con recomendaciones accionables'], en: ['Python cleanup: nulls, unit normalization (MB/KB)', 'DAX measures and size segments in Power BI', '4-page dashboard with actionable recommendations'] }
   },
   x: {
     num: 'PJ.04 · 2025',
     github: 'https://github.com/alfredobrocalserrano/twitter-sentiment-cleaning',
     image: 'https://images.unsplash.com/photo-1611605698335-8b1569810432?w=1200&q=80',
     title: { es: 'Sentiment analysis: <em>limpieza masiva (X)</em>', en: 'Sentiment analysis: <em>massive cleanup (X)</em>' },
-    meta: { es: ['NLP', 'X (Twitter)', 'Regex'], en: ['NLP', 'X (Twitter)', 'Regex'] },
-    ctx: { es: 'NLP y limpieza profunda de datasets masivos provenientes de redes sociales.', en: 'NLP and deep cleaning of massive datasets from social networks.' },
-    res: { es: ['Pipeline de limpieza reutilizable', 'Clasificación de sentimiento balanceada', 'Detección de spam/bots'], en: ['Reusable cleaning pipeline', 'Balanced sentiment classification', 'Spam/bot detection'] },
-    tools: { es: 'Python, regex, NLTK / spaCy.', en: 'Python, regex, NLTK / spaCy.' },
-    proc: { es: ['Tokenización y normalización', 'Filtrado y deduplicación', 'Modelo de sentimiento'], en: ['Tokenization and normalization', 'Filtering and dedup', 'Sentiment model'] }
+    meta: { es: ['NLP', 'X (Twitter)', 'Pandas'], en: ['NLP', 'X (Twitter)', 'Pandas'] },
+    ctx: { es: 'Limpieza y transformación de 68.432 tweets en español para análisis de sentimiento, reduciendo el dataset a 63.639 registros de calidad mediante deduplicación y normalización.', en: 'Cleaning and transformation of 68,432 Spanish tweets for sentiment analysis, reducing the dataset to 63,639 quality records through deduplication and normalization.' },
+    res: { es: ['68.432 tweets originales → 63.639 tras eliminar 4.125 duplicados y 602 nulos', 'Distribución final: Negativo 19.569 · Positivo 17.148 · Neutral 15.140 · Irrelevante 11.782', 'Pipeline de normalización: minúsculas, puntuación, URLs, menciones y hashtags eliminados', 'Métricas derivadas por registro: longitud del tweet y número de palabras'], en: ['68,432 original tweets → 63,639 after removing 4,125 duplicates and 602 nulls', 'Final distribution: Negative 19,569 · Positive 17,148 · Neutral 15,140 · Irrelevant 11,782', 'Normalization pipeline: lowercase, punctuation, URLs, mentions and hashtags removed', 'Derived metrics per record: tweet length and word count'] },
+    tools: { es: 'Python (Pandas 2.x), Google Colab.', en: 'Python (Pandas 2.x), Google Colab.' },
+    proc: { es: ['Carga y auditoría del dataset (68.432 tweets en español)', 'Normalización y deduplicación: eliminación de URLs, menciones, hashtags y duplicados', 'Cálculo de métricas derivadas y exportación del dataset limpio'], en: ['Dataset loading and audit (68,432 Spanish tweets)', 'Normalization and deduplication: remove URLs, mentions, hashtags and duplicates', 'Derived metrics calculation and clean dataset export'] }
   }
 };
 
