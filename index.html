@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" id="metaDesc" content="Alfredo Brocal Serrano — Data Scientist &amp; Analyst. Portfolio editorial con proyectos de análisis de datos, Python, SQL e IA." />
+<meta property="og:title" content="Alfredo Brocal Serrano — Data Scientist &amp; Analyst" />
+<meta property="og:description" content="Portfolio editorial de data scientist: CO₂, RAG, Google Play, X. Python · SQL · Pandas." />
+<meta property="og:type" content="website" />
+<meta name="theme-color" content="#f3efe6" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f3efe6'/><text x='50' y='82' font-size='75' font-family='Georgia,serif' fill='%23161310' font-style='italic' text-anchor='middle'>A</text></svg>" />
+<title>Alfredo Brocal Serrano — Data Scientist &amp; Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  :root {
+    --paper: #f3efe6;
+    --paper-2: #ebe5d6;
+    --ink: #161310;
+    --ink-dim: #5a5048;
+    --ink-soft: #6b6258;
+    --line: rgba(22, 19, 16, 0.18);
+    --line-soft: rgba(22, 19, 16, 0.1);
+    --accent: #b03a2e;
+  }
+  body {
+    margin: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed; inset: 0; pointer-events: none; z-index: 1;
+    background-image: radial-gradient(rgba(22,19,16,0.025) 1px, transparent 1px);
+    background-size: 4px 4px;
+    mix-blend-mode: multiply;
+  }
+  .mono { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .serif { font-family: 'Fraunces', serif; }
+
+  /* Nav */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    backdrop-filter: blur(14px);
+    background: rgba(243, 239, 230, 0.82);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .nav-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 16px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
+  .brand { font-family: 'Fraunces', serif; font-size: 17px; letter-spacing: -0.015em; display: inline-flex; align-items: center; gap: 10px; }
+  .brand .mark { width: 22px; height: 22px; border-radius: 50%; background: var(--ink); display: inline-flex; align-items: center; justify-content: center; color: var(--paper); font-size: 11px; font-style: italic; }
+  .brand em { font-style: italic; color: var(--ink-dim); font-weight: 400; }
+  .nav-links { display: flex; gap: 4px; align-items: center; }
+  .nav-links a {
+    color: var(--ink); text-decoration: none; font-size: 13px;
+    padding: 8px 14px; border-radius: 999px;
+    transition: background 0.2s, color 0.2s;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .nav-links a .n { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--ink-soft); }
+  .nav-links a:hover { background: var(--ink); color: var(--paper); }
+  .nav-links a:hover .n { color: rgba(243, 239, 230, 0.6); }
+  .nav-right { display: flex; gap: 14px; align-items: center; }
+  .lang-toggle { border: 1px solid var(--ink); border-radius: 999px; overflow: hidden; display: inline-flex; font-family: 'JetBrains Mono', monospace; font-size: 10px; }
+  .lang-toggle button { border: 0; background: transparent; padding: 5px 10px; cursor: pointer; color: var(--ink); font-family: inherit; font-size: inherit; letter-spacing: 0.05em; }
+  .lang-toggle button.active { background: var(--ink); color: var(--paper); }
+  .back-link { font-size: 11px; color: var(--ink-dim); text-decoration: none; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.1em; }
+  .back-link:hover { color: var(--ink); }
+
+  /* Hamburger */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: 4px;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--ink);
+    transition: all 0.3s;
+  }
+
+  /* Mobile overlay */
+  .mobile-overlay {
+    position: fixed; inset: 0;
+    background: var(--paper);
+    z-index: 300;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 36px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  .mobile-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .overlay-close {
+    position: absolute; top: 24px; right: 24px;
+    background: transparent; border: 1px solid var(--ink);
+    width: 40px; height: 40px; cursor: pointer;
+    font-size: 18px; border-radius: 50%;
+    transition: background 0.2s, color 0.2s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .overlay-close:hover { background: var(--ink); color: var(--paper); }
+  .overlay-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .overlay-link {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(40px, 10vw, 72px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    text-decoration: none;
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line-soft);
+    transition: color 0.2s, padding-left 0.2s;
+  }
+  .overlay-link:hover { color: var(--accent); padding-left: 8px; }
+  .overlay-link .n {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+    letter-spacing: 0.14em;
+    font-style: normal;
+  }
+  .overlay-footer {
+    margin-top: 48px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+
+  @media (max-width: 880px) {
+    .nav-links { display: none; }
+    .nav-inner { padding: 14px 24px; }
+    .nav-hamburger { display: flex; }
+  }
+
+  /* Hero */
+  .hero {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 130px 36px 80px;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .hero-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 56px;
+    color: var(--ink-dim);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 16px;
+  }
+  .hero-meta .meta-l, .hero-meta .meta-r { display: inline-flex; gap: 18px; align-items: center; }
+  .hero-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: #16a34a; box-shadow: 0 0 0 0 rgba(22,163,74,0.5); animation: pulse 1.8s infinite; }
+  @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(22,163,74,0.5); } 50% { box-shadow: 0 0 0 5px rgba(22,163,74,0); } }
+
+  .hero-headline { position: relative; z-index: 2; }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-variation-settings: 'opsz' 144;
+    font-size: clamp(64px, 13.5vw, 220px);
+    line-height: 0.88;
+    letter-spacing: -0.045em;
+    margin: 0;
+  }
+  .hero h1 .row { display: block; position: relative; }
+  .hero h1 em { font-style: italic; font-weight: 300; color: var(--accent); }
+  .hero h1 .amp { font-style: italic; color: var(--ink-dim); font-weight: 300; padding: 0 0.1em; }
+
+  .hero-sub {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 36px;
+    border-top: 1px solid var(--ink);
+    padding-top: 28px;
+    align-items: start;
+  }
+  @media (max-width: 1024px) {
+    .hero-sub { grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+    .hero-sub .lede { grid-column: 1 / -1; max-width: none; }
+  }
+  @media (max-width: 880px) { .hero-sub { grid-template-columns: 1fr 1fr; gap: 24px; } .hero-sub .lede { grid-column: 1 / -1; } }
+
+  .hero-sub .lede {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(20px, 1.7vw, 24px);
+    line-height: 1.4;
+    font-weight: 300;
+    max-width: 540px;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+  .hero-sub .lede em { font-style: italic; color: var(--accent); }
+  .hero-stat .label { color: var(--ink-dim); margin-bottom: 10px; }
+  .hero-stat .val {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(28px, 3vw, 44px);
+    letter-spacing: -0.025em;
+    line-height: 1;
+    font-variation-settings: 'opsz' 144;
+  }
+  .hero-stat .val em { font-style: italic; color: var(--accent); }
+  .hero-stat .val .small { font-size: 0.4em; color: var(--ink-dim); margin-left: 4px; letter-spacing: 0; }
+
+  .hero-cta-row {
+    margin-top: 36px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 22px;
+    text-decoration: none;
+    font-size: 13px;
+    border-radius: 999px;
+    transition: all 0.2s;
+    border: 1px solid var(--ink);
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .btn-primary { background: var(--ink); color: var(--paper); }
+  .btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+  .btn-ghost { background: transparent; color: var(--ink); }
+  .btn-ghost:hover { background: var(--ink); color: var(--paper); }
+  .btn .arr { transition: transform 0.2s; }
+  .btn:hover .arr { transform: translateX(4px); }
+
+  /* Hero chart */
+  .hero-chart {
+    position: absolute;
+    right: 36px;
+    top: 180px;
+    width: 36vw;
+    max-width: 460px;
+    height: 290px;
+    pointer-events: none;
+    opacity: 0.7;
+    z-index: 1;
+  }
+  @media (max-width: 1080px) { .hero-chart { display: none; } }
+
+  /* Marquee strip */
+  .marquee {
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    overflow: hidden;
+    background: var(--paper-2);
+    padding: 14px 0;
+    position: relative;
+  }
+  .marquee-track {
+    display: flex;
+    gap: 48px;
+    width: max-content;
+    animation: marq 32s linear infinite;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 22px;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .marquee-track span { display: inline-flex; align-items: center; gap: 48px; }
+  .marquee-track .star { color: var(--accent); font-style: normal; font-size: 18px; }
+  @keyframes marq { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* Sections */
+  section {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 130px 36px;
+    border-top: 1px solid var(--ink);
+    position: relative;
+  }
+  section:first-of-type { border-top: 0; }
+  .sec-head {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 40px;
+    margin-bottom: 80px;
+    align-items: baseline;
+  }
+  @media (max-width: 760px) { .sec-head { grid-template-columns: 1fr; gap: 16px; } }
+  .sec-num {
+    color: var(--ink-soft);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .sec-num .pilcrow { font-family: 'Fraunces', serif; font-style: italic; font-size: 24px; color: var(--ink); margin-bottom: 8px; }
+  .sec-head h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-variation-settings: 'opsz' 144;
+    font-size: clamp(44px, 7vw, 96px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin: 0;
+  }
+  .sec-head h2 em { font-style: italic; color: var(--accent); }
+
+  /* About */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 80px;
+    align-items: start;
+  }
+  @media (max-width: 880px) { .about-grid { grid-template-columns: 1fr; gap: 40px; } }
+  .about-photo-wrap { position: relative; }
+  .about-photo {
+    aspect-ratio: 4/5;
+    background: linear-gradient(135deg, #d8c8a8 0%, #b8a888 100%);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--ink);
+    box-shadow: 12px 12px 0 var(--ink);
+  }
+  .about-photo::before {
+    content: 'photograph · alfredo brocal · 2026';
+    position: absolute; inset: 0;
+    display: flex; align-items: end; padding: 16px;
+    color: rgba(22, 19, 16, 0.55);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.1em;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+  .about-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    z-index: 0;
+  }
+  .about-photo .grain {
+    position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(45deg, rgba(22,19,16,0.05) 0 1px, transparent 1px 9px);
+    z-index: 1;
+  }
+  .photo-caption {
+    margin-top: 24px;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-dim);
+    line-height: 1.5;
+    max-width: 280px;
+  }
+  .photo-caption::before { content: '— '; color: var(--accent); font-style: normal; }
+
+  .about-text p {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(20px, 1.6vw, 23px);
+    line-height: 1.5;
+    margin: 0 0 24px;
+    text-wrap: pretty;
+    color: var(--ink);
+  }
+  .about-text p strong { font-weight: 500; }
+  .about-text p em { font-style: italic; color: var(--accent); }
+  .about-text .dropcap::first-letter {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 5em;
+    float: left;
+    line-height: 0.85;
+    margin: 0.05em 0.1em 0 -0.05em;
+    color: var(--accent);
+  }
+  .about-cta-row { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+
+  /* Currently strip */
+  .currently {
+    margin-top: 60px;
+    border: 1px solid var(--ink);
+    background: var(--paper-2);
+    padding: 28px 32px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+  @media (max-width: 600px) { .currently { grid-template-columns: 1fr; gap: 16px; } }
+  .currently .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    border-right: 1px solid var(--line);
+    padding-right: 32px;
+  }
+  @media (max-width: 600px) { .currently .label { border-right: 0; padding-right: 0; padding-bottom: 12px; border-bottom: 1px solid var(--line); } }
+  .currently .label .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #16a34a; margin-right: 8px; vertical-align: middle; animation: pulse 1.8s infinite; }
+  .currently .body {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--ink);
+    font-weight: 300;
+  }
+  .currently .body em { font-style: italic; color: var(--accent); }
+
+  /* Projects */
+  .projects { display: flex; flex-direction: column; }
+  .project {
+    display: grid;
+    grid-template-columns: 80px 1.4fr 1fr 100px;
+    gap: 32px;
+    padding: 36px 0;
+    border-top: 1px solid var(--line);
+    align-items: start;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: padding 0.4s ease;
+    position: relative;
+  }
+  .project:last-child { border-bottom: 1px solid var(--line); }
+  .project::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: var(--paper-2);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .project:hover { padding-left: 24px; padding-right: 24px; }
+  .project:hover::before { opacity: 1; }
+  .project:hover .pj-arrow { transform: translateX(8px); color: var(--accent); }
+  .project:hover .pj-title em { color: var(--accent); }
+  .project:hover .pj-spark path { stroke-dashoffset: 0 !important; }
+  @media (max-width: 880px) {
+    .project { grid-template-columns: 60px 1fr; gap: 16px; }
+    .project .pj-meta, .project .pj-arrow { grid-column: 2; }
+  }
+  .pj-num { color: var(--ink-soft); padding-top: 4px; }
+  .pj-num .yr { display: block; margin-top: 6px; color: var(--ink-soft); }
+  .pj-title-block { display: flex; flex-direction: column; gap: 16px; }
+  .pj-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-variation-settings: 'opsz' 144;
+    font-size: clamp(28px, 3.2vw, 44px);
+    line-height: 1;
+    letter-spacing: -0.025em;
+    margin: 0;
+  }
+  .pj-title em { font-style: italic; transition: color 0.2s; }
+  .pj-spark { width: 120px; height: 28px; }
+  .pj-spark path { stroke: var(--ink-dim); fill: none; stroke-width: 1.5; }
+  .pj-meta { color: var(--ink-dim); font-size: 14px; line-height: 1.5; }
+  .pj-meta p { margin: 0 0 14px; }
+  .pj-meta .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .pj-meta .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.08em;
+    text-transform: uppercase; padding: 4px 9px;
+    border: 1px solid var(--line); color: var(--ink-dim);
+    border-radius: 999px;
+  }
+  .pj-arrow {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 32px;
+    text-align: right;
+    transition: transform 0.3s ease, color 0.3s;
+    color: var(--ink);
+  }
+
+  /* Skills */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+  }
+  @media (max-width: 760px) { .skills-grid { grid-template-columns: 1fr; gap: 40px; } }
+  .skill-cat h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 26px;
+    margin: 0 0 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--ink);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .skill-cat h3 .count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+    font-style: normal;
+    letter-spacing: 0.14em;
+  }
+  .skill-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; }
+  .skill {
+    display: grid;
+    grid-template-columns: 32px 1fr auto;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line-soft);
+    transition: padding 0.2s;
+  }
+  .skill:hover { padding-left: 8px; }
+  .skill svg { width: 26px; height: 26px; color: var(--ink); }
+  .skill .name { font-size: 15px; font-weight: 500; }
+  .skill .lvl {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-soft);
+    letter-spacing: 0.08em;
+    text-align: right;
+  }
+
+  /* Contact */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  @media (max-width: 760px) { .contact-grid { grid-template-columns: 1fr; gap: 40px; } }
+  .contact-text {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(24px, 2.4vw, 34px);
+    line-height: 1.35;
+    text-wrap: pretty;
+    letter-spacing: -0.015em;
+  }
+  .contact-text em { font-style: italic; color: var(--accent); }
+  .contact-list { display: flex; flex-direction: column; }
+  .contact-item {
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    gap: 24px;
+    padding: 22px 0;
+    border-top: 1px solid var(--line);
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    transition: padding 0.2s;
+  }
+  .contact-item:last-child { border-bottom: 1px solid var(--line); }
+  .contact-item:hover { padding-left: 12px; }
+  .contact-item:hover .carr { color: var(--accent); transform: translateX(4px); }
+  .contact-item .ckey { color: var(--ink-soft); }
+  .contact-item .cval { font-family: 'Fraunces', serif; font-size: 19px; }
+  .contact-item .carr { font-family: 'Fraunces', serif; font-style: italic; font-size: 24px; transition: transform 0.2s, color 0.2s; }
+
+  /* Footer */
+  footer {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 44px 36px 60px;
+    display: flex;
+    justify-content: space-between;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--line);
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: end;
+  }
+  footer .signature { font-family: 'Fraunces', serif; font-style: italic; font-size: 22px; color: var(--ink); font-weight: 300; }
+
+  /* Modal */
+  .modal {
+    position: fixed; inset: 0;
+    background: rgba(22, 19, 16, 0.55);
+    backdrop-filter: blur(10px);
+    z-index: 200;
+    display: none;
+    align-items: center; justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+  .modal.open { display: flex; opacity: 1; }
+  .modal-inner {
+    background: var(--paper);
+    max-width: 1120px; width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 60px;
+    position: relative;
+    border: 1px solid var(--ink);
+    box-shadow: 18px 18px 0 var(--ink);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+  }
+  .modal.open .modal-inner { transform: translateY(0); }
+  @media (max-width: 760px) { .modal-inner { padding: 32px; box-shadow: 8px 8px 0 var(--ink); } }
+  .modal-close {
+    position: absolute; top: 24px; right: 24px;
+    background: transparent;
+    border: 1px solid var(--ink);
+    width: 40px; height: 40px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 50%;
+    transition: background 0.2s, color 0.2s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .modal-close:hover { background: var(--ink); color: var(--paper); }
+  .modal h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-variation-settings: 'opsz' 144;
+    font-size: clamp(36px, 5.5vw, 64px);
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+    margin: 16px 0 24px;
+    max-width: 90%;
+  }
+  .modal h2 em { font-style: italic; color: var(--accent); }
+  .modal-meta { display: flex; gap: 8px; margin-bottom: 32px; flex-wrap: wrap; }
+  .modal-meta span {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    padding: 5px 10px; border: 1px solid var(--line); border-radius: 999px;
+    color: var(--ink-dim); letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .modal-body { display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; }
+  @media (max-width: 760px) { .modal-body { grid-template-columns: 1fr; gap: 32px; } }
+  .modal-body p { font-family: 'Fraunces', serif; font-size: 18px; line-height: 1.55; font-weight: 300; }
+  .modal-body h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--ink-soft);
+    margin: 32px 0 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .modal-body h4:first-child { margin-top: 0; }
+  .modal-body ul, .modal-body ol { padding-left: 18px; margin: 8px 0; }
+  .modal-body li { font-family: 'Fraunces', serif; font-size: 17px; line-height: 1.55; font-weight: 300; margin-bottom: 8px; }
+  .modal-body li::marker { color: var(--accent); }
+  .modal-img {
+    aspect-ratio: 16/10;
+    background: linear-gradient(135deg, #ddd5c2 0%, #c8be9f 100%);
+    border: 1px solid var(--ink);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: end;
+    padding: 16px;
+    color: rgba(22,19,16,0.55);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.08em;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+  }
+  .modal-img::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(45deg, rgba(22,19,16,0.04) 0 1px, transparent 1px 9px);
+  }
+
+  /* Reveal */
+  [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  [data-reveal].in { opacity: 1; transform: none; }
+  [data-reveal][data-delay="1"] { transition-delay: 0.1s; }
+  [data-reveal][data-delay="2"] { transition-delay: 0.2s; }
+  [data-reveal][data-delay="3"] { transition-delay: 0.3s; }
+</style>
+</head>
+<body>
+
+<!-- Mobile overlay -->
+<div class="mobile-overlay" id="mobileOverlay" aria-hidden="true">
+  <button class="overlay-close" id="overlayClose" aria-label="Cerrar">×</button>
+  <nav class="overlay-nav">
+    <a href="#about" class="overlay-link"><span class="n">01</span><span data-i18n="nav.about">Sobre</span></a>
+    <a href="#projects" class="overlay-link"><span class="n">02</span><span data-i18n="nav.projects">Proyectos</span></a>
+    <a href="#skills" class="overlay-link"><span class="n">03</span><span data-i18n="nav.skills">Habilidades</span></a>
+    <a href="#contact" class="overlay-link"><span class="n">04</span><span data-i18n="nav.contact">Contacto</span></a>
+  </nav>
+  <div class="overlay-footer">
+    <div class="lang-toggle">
+      <button data-lang="es" class="active">ES</button>
+      <button data-lang="en">EN</button>
+    </div>
+    <a href="index.html" class="back-link">← Hub</a>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand"><span class="mark">A</span><span><strong>Alfredo Brocal</strong> <em>· data scientist</em></span></div>
+    <div class="nav-links">
+      <a href="#about"><span class="n">01</span><span data-i18n="nav.about">Sobre</span></a>
+      <a href="#projects"><span class="n">02</span><span data-i18n="nav.projects">Proyectos</span></a>
+      <a href="#skills"><span class="n">03</span><span data-i18n="nav.skills">Habilidades</span></a>
+      <a href="#contact"><span class="n">04</span><span data-i18n="nav.contact">Contacto</span></a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button data-lang="es" class="active">ES</button>
+        <button data-lang="en">EN</button>
+      </div>
+      <a href="index.html" class="back-link">← Hub</a>
+      <button class="nav-hamburger" aria-label="Menú" aria-expanded="false" id="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-meta mono" data-reveal>
+    <div class="meta-l">
+      <span>Vol. 01 · 2026</span>
+      <span>Madrid · ES</span>
+    </div>
+    <div class="meta-r">
+      <span><span class="dot"></span><span data-i18n="hero.avail">Disponible para colaborar</span></span>
+    </div>
+  </div>
+
+  <div class="hero-headline">
+    <h1 data-reveal>
+      <span class="row">Alfredo,</span>
+      <span class="row">Brocal <em data-i18n="hero.role">Serrano</em></span>
+    </h1>
+  </div>
+
+  <div class="hero-sub">
+    <p class="lede" data-reveal data-delay="1" data-i18n="hero.lede">
+      Data Scientist &amp; Analyst — transformando datos crudos en <em>decisiones</em> con Python, SQL y la mirada estratégica del Máster en Data Science por la UCM.
+    </p>
+    <div class="hero-stat" data-reveal data-delay="2">
+      <div class="mono label" data-i18n="hero.s1l">Proyectos</div>
+      <div class="val">04</div>
+    </div>
+    <div class="hero-stat" data-reveal data-delay="2">
+      <div class="mono label" data-i18n="hero.s2l">Datos</div>
+      <div class="val">121<span class="small" data-i18n="hero.s2u">años</span></div>
+    </div>
+    <div class="hero-stat" data-reveal data-delay="3">
+      <div class="mono label" data-i18n="hero.s3l">Stack</div>
+      <div class="val"><em>py · sql</em></div>
+    </div>
+  </div>
+
+  <div class="hero-cta-row" data-reveal data-delay="3">
+    <a class="btn btn-primary" href="#projects">
+      <span data-i18n="hero.cta1">Ver proyectos</span>
+      <span class="arr">→</span>
+    </a>
+    <a class="btn btn-ghost" href="#contact" data-i18n="hero.cta2">Contacto</a>
+  </div>
+
+  <svg class="hero-chart" viewBox="0 0 480 290" aria-hidden="true">
+    <defs>
+      <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#b03a2e" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="#b03a2e" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <g stroke="rgba(22,19,16,0.12)" stroke-width="0.5">
+      <line x1="0" y1="60" x2="480" y2="60"/>
+      <line x1="0" y1="120" x2="480" y2="120"/>
+      <line x1="0" y1="180" x2="480" y2="180"/>
+      <line x1="0" y1="240" x2="480" y2="240"/>
+    </g>
+    <path id="hero-line" d="M 0 230 L 60 215 L 120 220 L 180 185 L 240 190 L 300 140 L 360 110 L 420 65 L 480 40" fill="none" stroke="#b03a2e" stroke-width="1.6"/>
+    <path d="M 0 230 L 60 215 L 120 220 L 180 185 L 240 190 L 300 140 L 360 110 L 420 65 L 480 40 L 480 290 L 0 290 Z" fill="url(#g1)"/>
+    <g>
+      <circle cx="60" cy="215" r="3" fill="#f3efe6" stroke="#b03a2e" stroke-width="1.5"/>
+      <circle cx="180" cy="185" r="3" fill="#f3efe6" stroke="#b03a2e" stroke-width="1.5"/>
+      <circle cx="300" cy="140" r="3" fill="#f3efe6" stroke="#b03a2e" stroke-width="1.5"/>
+      <circle cx="420" cy="65" r="3.5" fill="#b03a2e"/>
+    </g>
+    <text x="0" y="280" font-family="JetBrains Mono" font-size="9" fill="#6b6258" letter-spacing="1">1900</text>
+    <text x="450" y="280" font-family="JetBrains Mono" font-size="9" fill="#6b6258" letter-spacing="1">2021</text>
+    <text x="0" y="20" font-family="JetBrains Mono" font-size="9" fill="#6b6258" letter-spacing="1.5">FIG. 01 — CO₂ EMISSIONS · 121 YRS</text>
+  </svg>
+</header>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span data-i18n="marq">
+      Python <span class="star">✦</span> SQL <span class="star">✦</span> Pandas <span class="star">✦</span> Machine Learning <span class="star">✦</span> RAG <span class="star">✦</span> Visualización de datos <span class="star">✦</span>
+    </span>
+    <span data-i18n="marq" aria-hidden="true">
+      Python <span class="star">✦</span> SQL <span class="star">✦</span> Pandas <span class="star">✦</span> Machine Learning <span class="star">✦</span> RAG <span class="star">✦</span> Visualización de datos <span class="star">✦</span>
+    </span>
+  </div>
+</div>
+
+<section id="about">
+  <div class="sec-head" data-reveal>
+    <div class="sec-num">
+      <span class="pilcrow">§</span>
+      <span class="mono">01 / <span data-i18n="about.tag">Sobre mí</span></span>
+    </div>
+    <h2><span data-i18n="about.h2a">Una mente</span> <em data-i18n="about.h2b">analítica</em><br/><span data-i18n="about.h2c">con visión estratégica.</span></h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-photo-wrap" data-reveal>
+      <div class="about-photo">
+        <img src="./assets/portrait.jpg" alt="Alfredo Brocal Serrano — retrato" onerror="this.style.display='none'" />
+        <div class="grain"></div>
+      </div>
+      <p class="photo-caption" data-i18n="about.cap">Madrid, 2026. UCM, Máster en Data Science.</p>
+    </div>
+    <div class="about-text" data-reveal data-delay="1">
+      <p class="dropcap" data-i18n="about.p1"><strong>Actualmente</strong> cursando el último año del Grado en Gestión de Información y Contenidos Digitales — una formación que me ha dado la base para entender cómo se organiza y fluye la información en el entorno digital.</p>
+      <p data-i18n="about.p2">Para llevar estas habilidades al siguiente nivel, completé el certificado de <em>Google Data Analytics</em> y curso simultáneamente el <strong>Máster en Data Science en la UCM</strong>. Esta combinación me permite unir gestión estratégica con analítica avanzada.</p>
+      <p data-i18n="about.p3">Mi objetivo: usar Python y SQL para transformar datos en bruto en <em>conocimiento accionable</em> y visualizaciones de alto impacto.</p>
+
+      <div class="currently">
+        <div class="label"><span class="dot"></span><span data-i18n="curr.label">Actualmente</span></div>
+        <div class="body" data-i18n="curr.body">Cursando MSc Data Science (UCM), explorando RAG / LLMs y abierto a colaborar en proyectos de <em>analítica estratégica</em>.</div>
+      </div>
+
+      <div class="about-cta-row">
+        <a class="btn btn-primary" href="#"><span data-i18n="about.cv">Descargar CV (PDF)</span><span class="arr">↓</span></a>
+        <a class="btn btn-ghost" href="#contact" data-i18n="about.contact">Hablemos</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="sec-head" data-reveal>
+    <div class="sec-num">
+      <span class="pilcrow">§</span>
+      <span class="mono">02 / <span data-i18n="projects.tag">Trabajos seleccionados</span></span>
+    </div>
+    <h2><span data-i18n="projects.h2a">Proyectos</span> <em data-i18n="projects.h2b">recientes.</em></h2>
+  </div>
+  <div class="projects">
+    <a class="project" data-pj="co2" data-reveal>
+      <div class="mono pj-num">PJ.01<span class="yr">2026</span></div>
+      <div class="pj-title-block">
+        <h3 class="pj-title" data-i18n="pj1.title">Análisis end-to-end: <em>emisiones globales de CO₂</em></h3>
+        <svg class="pj-spark" viewBox="0 0 120 28"><path d="M 0 22 L 18 19 L 32 21 L 46 14 L 62 16 L 78 9 L 94 7 L 120 2" stroke-dasharray="200" stroke-dashoffset="200" style="transition: stroke-dashoffset 1.4s ease;"/></svg>
+      </div>
+      <div class="pj-meta">
+        <p data-i18n="pj1.desc">Pipeline de datos profesional sobre 121 años de emisiones, con insights críticos sobre descarbonización real.</p>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">SQL</span><span class="tag">Sheets</span>
+        </div>
+      </div>
+      <div class="pj-arrow">→</div>
+    </a>
+    <a class="project" data-pj="rag" data-reveal>
+      <div class="mono pj-num">PJ.02<span class="yr">2026</span></div>
+      <div class="pj-title-block">
+        <h3 class="pj-title" data-i18n="pj2.title">Sistema de consultas <em>inteligentes (RAG)</em></h3>
+        <svg class="pj-spark" viewBox="0 0 120 28"><path d="M 0 24 L 24 18 L 40 22 L 60 12 L 80 10 L 100 5 L 120 8" stroke-dasharray="200" stroke-dashoffset="200" style="transition: stroke-dashoffset 1.4s ease;"/></svg>
+      </div>
+      <div class="pj-meta">
+        <p data-i18n="pj2.desc">IA generativa para gestión de conocimiento mediante lenguaje natural, con citaciones trazables.</p>
+        <div class="tags">
+          <span class="tag">RAG</span><span class="tag">LLM</span><span class="tag">Python</span>
+        </div>
+      </div>
+      <div class="pj-arrow">→</div>
+    </a>
+    <a class="project" data-pj="play" data-reveal>
+      <div class="mono pj-num">PJ.03<span class="yr">2025</span></div>
+      <div class="pj-title-block">
+        <h3 class="pj-title" data-i18n="pj3.title">Análisis de mercado: <em>Google Play Store</em></h3>
+        <svg class="pj-spark" viewBox="0 0 120 28"><path d="M 0 14 L 20 10 L 40 19 L 60 14 L 80 6 L 100 12 L 120 4" stroke-dasharray="200" stroke-dashoffset="200" style="transition: stroke-dashoffset 1.4s ease;"/></svg>
+      </div>
+      <div class="pj-meta">
+        <p data-i18n="pj3.desc">Estudio integral de las métricas que definen el éxito y la valoración de apps móviles.</p>
+        <div class="tags">
+          <span class="tag">EDA</span><span class="tag">Pandas</span><span class="tag">Tableau</span>
+        </div>
+      </div>
+      <div class="pj-arrow">→</div>
+    </a>
+    <a class="project" data-pj="x" data-reveal>
+      <div class="mono pj-num">PJ.04<span class="yr">2025</span></div>
+      <div class="pj-title-block">
+        <h3 class="pj-title" data-i18n="pj4.title">Sentiment analysis: <em>limpieza masiva (X)</em></h3>
+        <svg class="pj-spark" viewBox="0 0 120 28"><path d="M 0 16 L 20 20 L 40 14 L 60 18 L 80 12 L 100 16 L 120 10" stroke-dasharray="200" stroke-dashoffset="200" style="transition: stroke-dashoffset 1.4s ease;"/></svg>
+      </div>
+      <div class="pj-meta">
+        <p data-i18n="pj4.desc">NLP y limpieza profunda de datasets masivos provenientes de redes sociales.</p>
+        <div class="tags">
+          <span class="tag">NLP</span><span class="tag">Python</span><span class="tag">Regex</span>
+        </div>
+      </div>
+      <div class="pj-arrow">→</div>
+    </a>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="sec-head" data-reveal>
+    <div class="sec-num">
+      <span class="pilcrow">§</span>
+      <span class="mono">03 / <span data-i18n="skills.tag">Stack técnico</span></span>
+    </div>
+    <h2><span data-i18n="skills.h2a">Herramientas que</span> <em data-i18n="skills.h2b">domino.</em></h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-cat" data-reveal>
+      <h3><span data-i18n="skills.c1">Data Analysis &amp; Science</span><span class="count">04</span></h3>
+      <div class="skill-list">
+        <div class="skill">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.9 0C5.4 0 5.8 2.8 5.8 2.8v3h6.2v.9H3.4S0 6.4 0 12s2.9 5.5 2.9 5.5h2.2v-3.2s-.1-2.9 2.8-2.9h6.2s2.7.1 2.7-2.6V2.8S17.3 0 11.9 0z"/><path d="M12.1 24c6.5 0 6.1-2.8 6.1-2.8v-3h-6.2v-.9h8.6S24 17.6 24 12s-2.9-5.5-2.9-5.5h-2.2v3.2s.1 2.9-2.8 2.9H9.9s-2.7-.1-2.7 2.6v4.9S6.7 24 12.1 24z"/></svg>
+          <span class="name">Python</span><span class="lvl">CO₂ · RAG · X</span>
+        </div>
+        <div class="skill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
+          <span class="name">SQL</span><span class="lvl">CO₂</span>
+        </div>
+        <div class="skill">
+          <svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="4" width="20" height="3"/><rect x="2" y="9" width="14" height="3"/><rect x="2" y="14" width="18" height="3"/><rect x="2" y="19" width="10" height="3"/></svg>
+          <span class="name">Pandas</span><span class="lvl">CO₂ · Play</span>
+        </div>
+        <div class="skill">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h4l3 8h2l3-8h4v18h-4v-9l-2 6h-4l-2-6v9H3z"/></svg>
+          <span class="name">NumPy</span><span class="lvl">CO₂</span>
+        </div>
+      </div>
+    </div>
+    <div class="skill-cat" data-reveal data-delay="1">
+      <h3><span data-i18n="skills.c2">Business Intelligence &amp; AI</span><span class="count">04</span></h3>
+      <div class="skill-list">
+        <div class="skill">
+          <svg viewBox="0 0 24 24" fill="currentColor"><rect x="11" y="3" width="2" height="6"/><rect x="11" y="15" width="2" height="6"/><rect x="3" y="11" width="6" height="2"/><rect x="15" y="11" width="6" height="2"/><rect x="10" y="10" width="4" height="4"/></svg>
+          <span class="name">Tableau</span><span class="lvl">Play</span>
+        </div>
+        <div class="skill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="12" y1="3" x2="12" y2="21"/></svg>
+          <span class="name">Google Sheets</span><span class="lvl">CO₂ · Play</span>
+        </div>
+        <div class="skill">
+          <svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="14" width="4" height="7"/><rect x="10" y="9" width="4" height="12"/><rect x="17" y="4" width="4" height="17"/></svg>
+          <span class="name">Power BI</span><span class="lvl">—</span>
+        </div>
+        <div class="skill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12c0-3 2-5 4-5s4 2 4 5-2 5-4 5"/><circle cx="9" cy="11" r="0.8" fill="currentColor"/></svg>
+          <span class="name">RAG / LLMs</span><span class="lvl">RAG</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="sec-head" data-reveal>
+    <div class="sec-num">
+      <span class="pilcrow">§</span>
+      <span class="mono">04 / <span data-i18n="contact.tag">Hablemos</span></span>
+    </div>
+    <h2><span data-i18n="contact.h2a">Construyamos algo</span><br/><em data-i18n="contact.h2b">juntos.</em></h2>
+  </div>
+  <div class="contact-grid">
+    <p class="contact-text" data-reveal data-i18n="contact.text">
+      Finalizando mi formación en la UCM y abierto a colaborar en proyectos de <em>Data Science, Análisis de Datos e IA</em>.
+    </p>
+    <div class="contact-list" data-reveal data-delay="1">
+      <a class="contact-item" href="mailto:alfredobrocalserrano@gmail.com">
+        <div class="mono ckey">Email</div>
+        <div class="cval">alfredobrocalserrano@gmail.com</div>
+        <div class="carr">→</div>
+      </a>
+      <a class="contact-item" href="tel:+34644446991">
+        <div class="mono ckey">Tel</div>
+        <div class="cval">+34 644 44 69 91</div>
+        <div class="carr">→</div>
+      </a>
+      <a class="contact-item" href="#">
+        <div class="mono ckey">LinkedIn</div>
+        <div class="cval">/in/alfredo-brocal</div>
+        <div class="carr">→</div>
+      </a>
+      <a class="contact-item" href="#">
+        <div class="mono ckey">GitHub</div>
+        <div class="cval">@alfredobrocal</div>
+        <div class="carr">→</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="mono">
+  <span>© 2026 Alfredo Brocal Serrano</span>
+  <span class="signature">— alfredo.</span>
+  <span data-i18n="footer.r">Diseño editorial · Madrid</span>
+</footer>
+
+<!-- Modal -->
+<div class="modal" id="modal" role="dialog" aria-modal="true">
+  <div class="modal-inner">
+    <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+    <div class="mono" style="color:var(--ink-soft);" id="modalNum">PJ.01 · 2026</div>
+    <h2 id="modalTitle"></h2>
+    <div class="modal-meta" id="modalMeta"></div>
+    <div class="modal-body">
+      <div>
+        <div class="modal-img"><span style="position:relative;z-index:1;">dashboard preview</span></div>
+        <h4 data-i18n="modal.h.context">Contexto</h4>
+        <p id="modalCtx"></p>
+        <h4 data-i18n="modal.h.results">Resultados</h4>
+        <ul id="modalRes"></ul>
+      </div>
+      <div>
+        <h4 data-i18n="modal.h.tools">Herramientas</h4>
+        <p id="modalTools"></p>
+        <h4 data-i18n="modal.h.process">Proceso</h4>
+        <ol id="modalProc"></ol>
+        <a class="btn btn-primary" id="modalGH" href="#" target="_blank" style="margin-top:24px;"><span data-i18n="modal.cta">Ver en GitHub</span> <span class="arr">↗</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const i18n = {
+  es: {
+    'nav.about': 'Sobre', 'nav.projects': 'Proyectos', 'nav.skills': 'Habilidades', 'nav.contact': 'Contacto',
+    'hero.avail': 'Disponible para colaborar',
+    'hero.role': 'Serrano',
+    'hero.lede': 'Data Scientist &amp; Analyst — transformando datos crudos en <em>decisiones</em> con Python, SQL y la mirada estratégica del Máster en Data Science por la UCM.',
+    'hero.s1l': 'Proyectos', 'hero.s2l': 'Datos', 'hero.s2u': 'años', 'hero.s3l': 'Stack',
+    'hero.cta1': 'Ver proyectos', 'hero.cta2': 'Contacto',
+    'marq': 'Python <span class="star">✦</span> SQL <span class="star">✦</span> Pandas <span class="star">✦</span> Machine Learning <span class="star">✦</span> RAG <span class="star">✦</span> Visualización de datos <span class="star">✦</span>',
+    'about.tag': 'Sobre mí', 'about.h2a': 'Una mente', 'about.h2b': 'analítica', 'about.h2c': 'con visión estratégica.',
+    'about.cap': 'Madrid, 2026. UCM, Máster en Data Science.',
+    'about.p1': '<strong>Actualmente</strong> cursando el último año del Grado en Gestión de Información y Contenidos Digitales — una formación que me ha dado la base para entender cómo se organiza y fluye la información en el entorno digital.',
+    'about.p2': 'Para llevar estas habilidades al siguiente nivel, completé el certificado de <em>Google Data Analytics</em> y curso simultáneamente el <strong>Máster en Data Science en la UCM</strong>. Esta combinación me permite unir gestión estratégica con analítica avanzada.',
+    'about.p3': 'Mi objetivo: usar Python y SQL para transformar datos en bruto en <em>conocimiento accionable</em> y visualizaciones de alto impacto.',
+    'curr.label': 'Actualmente', 'curr.body': 'Cursando MSc Data Science (UCM), explorando RAG / LLMs y abierto a colaborar en proyectos de <em>analítica estratégica</em>.',
+    'about.cv': 'Descargar CV (PDF)', 'about.contact': 'Hablemos',
+    'projects.tag': 'Trabajos seleccionados', 'projects.h2a': 'Proyectos', 'projects.h2b': 'recientes.',
+    'pj1.title': 'Análisis end-to-end: <em>emisiones globales de CO₂</em>',
+    'pj1.desc': 'Pipeline de datos profesional sobre 121 años de emisiones, con insights críticos sobre descarbonización real.',
+    'pj2.title': 'Sistema de consultas <em>inteligentes (RAG)</em>',
+    'pj2.desc': 'IA generativa para gestión de conocimiento mediante lenguaje natural, con citaciones trazables.',
+    'pj3.title': 'Análisis de mercado: <em>Google Play Store</em>',
+    'pj3.desc': 'Estudio integral de las métricas que definen el éxito y la valoración de apps móviles.',
+    'pj4.title': 'Sentiment analysis: <em>limpieza masiva (X)</em>',
+    'pj4.desc': 'NLP y limpieza profunda de datasets masivos provenientes de redes sociales.',
+    'skills.tag': 'Stack técnico', 'skills.h2a': 'Herramientas que', 'skills.h2b': 'domino.',
+    'skills.c1': 'Data Analysis &amp; Science', 'skills.c2': 'Business Intelligence &amp; AI',
+    'contact.tag': 'Hablemos', 'contact.h2a': 'Construyamos algo', 'contact.h2b': 'juntos.',
+    'contact.text': 'Finalizando mi formación en la UCM y abierto a colaborar en proyectos de <em>Data Science, Análisis de Datos e IA</em>.',
+    'footer.r': 'Diseño editorial · Madrid',
+    'modal.h.context': 'Contexto', 'modal.h.results': 'Resultados', 'modal.h.tools': 'Herramientas', 'modal.h.process': 'Proceso', 'modal.cta': 'Ver en GitHub'
+  },
+  en: {
+    'nav.about': 'About', 'nav.projects': 'Projects', 'nav.skills': 'Skills', 'nav.contact': 'Contact',
+    'hero.avail': 'Available for collaboration',
+    'hero.role': 'Serrano',
+    'hero.lede': 'Data Scientist &amp; Analyst — turning raw data into <em>decisions</em> with Python, SQL and the strategic lens of UCM\'s Data Science Master\'s.',
+    'hero.s1l': 'Projects', 'hero.s2l': 'Data', 'hero.s2u': 'yrs', 'hero.s3l': 'Stack',
+    'hero.cta1': 'See projects', 'hero.cta2': 'Contact',
+    'marq': 'Python <span class="star">✦</span> SQL <span class="star">✦</span> Pandas <span class="star">✦</span> Machine Learning <span class="star">✦</span> RAG <span class="star">✦</span> Data Visualization <span class="star">✦</span>',
+    'about.tag': 'About me', 'about.h2a': 'An analytical', 'about.h2b': 'mind', 'about.h2c': 'with strategic vision.',
+    'about.cap': 'Madrid, 2026. UCM, MSc Data Science.',
+    'about.p1': '<strong>Currently</strong> completing my final year of a Degree in Information &amp; Digital Content Management — a foundation in how information is organized and flows through digital environments.',
+    'about.p2': 'To level up, I earned the <em>Google Data Analytics</em> certificate and I\'m simultaneously pursuing a <strong>Data Science Master\'s at UCM</strong>. This combination lets me bridge strategic management with advanced analytics.',
+    'about.p3': 'My goal: use Python and SQL to turn raw data into <em>actionable insight</em> and high-impact visualizations.',
+    'curr.label': 'Currently', 'curr.body': 'Pursuing MSc Data Science (UCM), exploring RAG / LLMs and open to collaborate on <em>strategic analytics</em> projects.',
+    'about.cv': 'Download CV (PDF)', 'about.contact': 'Let\'s talk',
+    'projects.tag': 'Selected work', 'projects.h2a': 'Recent', 'projects.h2b': 'projects.',
+    'pj1.title': 'End-to-end analysis: <em>global CO₂ emissions</em>',
+    'pj1.desc': 'Professional data pipeline over 121 years of emissions, with critical insights on real decarbonization.',
+    'pj2.title': 'Intelligent <em>query system (RAG)</em>',
+    'pj2.desc': 'Generative AI for knowledge management via natural language, with traceable citations.',
+    'pj3.title': 'Market analysis: <em>Google Play Store</em>',
+    'pj3.desc': 'Comprehensive study of the metrics that define mobile app success and ratings.',
+    'pj4.title': 'Sentiment analysis: <em>massive cleanup (X)</em>',
+    'pj4.desc': 'NLP and deep cleaning of massive social media datasets.',
+    'skills.tag': 'Tech stack', 'skills.h2a': 'Tools I', 'skills.h2b': 'master.',
+    'skills.c1': 'Data Analysis &amp; Science', 'skills.c2': 'Business Intelligence &amp; AI',
+    'contact.tag': 'Let\'s talk', 'contact.h2a': 'Let\'s build something', 'contact.h2b': 'together.',
+    'contact.text': 'Finishing my studies at UCM and open to collaborate on <em>Data Science, Analytics and AI</em> projects.',
+    'footer.r': 'Editorial design · Madrid',
+    'modal.h.context': 'Context', 'modal.h.results': 'Results', 'modal.h.tools': 'Tools', 'modal.h.process': 'Process', 'modal.cta': 'View on GitHub'
+  }
+};
+
+const metaDescs = {
+  es: 'Alfredo Brocal Serrano — Data Scientist & Analyst. Portfolio editorial con proyectos de análisis de datos, Python, SQL e IA.',
+  en: 'Alfredo Brocal Serrano — Data Scientist & Analyst. Editorial portfolio featuring data analysis projects: CO₂, RAG, Google Play, X.'
+};
+
+let lang = 'es';
+function applyLang() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.dataset.i18n;
+    if (i18n[lang][k]) el.innerHTML = i18n[lang][k];
+  });
+  document.documentElement.lang = lang;
+  document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  document.getElementById('metaDesc').setAttribute('content', metaDescs[lang]);
+}
+document.querySelectorAll('.lang-toggle button').forEach(b => {
+  b.addEventListener('click', () => { lang = b.dataset.lang; applyLang(); renderModal(); });
+});
+
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+
+(function animateChart() {
+  const line = document.getElementById('hero-line');
+  if (!line) return;
+  const length = line.getTotalLength();
+  line.style.strokeDasharray = length;
+  line.style.strokeDashoffset = length;
+  line.style.transition = 'stroke-dashoffset 2.6s ease';
+  requestAnimationFrame(() => { line.style.strokeDashoffset = '0'; });
+})();
+
+document.querySelectorAll('.pj-spark path').forEach(p => {
+  const len = p.getTotalLength ? p.getTotalLength() : 200;
+  p.style.strokeDasharray = len;
+  p.style.strokeDashoffset = len;
+});
+
+const projects = {
+  co2: {
+    num: 'PJ.01 · 2026',
+    github: '#',
+    title: { es: 'Análisis end-to-end: <em>emisiones globales de CO₂</em>', en: 'End-to-end analysis: <em>global CO₂ emissions</em>' },
+    meta: { es: ['1900–2021', '121 años', 'Our World in Data'], en: ['1900–2021', '121 years', 'Our World in Data'] },
+    ctx: { es: 'Transformar un dataset masivo de emisiones de CO₂ en un pipeline de datos profesional, extrayendo insights críticos que los datos brutos ocultaban.', en: 'Turn a massive CO₂ emissions dataset into a professional data pipeline, extracting critical insights hidden in the raw data.' },
+    res: { es: ['1.537 Gt CO₂ acumulados desde 1900', 'USA = mayor emisor histórico (411 Gt)', 'Descarbonización real en Europa frente a casos atípicos como la crisis industrial de Venezuela'], en: ['1,537 Gt CO₂ accumulated since 1900', 'USA = largest historical emitter (411 Gt)', 'Real decarbonization in Europe vs. atypical cases like Venezuela\'s industrial crisis'] },
+    tools: { es: 'Python (pandas), SQL (DBeaver), Google Sheets.', en: 'Python (pandas), SQL (DBeaver), Google Sheets.' },
+    proc: { es: ['Limpieza y exclusión de filas agregadas', 'Transformación con pandas + validación SQL', 'Dashboard analítico con conclusiones'], en: ['Cleanup and removal of aggregated rows', 'Pandas transforms + SQL validation', 'Analytical dashboard with conclusions'] }
+  },
+  rag: {
+    num: 'PJ.02 · 2026',
+    github: '#',
+    title: { es: 'Sistema de consultas <em>inteligentes (RAG)</em>', en: 'Intelligent <em>query system (RAG)</em>' },
+    meta: { es: ['IA Generativa', 'Embeddings', 'NLP'], en: ['Generative AI', 'Embeddings', 'NLP'] },
+    ctx: { es: 'Sistema RAG para gestión de conocimiento mediante lenguaje natural con citaciones trazables.', en: 'RAG system for knowledge management via natural language with traceable citations.' },
+    res: { es: ['Consultas en lenguaje natural sobre fuentes propias', 'Citaciones trazables a la fuente', 'Reducción del tiempo de búsqueda interna'], en: ['Natural-language queries over proprietary sources', 'Source-traceable citations', 'Reduced internal search time'] },
+    tools: { es: 'Python, embeddings, vector DB, LLM API.', en: 'Python, embeddings, vector DB, LLM API.' },
+    proc: { es: ['Indexación y chunking', 'Recuperación semántica', 'Generación con citas'], en: ['Indexing and chunking', 'Semantic retrieval', 'Cited generation'] }
+  },
+  play: {
+    num: 'PJ.03 · 2025',
+    github: '#',
+    title: { es: 'Análisis de mercado: <em>Google Play Store</em>', en: 'Market analysis: <em>Google Play Store</em>' },
+    meta: { es: ['EDA', 'App market', 'Tableau'], en: ['EDA', 'App market', 'Tableau'] },
+    ctx: { es: 'Estudio integral de las métricas que definen el éxito y la valoración de apps móviles en Google Play.', en: 'Comprehensive study of the metrics that define mobile app success and ratings on Google Play.' },
+    res: { es: ['Correlación entre instalaciones y rating', 'Categorías con mayor engagement', 'Patrones de monetización'], en: ['Correlation between installs and rating', 'Highest-engagement categories', 'Monetization patterns'] },
+    tools: { es: 'Python (pandas), Tableau, Google Sheets.', en: 'Python (pandas), Tableau, Google Sheets.' },
+    proc: { es: ['EDA exploratorio', 'Limpieza y feature engineering', 'Visualización en Tableau'], en: ['Exploratory EDA', 'Cleanup and feature engineering', 'Tableau visualization'] }
+  },
+  x: {
+    num: 'PJ.04 · 2025',
+    github: '#',
+    title: { es: 'Sentiment analysis: <em>limpieza masiva (X)</em>', en: 'Sentiment analysis: <em>massive cleanup (X)</em>' },
+    meta: { es: ['NLP', 'X (Twitter)', 'Regex'], en: ['NLP', 'X (Twitter)', 'Regex'] },
+    ctx: { es: 'NLP y limpieza profunda de datasets masivos provenientes de redes sociales.', en: 'NLP and deep cleaning of massive datasets from social networks.' },
+    res: { es: ['Pipeline de limpieza reutilizable', 'Clasificación de sentimiento balanceada', 'Detección de spam/bots'], en: ['Reusable cleaning pipeline', 'Balanced sentiment classification', 'Spam/bot detection'] },
+    tools: { es: 'Python, regex, NLTK / spaCy.', en: 'Python, regex, NLTK / spaCy.' },
+    proc: { es: ['Tokenización y normalización', 'Filtrado y deduplicación', 'Modelo de sentimiento'], en: ['Tokenization and normalization', 'Filtering and dedup', 'Sentiment model'] }
+  }
+};
+
+let currentPj = null;
+function openModal(key) {
+  currentPj = key;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  renderModal();
+}
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function renderModal() {
+  if (!currentPj) return;
+  const p = projects[currentPj];
+  document.getElementById('modalNum').textContent = p.num;
+  document.getElementById('modalTitle').innerHTML = p.title[lang];
+  document.getElementById('modalMeta').innerHTML = p.meta[lang].map(m => `<span>${m}</span>`).join('');
+  document.getElementById('modalCtx').textContent = p.ctx[lang];
+  document.getElementById('modalRes').innerHTML = p.res[lang].map(r => `<li>${r}</li>`).join('');
+  document.getElementById('modalTools').textContent = p.tools[lang];
+  document.getElementById('modalProc').innerHTML = p.proc[lang].map(s => `<li>${s}</li>`).join('');
+  document.getElementById('modalGH').href = p.github;
+}
+document.querySelectorAll('.project').forEach(p => {
+  p.addEventListener('click', (e) => { e.preventDefault(); openModal(p.dataset.pj); });
+});
+document.getElementById('modalClose').addEventListener('click', closeModal);
+document.getElementById('modal').addEventListener('click', (e) => { if (e.target.id === 'modal') closeModal(); });
+
+/* Hamburger / overlay */
+const hamburger = document.getElementById('hamburger');
+const mobileOverlay = document.getElementById('mobileOverlay');
+const overlayClose = document.getElementById('overlayClose');
+
+function openOverlay() {
+  mobileOverlay.classList.add('open');
+  mobileOverlay.removeAttribute('aria-hidden');
+  hamburger.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+}
+function closeOverlay() {
+  mobileOverlay.classList.remove('open');
+  mobileOverlay.setAttribute('aria-hidden', 'true');
+  hamburger.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+
+hamburger.addEventListener('click', openOverlay);
+overlayClose.addEventListener('click', closeOverlay);
+mobileOverlay.querySelectorAll('.overlay-link').forEach(link => {
+  link.addEventListener('click', closeOverlay);
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') { closeModal(); closeOverlay(); }
+});
+
+applyLang();
+</script>
+</body>
+</html>
