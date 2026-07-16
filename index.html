@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="./styles.css?v=20260716" />
+<link rel="stylesheet" href="./styles.css?v=20260716b" />
 </head>
 <body>
 
@@ -32,9 +32,10 @@
   <div class="preloader-bar"><i id="preloaderBarFill"></i></div>
 </div>
 
-<!-- Custom cursor -->
-<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
-<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+<!-- Custom cursor (editorial arrow) -->
+<div class="cursor" id="cursor" aria-hidden="true">
+  <svg class="cursor-arrow" viewBox="0 0 24 24" fill="currentColor"><path d="M5 2l15 7.2-6.3 2.1L11.4 18z"/></svg>
+</div>
 
 <!-- Mobile overlay -->
 <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true">
@@ -107,12 +108,12 @@
       <div class="val"><span data-count="4" data-pad="2">04</span></div>
     </div>
     <div class="hero-stat" data-reveal>
-      <div class="mono label" data-i18n="hero.s2l">Datos</div>
-      <div class="val"><span data-count="121">121</span><span class="small" data-i18n="hero.s2u">años</span></div>
+      <div class="mono label" data-i18n="hero.s2l">Registros</div>
+      <div class="val"><em>+</em><span data-count="78">78</span><span class="small">K</span></div>
     </div>
     <div class="hero-stat" data-reveal>
-      <div class="mono label" data-i18n="hero.s3l">Stack</div>
-      <div class="val"><em>py · sql</em></div>
+      <div class="mono label" data-i18n="hero.s3l">Con RAG</div>
+      <div class="val"><span data-count="2199" data-sep="1">2.199</span><span class="small" data-i18n="hero.s3u">págs</span></div>
     </div>
   </div>
 
@@ -229,6 +230,33 @@
       <p data-i18n="phil.3p">Un análisis solo importa si mueve una acción. Diseño cada dashboard pensando en quién lo va a usar y para qué.</p>
     </div>
   </div>
+
+  <div class="timeline">
+    <div class="timeline-head mono">
+      <span class="rule"></span>
+      <span data-i18n="tl.tag">Formación</span>
+    </div>
+    <div class="tl-list">
+      <div class="tl-item" data-reveal>
+        <span class="tl-year" data-i18n="tl.1y">Grado universitario</span>
+        <h4 data-i18n="tl.1t">Gestión de Información y Contenidos Digitales</h4>
+        <p data-i18n="tl.1d">Base en cómo se organiza, gestiona y fluye la información en entornos digitales.</p>
+        <span class="tl-status live"><span class="d"></span><span data-i18n="tl.1s">Último año</span></span>
+      </div>
+      <div class="tl-item" data-reveal>
+        <span class="tl-year" data-i18n="tl.2y">Certificación profesional</span>
+        <h4 data-i18n="tl.2t">Google Data Analytics</h4>
+        <p data-i18n="tl.2d">Limpieza, análisis y visualización de datos orientados a la toma de decisiones.</p>
+        <span class="tl-status"><span class="d"></span><span data-i18n="tl.2s">Completado</span></span>
+      </div>
+      <div class="tl-item" data-reveal>
+        <span class="tl-year" data-i18n="tl.3y">Máster · UCM</span>
+        <h4 data-i18n="tl.3t">Máster en Data Science</h4>
+        <p data-i18n="tl.3d">Analítica avanzada, machine learning y sistemas de IA generativa (RAG / LLMs).</p>
+        <span class="tl-status live"><span class="d"></span><span data-i18n="tl.3s">En curso</span></span>
+      </div>
+    </div>
+  </div>
 </section>
 
 <div class="statement" id="statement">
@@ -307,6 +335,33 @@
   </div>
 </section>
 
+<div class="numbers" data-reveal>
+  <div class="numbers-inner">
+    <div class="numbers-head mono">
+      <span class="rule"></span>
+      <span data-i18n="num.tag">En números</span>
+    </div>
+    <div class="numbers-grid">
+      <div class="num-item">
+        <div class="num-val"><span data-count="121">121</span></div>
+        <div class="num-label" data-i18n="num.1">años de emisiones de CO₂ analizados</div>
+      </div>
+      <div class="num-item">
+        <div class="num-val"><span data-count="10000" data-sep="1">10.000</span><span class="sfx">+</span></div>
+        <div class="num-label" data-i18n="num.2">apps estudiadas en Google Play</div>
+      </div>
+      <div class="num-item">
+        <div class="num-val"><span data-count="63639" data-sep="1">63.639</span></div>
+        <div class="num-label" data-i18n="num.3">tweets procesados con NLP</div>
+      </div>
+      <div class="num-item">
+        <div class="num-val"><span data-count="4" data-pad="1">4</span></div>
+        <div class="num-label" data-i18n="num.4">empresas del IBEX en el sistema RAG</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <section id="skills">
   <div class="sec-head" data-reveal>
     <div class="sec-num">
@@ -315,47 +370,26 @@
     </div>
     <h2><span data-i18n="skills.h2a">Herramientas que</span> <em data-i18n="skills.h2b">domino.</em></h2>
   </div>
-  <div class="skills-grid">
-    <div class="skill-cat" data-reveal>
-      <h3><span data-i18n="skills.c1">Data Analysis &amp; Science</span><span class="count">04</span></h3>
-      <div class="skill-list">
-        <div class="skill">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.9 0C5.4 0 5.8 2.8 5.8 2.8v3h6.2v.9H3.4S0 6.4 0 12s2.9 5.5 2.9 5.5h2.2v-3.2s-.1-2.9 2.8-2.9h6.2s2.7.1 2.7-2.6V2.8S17.3 0 11.9 0z"/><path d="M12.1 24c6.5 0 6.1-2.8 6.1-2.8v-3h-6.2v-.9h8.6S24 17.6 24 12s-2.9-5.5-2.9-5.5h-2.2v3.2s.1 2.9-2.8 2.9H9.9s-2.7-.1-2.7 2.6v4.9S6.7 24 12.1 24z"/></svg>
-          <span class="name">Python</span><span class="lvl">CO₂ · RAG · X</span>
-        </div>
-        <div class="skill">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
-          <span class="name">SQL</span><span class="lvl">CO₂</span>
-        </div>
-        <div class="skill">
-          <svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="4" width="20" height="3"/><rect x="2" y="9" width="14" height="3"/><rect x="2" y="14" width="18" height="3"/><rect x="2" y="19" width="10" height="3"/></svg>
-          <span class="name">Pandas</span><span class="lvl">CO₂ · Play</span>
-        </div>
-        <div class="skill">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h4l3 8h2l3-8h4v18h-4v-9l-2 6h-4l-2-6v9H3z"/></svg>
-          <span class="name">NumPy</span><span class="lvl">CO₂</span>
-        </div>
+
+  <div class="tools-band" data-reveal>
+    <div class="tool-marquee">
+      <div class="tool-track" data-tools="a">
+        <span class="tool-chip"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.9 0C5.4 0 5.8 2.8 5.8 2.8v3h6.2v.9H3.4S0 6.4 0 12s2.9 5.5 2.9 5.5h2.2v-3.2s-.1-2.9 2.8-2.9h6.2s2.7.1 2.7-2.6V2.8S17.3 0 11.9 0z"/><path d="M12.1 24c6.5 0 6.1-2.8 6.1-2.8v-3h-6.2v-.9h8.6S24 17.6 24 12s-2.9-5.5-2.9-5.5h-2.2v3.2s.1 2.9-2.8 2.9H9.9s-2.7-.1-2.7 2.6v4.9S6.7 24 12.1 24z"/></svg><span class="tname">Python</span><span class="tref">CO₂·RAG·X</span></span>
+        <span class="tool-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg><span class="tname">SQL</span><span class="tref">CO₂</span></span>
+        <span class="tool-chip"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="4" width="20" height="3"/><rect x="2" y="9" width="14" height="3"/><rect x="2" y="14" width="18" height="3"/><rect x="2" y="19" width="10" height="3"/></svg><span class="tname">Pandas</span><span class="tref">CO₂·Play</span></span>
+        <span class="tool-chip"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h4l3 8h2l3-8h4v18h-4v-9l-2 6h-4l-2-6v9H3z"/></svg><span class="tname">NumPy</span><span class="tref">CO₂</span></span>
+        <span class="tool-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M6 15l3-4 3 2 4-6"/></svg><span class="tname">Matplotlib</span><span class="tref">RAG</span></span>
+        <span class="tool-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="10" cy="6" rx="7" ry="2.6"/><path d="M3 6v5c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6"/><circle cx="17" cy="16" r="3.5"/><path d="M19.5 18.5L22 21"/></svg><span class="tname">DBeaver</span><span class="tref">CO₂</span></span>
       </div>
     </div>
-    <div class="skill-cat" data-reveal>
-      <h3><span data-i18n="skills.c2">Business Intelligence &amp; AI</span><span class="count">04</span></h3>
-      <div class="skill-list">
-        <div class="skill">
-          <svg viewBox="0 0 24 24" fill="currentColor"><rect x="11" y="3" width="2" height="6"/><rect x="11" y="15" width="2" height="6"/><rect x="3" y="11" width="6" height="2"/><rect x="15" y="11" width="6" height="2"/><rect x="10" y="10" width="4" height="4"/></svg>
-          <span class="name">Tableau</span><span class="lvl">Play</span>
-        </div>
-        <div class="skill">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="12" y1="3" x2="12" y2="21"/></svg>
-          <span class="name">Google Sheets</span><span class="lvl">CO₂ · Play</span>
-        </div>
-        <div class="skill">
-          <svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="14" width="4" height="7"/><rect x="10" y="9" width="4" height="12"/><rect x="17" y="4" width="4" height="17"/></svg>
-          <span class="name">Power BI</span><span class="lvl">Play</span>
-        </div>
-        <div class="skill">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12c0-3 2-5 4-5s4 2 4 5-2 5-4 5"/><circle cx="9" cy="11" r="0.8" fill="currentColor"/></svg>
-          <span class="name">RAG / LLMs</span><span class="lvl">RAG</span>
-        </div>
+    <div class="tool-marquee">
+      <div class="tool-track rev" data-tools="b">
+        <span class="tool-chip"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="14" width="4" height="7"/><rect x="10" y="9" width="4" height="12"/><rect x="17" y="4" width="4" height="17"/></svg><span class="tname">Power BI</span><span class="tref">Play</span></span>
+        <span class="tool-chip"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="11" y="3" width="2" height="6"/><rect x="11" y="15" width="2" height="6"/><rect x="3" y="11" width="6" height="2"/><rect x="15" y="11" width="6" height="2"/><rect x="10" y="10" width="4" height="4"/></svg><span class="tname">Tableau</span><span class="tref">Play</span></span>
+        <span class="tool-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="12" y1="3" x2="12" y2="21"/></svg><span class="tname">Google Sheets</span><span class="tref">CO₂·Play</span></span>
+        <span class="tool-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="9" width="11" height="6" rx="3"/><rect x="10" y="9" width="11" height="6" rx="3"/></svg><span class="tname">LangChain</span><span class="tref">RAG</span></span>
+        <span class="tool-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l9 5-9 5-9-5z" fill="currentColor" stroke="none"/><path d="M3 12l9 5 9-5"/><path d="M3 17l9 5 9-5"/></svg><span class="tname">ChromaDB</span><span class="tref">RAG</span></span>
+        <span class="tool-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12c0-3 2-5 4-5s4 2 4 5-2 5-4 5"/><circle cx="9" cy="11" r="0.8" fill="currentColor"/></svg><span class="tname">Groq · LLM</span><span class="tref">RAG</span></span>
       </div>
     </div>
   </div>
@@ -437,6 +471,6 @@
 
 <script src="./lib/gsap.min.js?v=20260716" defer></script>
 <script src="./lib/ScrollTrigger.min.js?v=20260716" defer></script>
-<script src="./main.js?v=20260716" defer></script>
+<script src="./main.js?v=20260716b" defer></script>
 </body>
 </html>

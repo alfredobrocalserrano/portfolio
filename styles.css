@@ -107,30 +107,50 @@ body::before {
 }
 
 /* ============================================================
-   Custom cursor (fine pointers only)
+   Custom cursor — editorial arrow + "VER" label (fine pointers)
+   Native cursor is only hidden once JS arms this (body.custom-cursor)
    ============================================================ */
-.cursor-dot, .cursor-ring {
+.cursor {
   position: fixed;
   top: 0; left: 0;
+  width: 30px; height: 30px;
   pointer-events: none;
   z-index: 999;
-  border-radius: 50%;
+  transform: translate(-50%, -50%);
   opacity: 0;
+  transition: opacity 0.25s ease, width 0.3s cubic-bezier(0.22,1,0.36,1), height 0.3s cubic-bezier(0.22,1,0.36,1);
+  will-change: transform;
 }
-.cursor-dot {
-  width: 6px; height: 6px;
+body.cursor-active .cursor { opacity: 1; }
+.cursor-arrow {
+  width: 100%; height: 100%;
+  display: block;
+  color: var(--ink);
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+.cursor.hover .cursor-arrow { transform: scale(1.3) rotate(-8deg); color: var(--accent); }
+.cursor-view-label {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
   background: var(--accent);
-  transform: translate(-50%, -50%);
+  color: var(--paper);
+  border-radius: 50%;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transform: scale(0);
+  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1);
 }
-.cursor-ring {
-  width: 34px; height: 34px;
-  border: 1px solid rgba(22,19,16,0.35);
-  transform: translate(-50%, -50%);
-  transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease;
-}
-body.cursor-active .cursor-dot, body.cursor-active .cursor-ring { opacity: 1; }
-body.cursor-hover .cursor-ring { width: 58px; height: 58px; border-color: var(--accent); }
-@media (pointer: coarse) { .cursor-dot, .cursor-ring { display: none; } }
+.cursor.view { width: 76px; height: 76px; }
+.cursor.view .cursor-arrow { opacity: 0; transform: scale(0.3); }
+.cursor.view .cursor-view-label { transform: scale(1); }
+body.cursor-active .cursor.dim { opacity: 0; }
+body.custom-cursor,
+body.custom-cursor a,
+body.custom-cursor button,
+body.custom-cursor .project,
+body.custom-cursor .skill { cursor: none; }
+@media (pointer: coarse) { .cursor { display: none; } }
 
 /* ============================================================
    Nav
@@ -1026,3 +1046,172 @@ footer .signature { font-family: 'Fraunces', serif; font-style: italic; font-siz
    ============================================================ */
 .pre-reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .pre-reveal.in { opacity: 1; transform: none; }
+
+/* ============================================================
+   Nav — active section state
+   ============================================================ */
+.nav-links a.active { background: var(--ink); color: var(--paper); }
+.nav-links a.active .n { color: rgba(243, 239, 230, 0.6); }
+
+/* ============================================================
+   Tools marquee (Sharebien-style logo carousel)
+   ============================================================ */
+.tools-band { margin-top: 24px; }
+.tool-marquee {
+  overflow: hidden;
+  padding: 11px 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.tool-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: marq 44s linear infinite;
+}
+.tool-track.rev { animation: marqRev 52s linear infinite; }
+.tools-band:hover .tool-track { animation-play-state: paused; }
+.tool-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 24px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink-soft);
+  white-space: nowrap;
+  transition: color 0.25s, border-color 0.25s, background 0.25s, transform 0.25s;
+}
+.tool-chip svg { width: 24px; height: 24px; flex: 0 0 auto; transition: transform 0.3s ease; }
+.tool-chip .tname { font-size: 15px; font-weight: 500; letter-spacing: -0.01em; }
+.tool-chip .tref {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink-soft);
+  padding-left: 10px; margin-left: 4px;
+  border-left: 1px solid var(--line-soft);
+  transition: color 0.25s, border-color 0.25s;
+}
+.tool-chip:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--paper-2);
+  transform: translateY(-2px);
+}
+.tool-chip:hover svg { transform: scale(1.12) rotate(-4deg); }
+.tool-chip:hover .tref { color: var(--accent); border-color: rgba(176,58,46,0.35); }
+
+/* ============================================================
+   Timeline — education (inside About)
+   ============================================================ */
+.timeline {
+  margin-top: 96px;
+  padding-top: 56px;
+  border-top: 1px solid var(--ink);
+}
+.timeline-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 44px;
+  color: var(--ink-soft);
+}
+.timeline-head .rule { flex: 0 0 60px; height: 1px; background: var(--ink); align-self: center; }
+.tl-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 44px;
+}
+@media (max-width: 760px) { .tl-list { grid-template-columns: 1fr; gap: 32px; } }
+.tl-item {
+  position: relative;
+  border-top: 2px solid var(--ink);
+  padding-top: 26px;
+}
+.tl-item::before {
+  content: '';
+  position: absolute;
+  top: -7px; left: 0;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  transition: background 0.25s, border-color 0.25s;
+}
+.tl-item:hover::before { background: var(--accent); border-color: var(--accent); }
+.tl-item .tl-year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-soft);
+  display: block;
+  margin-bottom: 14px;
+}
+.tl-item h4 {
+  font-family: 'Fraunces', serif;
+  font-weight: 400; font-style: italic;
+  font-size: 21px; line-height: 1.15;
+  margin: 0 0 12px;
+  letter-spacing: -0.01em;
+}
+.tl-item p { font-size: 14px; line-height: 1.6; color: var(--ink-dim); margin: 0 0 16px; }
+.tl-item .tl-status {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 12px;
+}
+.tl-item .tl-status .d { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.tl-item .tl-status.live .d { background: #16a34a; animation: pulse 1.8s infinite; }
+
+/* ============================================================
+   "En números" band
+   ============================================================ */
+.numbers {
+  background: var(--paper-2);
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 84px 36px;
+}
+.numbers-inner {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+.numbers-head {
+  display: flex; align-items: center; gap: 16px;
+  color: var(--ink-soft);
+  margin-bottom: 48px;
+}
+.numbers-head .rule { flex: 0 0 60px; height: 1px; background: var(--ink); }
+.numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+@media (max-width: 880px) { .numbers-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 24px; } }
+@media (max-width: 460px) { .numbers-grid { grid-template-columns: 1fr; } }
+.num-item {
+  border-top: 1px solid var(--ink);
+  padding-top: 22px;
+}
+.num-val {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-variation-settings: 'opsz' 144;
+  font-size: clamp(44px, 5.4vw, 76px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.num-val .sfx { color: var(--accent); font-style: italic; }
+.num-label {
+  margin-top: 14px;
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--ink-dim);
+  max-width: 220px;
+}

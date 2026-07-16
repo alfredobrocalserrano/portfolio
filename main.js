@@ -1,5 +1,5 @@
 /* ============================================================
-   Alfredo Brocal — Portfolio editorial v2
+   Alfredo Brocal — Portfolio editorial v2.1
    Vanilla JS + GSAP/ScrollTrigger (local, no CDN at runtime)
    Pattern: IIFE + safe() wrappers. If anything fails, content
    stays fully visible — JS only enriches.
@@ -29,7 +29,7 @@
       'hero.role': 'Data Scientist &amp; Analyst — Madrid',
       'hero.scroll': 'Scroll',
       'hero.lede': 'Transformando datos crudos en <em>decisiones</em> con Python, SQL y la mirada estratégica del Máster en Data Science por la UCM.',
-      'hero.s1l': 'Proyectos', 'hero.s2l': 'Datos', 'hero.s2u': 'años', 'hero.s3l': 'Stack',
+      'hero.s1l': 'Proyectos', 'hero.s2l': 'Registros', 'hero.s3l': 'Con RAG', 'hero.s3u': 'págs',
       'hero.cta1': 'Ver proyectos', 'hero.cta2': 'Contacto',
       'marq': 'Python <span class="star">✦</span> SQL <span class="star">✦</span> Pandas <span class="star">✦</span> Machine Learning <span class="star">✦</span> RAG <span class="star">✦</span> Visualización de datos <span class="star">✦</span>',
       'marq2': '<span class="ghost">Power BI</span> <span class="star">✧</span> <span class="ghost">Tableau</span> <span class="star">✧</span> <span class="ghost">LangChain</span> <span class="star">✧</span> <span class="ghost">ChromaDB</span> <span class="star">✧</span> <span class="ghost">NumPy</span> <span class="star">✧</span> <span class="ghost">DBeaver</span> <span class="star">✧</span>',
@@ -43,6 +43,10 @@
       'phil.1h': 'Claridad antes que complejidad', 'phil.1p': 'Un modelo que nadie entiende no cambia ninguna decisión. Priorizo el camino más simple entre el dato y el insight.',
       'phil.2h': 'Trazabilidad, no cajas negras', 'phil.2p': 'Cada conclusión debe poder rastrearse hasta la fila que la sostiene: consulta SQL, celda o citación con fuente.',
       'phil.3h': 'De datos a decisiones', 'phil.3p': 'Un análisis solo importa si mueve una acción. Diseño cada dashboard pensando en quién lo va a usar y para qué.',
+      'tl.tag': 'Formación',
+      'tl.1y': 'Grado universitario', 'tl.1t': 'Gestión de Información y Contenidos Digitales', 'tl.1d': 'Base en cómo se organiza, gestiona y fluye la información en entornos digitales.', 'tl.1s': 'Último año',
+      'tl.2y': 'Certificación profesional', 'tl.2t': 'Google Data Analytics', 'tl.2d': 'Limpieza, análisis y visualización de datos orientados a la toma de decisiones.', 'tl.2s': 'Completado',
+      'tl.3y': 'Máster · UCM', 'tl.3t': 'Máster en Data Science', 'tl.3d': 'Analítica avanzada, machine learning y sistemas de IA generativa (RAG / LLMs).', 'tl.3s': 'En curso',
       'statement.eyebrow': 'Manifiesto',
       'statement.q': 'Los datos no cuentan historias por sí solos — <em>alguien tiene que hacer las preguntas correctas.</em>',
       'statement.c': 'Alfredo Brocal · sobre analítica con propósito',
@@ -55,12 +59,14 @@
       'pj3.desc': 'Estudio integral de las métricas que definen el éxito y la valoración de apps móviles.',
       'pj4.title': 'Sentiment analysis: <em>limpieza masiva (X)</em>',
       'pj4.desc': 'NLP y limpieza profunda de datasets masivos provenientes de redes sociales.',
+      'num.tag': 'En números',
+      'num.1': 'años de emisiones de CO₂ analizados', 'num.2': 'apps estudiadas en Google Play', 'num.3': 'tweets procesados con NLP', 'num.4': 'empresas del IBEX en el sistema RAG',
       'skills.tag': 'Stack técnico', 'skills.h2a': 'Herramientas que', 'skills.h2b': 'domino.',
-      'skills.c1': 'Data Analysis &amp; Science', 'skills.c2': 'Business Intelligence &amp; AI',
       'contact.tag': 'Hablemos', 'contact.h2a': 'Construyamos algo', 'contact.h2b': 'juntos.',
       'contact.text': 'Finalizando mi formación en la UCM y abierto a colaborar en proyectos de <em>Data Science, Análisis de Datos e IA</em>.',
       'contact.megaLabel': '¿Un proyecto en mente? Escríbeme —',
       'footer.r': 'Diseño editorial · Madrid',
+      'cursor.view': 'Ver →',
       'modal.h.context': 'Contexto', 'modal.h.results': 'Resultados', 'modal.h.tools': 'Herramientas', 'modal.h.process': 'Proceso', 'modal.cta': 'Ver en GitHub'
     },
     en: {
@@ -69,7 +75,7 @@
       'hero.role': 'Data Scientist &amp; Analyst — Madrid',
       'hero.scroll': 'Scroll',
       'hero.lede': 'Turning raw data into <em>decisions</em> with Python, SQL and the strategic lens of UCM\'s Data Science Master\'s.',
-      'hero.s1l': 'Projects', 'hero.s2l': 'Data', 'hero.s2u': 'yrs', 'hero.s3l': 'Stack',
+      'hero.s1l': 'Projects', 'hero.s2l': 'Records', 'hero.s3l': 'With RAG', 'hero.s3u': 'pages',
       'hero.cta1': 'See projects', 'hero.cta2': 'Contact',
       'marq': 'Python <span class="star">✦</span> SQL <span class="star">✦</span> Pandas <span class="star">✦</span> Machine Learning <span class="star">✦</span> RAG <span class="star">✦</span> Data Visualization <span class="star">✦</span>',
       'marq2': '<span class="ghost">Power BI</span> <span class="star">✧</span> <span class="ghost">Tableau</span> <span class="star">✧</span> <span class="ghost">LangChain</span> <span class="star">✧</span> <span class="ghost">ChromaDB</span> <span class="star">✧</span> <span class="ghost">NumPy</span> <span class="star">✧</span> <span class="ghost">DBeaver</span> <span class="star">✧</span>',
@@ -83,6 +89,10 @@
       'phil.1h': 'Clarity before complexity', 'phil.1p': 'A model nobody understands changes no decision. I prioritize the simplest path between data and insight.',
       'phil.2h': 'Traceability, not black boxes', 'phil.2p': 'Every conclusion should trace back to the row that supports it: a SQL query, a cell, a cited source.',
       'phil.3h': 'From data to decisions', 'phil.3p': 'Analysis only matters if it moves an action. I design every dashboard with its user and purpose in mind.',
+      'tl.tag': 'Education',
+      'tl.1y': 'Bachelor\'s degree', 'tl.1t': 'Information & Digital Content Management', 'tl.1d': 'Foundation in how information is organized, managed and flows through digital environments.', 'tl.1s': 'Final year',
+      'tl.2y': 'Professional certificate', 'tl.2t': 'Google Data Analytics', 'tl.2d': 'Data cleaning, analysis and visualization for decision-making.', 'tl.2s': 'Completed',
+      'tl.3y': 'Master\'s · UCM', 'tl.3t': 'MSc in Data Science', 'tl.3d': 'Advanced analytics, machine learning and generative-AI systems (RAG / LLMs).', 'tl.3s': 'In progress',
       'statement.eyebrow': 'Manifesto',
       'statement.q': 'Data doesn\'t tell stories on its own — <em>someone has to ask the right questions.</em>',
       'statement.c': 'Alfredo Brocal · on purposeful analytics',
@@ -95,12 +105,14 @@
       'pj3.desc': 'Comprehensive study of the metrics that define mobile app success and ratings.',
       'pj4.title': 'Sentiment analysis: <em>massive cleanup (X)</em>',
       'pj4.desc': 'NLP and deep cleaning of massive social media datasets.',
+      'num.tag': 'By the numbers',
+      'num.1': 'years of CO₂ emissions analyzed', 'num.2': 'apps studied on Google Play', 'num.3': 'tweets processed with NLP', 'num.4': 'IBEX companies in the RAG system',
       'skills.tag': 'Tech stack', 'skills.h2a': 'Tools I', 'skills.h2b': 'master.',
-      'skills.c1': 'Data Analysis &amp; Science', 'skills.c2': 'Business Intelligence &amp; AI',
       'contact.tag': 'Let\'s talk', 'contact.h2a': 'Let\'s build something', 'contact.h2b': 'together.',
       'contact.text': 'Finishing my studies at UCM and open to collaborate on <em>Data Science, Analytics and AI</em> projects.',
       'contact.megaLabel': 'Got a project in mind? Write me —',
       'footer.r': 'Editorial design · Madrid',
+      'cursor.view': 'View →',
       'modal.h.context': 'Context', 'modal.h.results': 'Results', 'modal.h.tools': 'Tools', 'modal.h.process': 'Process', 'modal.cta': 'View on GitHub'
     }
   };
@@ -238,7 +250,6 @@
       else finish();
     }
     requestAnimationFrame(tick);
-    // Safety: never trap the user more than 4s (CSS also self-hides at 4.2s)
     setTimeout(finish, 4000);
   }
 
@@ -249,7 +260,7 @@
   function startHero(delay) {
     if (heroStarted) return;
     heroStarted = true;
-    if (!hasGSAP) return; // no GSAP: everything already visible
+    if (!hasGSAP) return;
 
     var rows = document.querySelectorAll('[data-hero-row]');
     var meta = document.querySelector('.hero-meta');
@@ -280,8 +291,7 @@
   }
 
   /* ==========================================================
-     Scroll reveals — GSAP if present, IO fallback otherwise.
-     Elements are visible by default; hiding happens only here.
+     Scroll reveals
      ========================================================== */
   function initReveals() {
     var els = document.querySelectorAll('[data-reveal]');
@@ -289,14 +299,12 @@
 
     if (hasST) {
       els.forEach(function (el) {
-        // Skip hero elements — handled by the entrance timeline
         if (el.closest('.hero')) return;
         gsap.from(el, {
           autoAlpha: 0, y: 28, duration: 0.85, ease: 'power3.out',
           scrollTrigger: { trigger: el, start: 'top 88%', once: true }
         });
       });
-      // Safety: after 6s, force-show anything still hidden
       setTimeout(function () {
         els.forEach(function (el) {
           if (parseFloat(getComputedStyle(el).opacity) < 0.99) {
@@ -341,8 +349,14 @@
   }
 
   /* ==========================================================
-     Stat counters
+     Stat counters (supports data-pad + data-sep thousands)
      ========================================================== */
+  function fmt(v, pad, sep) {
+    var s = String(v);
+    while (s.length < pad) s = '0' + s;
+    if (sep) s = s.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    return s;
+  }
   function initCounters() {
     var counters = document.querySelectorAll('[data-count]');
     if (!counters.length) return;
@@ -352,26 +366,21 @@
       el.dataset.counted = '1';
       var target = parseInt(el.dataset.count, 10) || 0;
       var pad = parseInt(el.dataset.pad, 10) || 0;
+      var sep = el.dataset.sep === '1';
       var t0 = null;
-      var DUR = 1400;
+      var DUR = 1500;
       function frame(ts) {
         if (!t0) t0 = ts;
         var p = Math.min((ts - t0) / DUR, 1);
         var eased = 1 - Math.pow(1 - p, 3);
-        var v = Math.round(eased * target);
-        var s = String(v);
-        while (s.length < pad) s = '0' + s;
-        el.textContent = s;
+        el.textContent = fmt(Math.round(eased * target), pad, sep);
         if (p < 1) requestAnimationFrame(frame);
       }
       requestAnimationFrame(frame);
     }
 
-    // Hero counters start after the entrance; others on scroll
     setTimeout(function () {
-      counters.forEach(function (el) {
-        if (el.closest('.hero')) run(el);
-      });
+      counters.forEach(function (el) { if (el.closest('.hero')) run(el); });
     }, 2100);
 
     var io = new IntersectionObserver(function (entries) {
@@ -379,13 +388,11 @@
         if (e.isIntersecting) { run(e.target); io.unobserve(e.target); }
       });
     }, { threshold: 0.05 });
-    counters.forEach(function (el) {
-      if (!el.closest('.hero')) io.observe(el);
-    });
+    counters.forEach(function (el) { if (!el.closest('.hero')) io.observe(el); });
   }
 
   /* ==========================================================
-     Statement scrub (Longbow-style text reveal on scroll)
+     Statement scrub
      ========================================================== */
   function initStatementScrub() {
     var quote = document.getElementById('statementQuote');
@@ -395,12 +402,7 @@
       { backgroundPosition: '100% 0' },
       {
         backgroundPosition: '0% 0', ease: 'none',
-        scrollTrigger: {
-          trigger: quote.closest('.statement'),
-          start: 'top 75%',
-          end: 'center 45%',
-          scrub: 0.6
-        }
+        scrollTrigger: { trigger: quote.closest('.statement'), start: 'top 75%', end: 'center 45%', scrub: 0.6 }
       }
     );
   }
@@ -422,33 +424,62 @@
   }
 
   /* ==========================================================
-     Custom cursor + magnetic-ish hover states
+     Nav scroll-spy (active section)
      ========================================================== */
+  function initScrollSpy() {
+    var links = document.querySelectorAll('.nav-links a');
+    if (!links.length) return;
+    var map = {};
+    links.forEach(function (a) {
+      var href = a.getAttribute('href');
+      if (href && href.charAt(0) === '#') map[href.slice(1)] = a;
+    });
+    var ids = ['about', 'projects', 'skills', 'contact'];
+    var sections = ids.map(function (id) { return document.getElementById(id); }).filter(Boolean);
+    if (!sections.length) return;
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          links.forEach(function (a) { a.classList.remove('active'); });
+          var a = map[e.target.id];
+          if (a) a.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    sections.forEach(function (s) { io.observe(s); });
+  }
+
+  /* ==========================================================
+     Custom cursor — editorial arrow
+     ========================================================== */
+  var cursorEl = null;
   function initCursor() {
-    if (!finePointer || !hasGSAP) return;
-    var dot = document.getElementById('cursorDot');
-    var ring = document.getElementById('cursorRing');
-    if (!dot || !ring) return;
+    var c = document.getElementById('cursor');
+    if (!finePointer || !c) return;
+    cursorEl = c;
+    document.body.classList.add('custom-cursor');
 
-    var dotX = gsap.quickTo(dot, 'x', { duration: 0.12, ease: 'power2.out' });
-    var dotY = gsap.quickTo(dot, 'y', { duration: 0.12, ease: 'power2.out' });
-    var ringX = gsap.quickTo(ring, 'x', { duration: 0.4, ease: 'power2.out' });
-    var ringY = gsap.quickTo(ring, 'y', { duration: 0.4, ease: 'power2.out' });
-
+    var qx, qy;
+    if (hasGSAP) {
+      gsap.set(c, { xPercent: -50, yPercent: -50 });
+      qx = gsap.quickTo(c, 'x', { duration: 0.14, ease: 'power2.out' });
+      qy = gsap.quickTo(c, 'y', { duration: 0.14, ease: 'power2.out' });
+    }
     window.addEventListener('mousemove', function (e) {
       document.body.classList.add('cursor-active');
-      dotX(e.clientX); dotY(e.clientY);
-      ringX(e.clientX); ringY(e.clientY);
+      if (hasGSAP) { qx(e.clientX); qy(e.clientY); }
+      else { c.style.left = e.clientX + 'px'; c.style.top = e.clientY + 'px'; }
     }, { passive: true });
 
-    document.querySelectorAll('a, button, .project, .skill').forEach(function (el) {
-      el.addEventListener('mouseenter', function () { document.body.classList.add('cursor-hover'); });
-      el.addEventListener('mouseleave', function () { document.body.classList.remove('cursor-hover'); });
+    document.querySelectorAll('a, button, .skill, .tool-chip').forEach(function (el) {
+      el.addEventListener('mouseenter', function () { c.classList.add('hover'); });
+      el.addEventListener('mouseleave', function () { c.classList.remove('hover'); });
     });
   }
 
   /* ==========================================================
-     Cursor-following project preview
+     Cursor-following project preview (with "VER" label)
      ========================================================== */
   function initCursorPreview() {
     var cp = document.getElementById('cursorPreview');
@@ -468,7 +499,8 @@
       if (!pj || !pj.image) return;
       p.addEventListener('mouseenter', function (e) {
         cpImg.src = pj.image;
-        if (cpLabel) cpLabel.textContent = pj.num;
+        if (cpLabel) cpLabel.textContent = i18n[lang]['cursor.view'];
+        if (cursorEl) cursorEl.classList.add('dim');
         if (useGsap) {
           gsap.set(cp, { x: e.clientX, y: e.clientY });
           gsap.to(cp, { autoAlpha: 1, scale: 1, rotate: 0, duration: 0.35, ease: 'power3.out' });
@@ -482,6 +514,7 @@
         else { cp.style.left = e.clientX + 'px'; cp.style.top = e.clientY + 'px'; }
       });
       p.addEventListener('mouseleave', function () {
+        if (cursorEl) cursorEl.classList.remove('dim');
         if (useGsap) gsap.to(cp, { autoAlpha: 0, scale: 0.9, rotate: -2, duration: 0.3, ease: 'power2.in' });
         else cp.style.opacity = '0';
       });
@@ -489,7 +522,7 @@
   }
 
   /* ==========================================================
-     Project sparklines (draw on hover via dashoffset)
+     Project sparklines
      ========================================================== */
   function initSparklines() {
     document.querySelectorAll('.pj-spark path').forEach(function (p) {
@@ -605,6 +638,7 @@
     safe(initCounters, 'counters');
     safe(initStatementScrub, 'statementScrub');
     safe(initNavProgress, 'navProgress');
+    safe(initScrollSpy, 'scrollSpy');
     safe(initCursor, 'cursor');
     safe(initCursorPreview, 'cursorPreview');
     safe(initSparklines, 'sparklines');
