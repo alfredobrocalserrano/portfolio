@@ -35,8 +35,8 @@
       'marq2': '<span class="ghost">Power BI</span> <span class="star">✧</span> <span class="ghost">Tableau</span> <span class="star">✧</span> <span class="ghost">LangChain</span> <span class="star">✧</span> <span class="ghost">ChromaDB</span> <span class="star">✧</span> <span class="ghost">NumPy</span> <span class="star">✧</span> <span class="ghost">DBeaver</span> <span class="star">✧</span>',
       'about.tag': 'Sobre mí', 'about.h2a': 'Una mente', 'about.h2b': 'analítica', 'about.h2c': 'con visión estratégica.',
       'about.cap': 'Madrid, 2026. UCM, Máster en Data Science.',
-      'about.p1': '<strong>Actualmente</strong> cursando el último año del Grado en Gestión de Información y Contenidos Digitales — una formación que me ha dado la base para entender cómo se organiza y fluye la información en el entorno digital.',
-      'about.p2': 'Para llevar estas habilidades al siguiente nivel, completé el certificado de <em>Google Data Analytics</em> y curso simultáneamente el <strong>Máster en Data Science en la UCM</strong>. Esta combinación me permite unir gestión estratégica con analítica avanzada.',
+      'about.p1': '<strong>Graduado</strong> en el Grado en Gestión de Información y Contenidos Digitales — una formación que me ha dado la base para entender cómo se organiza y fluye la información en el entorno digital.',
+      'about.p2': 'Para llevar estas habilidades al siguiente nivel, completé el certificado de <em>Google Data Analytics</em> y actualmente curso el <strong>Máster en Data Science en la UCM</strong>. Esta combinación me permite unir gestión estratégica con analítica avanzada.',
       'about.p3': 'Mi objetivo: usar Python y SQL para transformar datos en bruto en <em>conocimiento accionable</em> y visualizaciones de alto impacto.',
       'curr.label': 'Actualmente', 'curr.body': 'Cursando MSc Data Science (UCM), explorando RAG / LLMs y abierto a colaborar en proyectos de <em>analítica estratégica</em>.',
       'about.cv': 'Descargar CV (PDF)', 'about.contact': 'Hablemos',
@@ -44,7 +44,7 @@
       'phil.2h': 'Trazabilidad, no cajas negras', 'phil.2p': 'Cada conclusión debe poder rastrearse hasta la fila que la sostiene: consulta SQL, celda o citación con fuente.',
       'phil.3h': 'De datos a decisiones', 'phil.3p': 'Un análisis solo importa si mueve una acción. Diseño cada dashboard pensando en quién lo va a usar y para qué.',
       'tl.tag': 'Formación',
-      'tl.1y': 'Grado universitario', 'tl.1t': 'Gestión de Información y Contenidos Digitales', 'tl.1d': 'Base en cómo se organiza, gestiona y fluye la información en entornos digitales.', 'tl.1s': 'Último año',
+      'tl.1y': 'Grado universitario', 'tl.1t': 'Gestión de Información y Contenidos Digitales', 'tl.1d': 'Base en cómo se organiza, gestiona y fluye la información en entornos digitales.', 'tl.1s': 'Graduado',
       'tl.2y': 'Certificación profesional', 'tl.2t': 'Google Data Analytics', 'tl.2d': 'Limpieza, análisis y visualización de datos orientados a la toma de decisiones.', 'tl.2s': 'Completado',
       'tl.3y': 'Máster · UCM', 'tl.3t': 'Máster en Data Science', 'tl.3d': 'Analítica avanzada, machine learning y sistemas de IA generativa (RAG / LLMs).', 'tl.3s': 'En curso',
       'statement.eyebrow': 'Manifiesto',
@@ -81,8 +81,8 @@
       'marq2': '<span class="ghost">Power BI</span> <span class="star">✧</span> <span class="ghost">Tableau</span> <span class="star">✧</span> <span class="ghost">LangChain</span> <span class="star">✧</span> <span class="ghost">ChromaDB</span> <span class="star">✧</span> <span class="ghost">NumPy</span> <span class="star">✧</span> <span class="ghost">DBeaver</span> <span class="star">✧</span>',
       'about.tag': 'About me', 'about.h2a': 'An analytical', 'about.h2b': 'mind', 'about.h2c': 'with strategic vision.',
       'about.cap': 'Madrid, 2026. UCM, MSc Data Science.',
-      'about.p1': '<strong>Currently</strong> completing my final year of a Degree in Information &amp; Digital Content Management — a foundation in how information is organized and flows through digital environments.',
-      'about.p2': 'To level up, I earned the <em>Google Data Analytics</em> certificate and I\'m simultaneously pursuing a <strong>Data Science Master\'s at UCM</strong>. This combination lets me bridge strategic management with advanced analytics.',
+      'about.p1': '<strong>Graduated</strong> in Information &amp; Digital Content Management — a foundation in how information is organized and flows through digital environments.',
+      'about.p2': 'To level up, I earned the <em>Google Data Analytics</em> certificate and I\'m now pursuing a <strong>Data Science Master\'s at UCM</strong>. This combination lets me bridge strategic management with advanced analytics.',
       'about.p3': 'My goal: use Python and SQL to turn raw data into <em>actionable insight</em> and high-impact visualizations.',
       'curr.label': 'Currently', 'curr.body': 'Pursuing MSc Data Science (UCM), exploring RAG / LLMs and open to collaborate on <em>strategic analytics</em> projects.',
       'about.cv': 'Download CV (PDF)', 'about.contact': 'Let\'s talk',
@@ -90,7 +90,7 @@
       'phil.2h': 'Traceability, not black boxes', 'phil.2p': 'Every conclusion should trace back to the row that supports it: a SQL query, a cell, a cited source.',
       'phil.3h': 'From data to decisions', 'phil.3p': 'Analysis only matters if it moves an action. I design every dashboard with its user and purpose in mind.',
       'tl.tag': 'Education',
-      'tl.1y': 'Bachelor\'s degree', 'tl.1t': 'Information & Digital Content Management', 'tl.1d': 'Foundation in how information is organized, managed and flows through digital environments.', 'tl.1s': 'Final year',
+      'tl.1y': 'Bachelor\'s degree', 'tl.1t': 'Information & Digital Content Management', 'tl.1d': 'Foundation in how information is organized, managed and flows through digital environments.', 'tl.1s': 'Graduated',
       'tl.2y': 'Professional certificate', 'tl.2t': 'Google Data Analytics', 'tl.2d': 'Data cleaning, analysis and visualization for decision-making.', 'tl.2s': 'Completed',
       'tl.3y': 'Master\'s · UCM', 'tl.3t': 'MSc in Data Science', 'tl.3d': 'Advanced analytics, machine learning and generative-AI systems (RAG / LLMs).', 'tl.3s': 'In progress',
       'statement.eyebrow': 'Manifesto',
@@ -472,7 +472,7 @@
       else { c.style.left = e.clientX + 'px'; c.style.top = e.clientY + 'px'; }
     }, { passive: true });
 
-    document.querySelectorAll('a, button, .skill, .tool-chip').forEach(function (el) {
+    document.querySelectorAll('a, button, .skill, .tool-card').forEach(function (el) {
       el.addEventListener('mouseenter', function () { c.classList.add('hover'); });
       el.addEventListener('mouseleave', function () { c.classList.remove('hover'); });
     });

@@ -1054,53 +1054,57 @@ footer .signature { font-family: 'Fraunces', serif; font-style: italic; font-siz
 .nav-links a.active .n { color: rgba(243, 239, 230, 0.6); }
 
 /* ============================================================
-   Tools marquee (Sharebien-style logo carousel)
+   Tools — static grid of logo blocks
    ============================================================ */
-.tools-band { margin-top: 24px; }
-.tool-marquee {
-  overflow: hidden;
-  padding: 11px 0;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-}
-.tool-track {
-  display: flex;
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
-  width: max-content;
-  animation: marq 44s linear infinite;
 }
-.tool-track.rev { animation: marqRev 52s linear infinite; }
-.tools-band:hover .tool-track { animation-play-state: paused; }
-.tool-chip {
-  display: inline-flex;
+@media (max-width: 900px) { .tools-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 620px) { .tools-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
+.tool-card {
+  display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 14px 24px;
+  gap: 16px;
+  padding: 20px 22px;
   border: 1px solid var(--line);
-  border-radius: 999px;
   background: var(--paper);
-  color: var(--ink-soft);
-  white-space: nowrap;
-  transition: color 0.25s, border-color 0.25s, background 0.25s, transform 0.25s;
+  transition: border-color 0.25s, background 0.25s, transform 0.25s, box-shadow 0.25s;
 }
-.tool-chip svg { width: 24px; height: 24px; flex: 0 0 auto; transition: transform 0.3s ease; }
-.tool-chip .tname { font-size: 15px; font-weight: 500; letter-spacing: -0.01em; }
-.tool-chip .tref {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--ink-soft);
-  padding-left: 10px; margin-left: 4px;
-  border-left: 1px solid var(--line-soft);
-  transition: color 0.25s, border-color 0.25s;
-}
-.tool-chip:hover {
-  color: var(--accent);
-  border-color: var(--accent);
+.tool-card:hover {
+  border-color: var(--ink);
   background: var(--paper-2);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 6px 6px 0 var(--ink);
 }
-.tool-chip:hover svg { transform: scale(1.12) rotate(-4deg); }
-.tool-chip:hover .tref { color: var(--accent); border-color: rgba(176,58,46,0.35); }
+.tool-logo {
+  flex: 0 0 auto;
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: var(--paper-2);
+  border: 1px solid var(--line-soft);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.25s, border-color 0.25s;
+}
+.tool-card:hover .tool-logo { background: var(--paper); border-color: var(--line); }
+.tool-logo img {
+  width: 26px; height: 26px;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.tool-card:hover .tool-logo img { transform: scale(1.12); }
+.tool-info { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.tool-info .tname {
+  font-size: 15.5px; font-weight: 600; letter-spacing: -0.01em;
+  color: var(--ink);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.tool-info .tref {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink-soft);
+}
 
 /* ============================================================
    Timeline — education (inside About)
