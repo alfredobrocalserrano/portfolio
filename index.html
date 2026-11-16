@@ -1,504 +1,372 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" id="metaDesc" content="Alfredo Brocal Serrano — Data Scientist &amp; Analyst. Portfolio editorial con proyectos de análisis de datos, Python, SQL e IA." />
-<meta property="og:title" content="Alfredo Brocal Serrano — Data Scientist &amp; Analyst" />
-<meta property="og:description" content="Portfolio editorial de data scientist: CO₂, RAG, Google Play, X. Python · SQL · Pandas." />
-<meta property="og:type" content="website" />
-<meta property="og:image" content="./assets/project-co2.jpg" />
-<meta name="theme-color" content="#f3efe6" />
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f3efe6'/><text x='50' y='82' font-size='75' font-family='Georgia,serif' fill='%23161310' font-style='italic' text-anchor='middle'>A</text></svg>" />
-<title>Alfredo Brocal Serrano — Data Scientist &amp; Analyst</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="./styles.css?v=20260721" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alfredo Brocal Serrano · Data Science</title>
+<meta name="description" content="Estudiante del Máster en Data Science (UCM) que busca prácticas. Elche (Alicante) · Madrid · remoto. Cuatro proyectos con datos reales: CO₂, un asistente RAG, Google Play y sentimiento en X.">
+<link rel="canonical" href="https://portfolio-alfredo-brocal.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://portfolio-alfredo-brocal.vercel.app/">
+<meta property="og:title" content="Alfredo Brocal Serrano · Data Science">
+<meta property="og:description" content="Máster en Data Science (UCM). Busco prácticas · Elche (Alicante) · Madrid · remoto. Cuatro análisis con datos reales y código en GitHub.">
+<meta property="og:image" content="https://portfolio-alfredo-brocal.vercel.app/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f4f4f1">
+<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="./assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="./styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Alfredo Brocal Serrano",
+  "jobTitle": "Data Scientist & Analyst",
+  "url": "https://portfolio-alfredo-brocal.vercel.app/",
+  "image": "https://portfolio-alfredo-brocal.vercel.app/assets/img/portrait.jpg",
+  "email": "mailto:alfredobrocalserrano@gmail.com",
+  "sameAs": [
+    "https://www.linkedin.com/in/alfredo-brocal-serrano-a0b1a73ab/",
+    "https://github.com/alfredobrocalserrano"
+  ],
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Universidad de Murcia",
+    "url": "https://www.um.es/"
+  },
+  "knowsAbout": ["Python", "SQL", "Pandas", "Power BI", "RAG", "LangChain"]
+}
+</script>
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-down" viewBox="0 0 16 16"><path d="M8 1.5v11M3 8l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></symbol>
+  <symbol id="i-out" viewBox="0 0 16 16"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></symbol>
+  <symbol id="i-right" viewBox="0 0 16 16"><path d="M1.5 8h11M8 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></symbol>
+</svg>
 
-<!-- Preloader -->
-<div class="preloader" id="preloader" aria-hidden="true">
-  <div class="preloader-top mono">
-    <span>Portfolio · Vol. 01</span>
-    <span>Madrid · ES</span>
-  </div>
-  <div class="preloader-name">Alfredo <span class="amp">&amp;</span> los datos</div>
-  <div class="preloader-bottom">
-    <span class="mono" style="color:var(--ink-dim);">Cargando —</span>
-    <span class="preloader-counter" id="preloaderCounter">000</span>
-  </div>
-  <div class="preloader-bar"><i id="preloaderBarFill"></i></div>
-</div>
+<a class="skip" href="#main" data-en="Skip to content">Saltar al contenido</a>
 
-<!-- Custom cursor (editorial arrow) -->
-<div class="cursor" id="cursor" aria-hidden="true">
-  <svg class="cursor-arrow" viewBox="0 0 24 24" fill="currentColor"><path d="M5 2l15 7.2-6.3 2.1L11.4 18z"/></svg>
-</div>
-
-<!-- Mobile overlay -->
-<div class="mobile-overlay" id="mobileOverlay" aria-hidden="true">
-  <button class="overlay-close" id="overlayClose" aria-label="Cerrar">×</button>
-  <nav class="overlay-nav">
-    <a href="#about" class="overlay-link"><span class="n">01</span><span data-i18n="nav.about">Sobre</span></a>
-    <a href="#projects" class="overlay-link"><span class="n">02</span><span data-i18n="nav.projects">Proyectos</span></a>
-    <a href="#skills" class="overlay-link"><span class="n">03</span><span data-i18n="nav.skills">Habilidades</span></a>
-    <a href="#contact" class="overlay-link"><span class="n">04</span><span data-i18n="nav.contact">Contacto</span></a>
-  </nav>
-  <div class="overlay-footer">
-    <div class="lang-toggle">
-      <button data-lang="es" class="active">ES</button>
-      <button data-lang="en">EN</button>
-    </div>
-  </div>
-</div>
-
-<nav class="nav">
-  <div class="nav-inner">
-    <a class="brand" href="#top"><span class="mark">A</span><span><strong>Alfredo Brocal</strong> <em>· data scientist</em></span></a>
-    <div class="nav-links">
-      <a href="#about"><span class="n">01</span><span data-i18n="nav.about">Sobre</span></a>
-      <a href="#projects"><span class="n">02</span><span data-i18n="nav.projects">Proyectos</span></a>
-      <a href="#skills"><span class="n">03</span><span data-i18n="nav.skills">Habilidades</span></a>
-      <a href="#contact"><span class="n">04</span><span data-i18n="nav.contact">Contacto</span></a>
-    </div>
-    <div class="nav-right">
-      <div class="lang-toggle">
-        <button data-lang="es" class="active">ES</button>
-        <button data-lang="en">EN</button>
+<header class="nav">
+  <div class="nav__inner">
+    <a class="nav__name" href="#top">Alfredo Brocal Serrano</a>
+    <nav class="nav__links" aria-label="Secciones" data-en-aria-label="Sections">
+      <a href="#proyectos" data-en="Projects">Proyectos</a>
+      <a href="#sobre-mi" data-en="About">Sobre mí</a>
+      <a href="#herramientas" data-en="Tools">Herramientas</a>
+      <a href="#contacto" data-en="Contact">Contacto</a>
+    </nav>
+    <div class="nav__tools">
+      <div class="lang" role="group" aria-label="Idioma" data-en-aria-label="Language">
+        <button type="button" data-lang="es" aria-pressed="true" lang="es">ES</button>
+        <button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
       </div>
-      <button class="nav-hamburger" aria-label="Menú" aria-expanded="false" id="hamburger">
-        <span></span><span></span><span></span>
-      </button>
+      <a class="btn" href="./assets/CV_Alfredo_Brocal_Serrano.pdf" download aria-label="Descargar CV en PDF" data-en-aria-label="Download CV as PDF"><svg aria-hidden="true"><use href="#i-down"/></svg><span>CV</span></a>
     </div>
-  </div>
-  <div class="nav-progress" id="navProgress"></div>
-</nav>
-
-<header class="hero" id="top">
-  <div class="hero-meta mono" data-reveal>
-    <div class="meta-l">
-      <span>Vol. 01 · 2026</span>
-      <span>Madrid · ES</span>
-    </div>
-    <div class="meta-r">
-      <span><span class="dot"></span><span data-i18n="hero.avail">Disponible para colaborar</span></span>
-    </div>
-  </div>
-
-  <div class="hero-headline">
-    <h1>
-      <span class="row"><span data-hero-row>Alfredo</span></span>
-      <span class="row row-indent"><span data-hero-row>Brocal</span></span>
-      <span class="row"><span data-hero-row><em>Serrano</em></span></span>
-    </h1>
-    <div class="hero-role-strip mono" data-reveal>
-      <span class="rule"></span>
-      <span data-i18n="hero.role">Data Scientist &amp; Analyst — Madrid</span>
-    </div>
-  </div>
-
-  <div class="hero-sub">
-    <p class="lede" data-reveal data-i18n="hero.lede">
-      Transformando datos crudos en <em>decisiones</em> con Python, SQL y la mirada estratégica del Máster en Data Science por la UCM.
-    </p>
-    <div class="hero-stat" data-reveal>
-      <div class="mono label" data-i18n="hero.s1l">Proyectos</div>
-      <div class="val"><span data-count="4" data-pad="2">04</span></div>
-    </div>
-    <div class="hero-stat" data-reveal>
-      <div class="mono label" data-i18n="hero.s2l">Registros</div>
-      <div class="val"><em>+</em><span data-count="78">78</span><span class="small">K</span></div>
-    </div>
-    <div class="hero-stat" data-reveal>
-      <div class="mono label" data-i18n="hero.s3l">Con RAG</div>
-      <div class="val"><span data-count="2199" data-sep="1">2.199</span><span class="small" data-i18n="hero.s3u">págs</span></div>
-    </div>
-  </div>
-
-  <div class="hero-cta-row" data-reveal>
-    <a class="btn btn-primary" href="#projects">
-      <span data-i18n="hero.cta1">Ver proyectos</span>
-      <span class="arr">→</span>
-    </a>
-    <a class="btn btn-ghost" href="#contact" data-i18n="hero.cta2">Contacto</a>
-  </div>
-
-  <svg class="hero-chart" viewBox="0 0 480 290" aria-hidden="true">
-    <defs>
-      <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#b03a2e" stop-opacity="0.35"/>
-        <stop offset="100%" stop-color="#b03a2e" stop-opacity="0"/>
-      </linearGradient>
-    </defs>
-    <g stroke="rgba(22,19,16,0.12)" stroke-width="0.5">
-      <line x1="0" y1="60" x2="480" y2="60"/>
-      <line x1="0" y1="120" x2="480" y2="120"/>
-      <line x1="0" y1="180" x2="480" y2="180"/>
-      <line x1="0" y1="240" x2="480" y2="240"/>
-    </g>
-    <path id="hero-line" d="M 0 230 L 60 215 L 120 220 L 180 185 L 240 190 L 300 140 L 360 110 L 420 65 L 480 40" fill="none" stroke="#b03a2e" stroke-width="1.6"/>
-    <path d="M 0 230 L 60 215 L 120 220 L 180 185 L 240 190 L 300 140 L 360 110 L 420 65 L 480 40 L 480 290 L 0 290 Z" fill="url(#g1)"/>
-    <g>
-      <circle cx="60" cy="215" r="3" fill="#f3efe6" stroke="#b03a2e" stroke-width="1.5"/>
-      <circle cx="180" cy="185" r="3" fill="#f3efe6" stroke="#b03a2e" stroke-width="1.5"/>
-      <circle cx="300" cy="140" r="3" fill="#f3efe6" stroke="#b03a2e" stroke-width="1.5"/>
-      <circle cx="420" cy="65" r="3.5" fill="#b03a2e"/>
-    </g>
-    <text x="0" y="280" font-family="JetBrains Mono" font-size="9" fill="#6b6258" letter-spacing="1">1900</text>
-    <text x="450" y="280" font-family="JetBrains Mono" font-size="9" fill="#6b6258" letter-spacing="1">2021</text>
-    <text x="0" y="20" font-family="JetBrains Mono" font-size="9" fill="#6b6258" letter-spacing="1.5">FIG. 01 — CO₂ EMISSIONS · 121 YRS</text>
-  </svg>
-
-  <div class="hero-scroll-hint mono">
-    <span class="line-v"></span>
-    <span data-i18n="hero.scroll">Scroll</span>
   </div>
 </header>
 
-<div class="marquee-band">
-  <div class="marquee">
-    <div class="marquee-track">
-      <span data-i18n="marq">
-        Python <span class="star">✦</span> SQL <span class="star">✦</span> Pandas <span class="star">✦</span> Machine Learning <span class="star">✦</span> RAG <span class="star">✦</span> Visualización de datos <span class="star">✦</span>
-      </span>
-      <span data-i18n="marq" aria-hidden="true">
-        Python <span class="star">✦</span> SQL <span class="star">✦</span> Pandas <span class="star">✦</span> Machine Learning <span class="star">✦</span> RAG <span class="star">✦</span> Visualización de datos <span class="star">✦</span>
-      </span>
-    </div>
-  </div>
-  <div class="marquee">
-    <div class="marquee-track rev">
-      <span data-i18n="marq2">
-        <span class="ghost">Power BI</span> <span class="star">✧</span> <span class="ghost">Tableau</span> <span class="star">✧</span> <span class="ghost">LangChain</span> <span class="star">✧</span> <span class="ghost">ChromaDB</span> <span class="star">✧</span> <span class="ghost">NumPy</span> <span class="star">✧</span> <span class="ghost">DBeaver</span> <span class="star">✧</span>
-      </span>
-      <span data-i18n="marq2" aria-hidden="true">
-        <span class="ghost">Power BI</span> <span class="star">✧</span> <span class="ghost">Tableau</span> <span class="star">✧</span> <span class="ghost">LangChain</span> <span class="star">✧</span> <span class="ghost">ChromaDB</span> <span class="star">✧</span> <span class="ghost">NumPy</span> <span class="star">✧</span> <span class="ghost">DBeaver</span> <span class="star">✧</span>
-      </span>
-    </div>
-  </div>
-</div>
+<main id="main">
 
-<section id="about">
-  <div class="sec-head" data-reveal>
-    <div class="sec-num">
-      <span class="pilcrow">§</span>
-      <span class="mono">01 / <span data-i18n="about.tag">Sobre mí</span></span>
-    </div>
-    <h2><span data-i18n="about.h2a">Una mente</span> <em data-i18n="about.h2b">analítica</em><br/><span data-i18n="about.h2c">con visión estratégica.</span></h2>
-  </div>
-  <div class="about-grid">
-    <div class="about-photo-wrap" data-reveal>
-      <div class="about-photo" data-photo-reveal>
-        <img src="./assets/portrait.jpg" alt="Alfredo Brocal Serrano, Data Scientist" />
-        <div class="grain"></div>
-      </div>
-      <p class="photo-caption" data-i18n="about.cap">Madrid, 2026. UCM, Máster en Data Science.</p>
-    </div>
-    <div class="about-text">
-      <p class="dropcap" data-reveal data-i18n="about.p1"><strong>Graduado</strong> en el Grado en Gestión de Información y Contenidos Digitales — una formación que me ha dado la base para entender cómo se organiza y fluye la información en el entorno digital.</p>
-      <p data-reveal data-i18n="about.p2">Para llevar estas habilidades al siguiente nivel, completé el certificado de <em>Google Data Analytics</em> y actualmente curso el <strong>Máster en Data Science en la UCM</strong>. Esta combinación me permite unir gestión estratégica con analítica avanzada.</p>
-      <p data-reveal data-i18n="about.p3">Mi objetivo: usar Python y SQL para transformar datos en bruto en <em>conocimiento accionable</em> y visualizaciones de alto impacto.</p>
-
-      <div class="currently" data-reveal>
-        <div class="label"><span class="dot"></span><span data-i18n="curr.label">Actualmente</span></div>
-        <div class="body" data-i18n="curr.body">Cursando MSc Data Science (UCM), explorando RAG / LLMs y abierto a colaborar en proyectos de <em>analítica estratégica</em>.</div>
-      </div>
-
-      <div class="about-cta-row" data-reveal>
-        <a class="btn btn-primary" href="./assets/CV_Alfredo_Brocal_Serrano.pdf" download="CV_Alfredo_Brocal_Serrano.pdf" target="_blank" rel="noopener"><span data-i18n="about.cv">Descargar CV (PDF)</span><span class="arr">↓</span></a>
-        <a class="btn btn-ghost" href="#contact" data-i18n="about.contact">Hablemos</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="philosophy">
-    <div class="phil-item" data-reveal>
-      <span class="phil-num">.01</span>
-      <h4 data-i18n="phil.1h">Claridad antes que complejidad</h4>
-      <p data-i18n="phil.1p">Un modelo que nadie entiende no cambia ninguna decisión. Priorizo el camino más simple entre el dato y el insight.</p>
-    </div>
-    <div class="phil-item" data-reveal>
-      <span class="phil-num">.02</span>
-      <h4 data-i18n="phil.2h">Trazabilidad, no cajas negras</h4>
-      <p data-i18n="phil.2p">Cada conclusión debe poder rastrearse hasta la fila que la sostiene: consulta SQL, celda o citación con fuente.</p>
-    </div>
-    <div class="phil-item" data-reveal>
-      <span class="phil-num">.03</span>
-      <h4 data-i18n="phil.3h">De datos a decisiones</h4>
-      <p data-i18n="phil.3p">Un análisis solo importa si mueve una acción. Diseño cada dashboard pensando en quién lo va a usar y para qué.</p>
-    </div>
-  </div>
-
-  <div class="timeline">
-    <div class="timeline-head mono">
-      <span class="rule"></span>
-      <span data-i18n="tl.tag">Formación</span>
-    </div>
-    <div class="tl-list">
-      <div class="tl-item" data-reveal>
-        <span class="tl-year" data-i18n="tl.1y">Grado universitario</span>
-        <h4 data-i18n="tl.1t">Gestión de Información y Contenidos Digitales</h4>
-        <p data-i18n="tl.1d">Base en cómo se organiza, gestiona y fluye la información en entornos digitales.</p>
-        <span class="tl-status"><span class="d"></span><span data-i18n="tl.1s">Graduado</span></span>
-      </div>
-      <div class="tl-item" data-reveal>
-        <span class="tl-year" data-i18n="tl.2y">Certificación profesional</span>
-        <h4 data-i18n="tl.2t">Google Data Analytics</h4>
-        <p data-i18n="tl.2d">Limpieza, análisis y visualización de datos orientados a la toma de decisiones.</p>
-        <span class="tl-status"><span class="d"></span><span data-i18n="tl.2s">Completado</span></span>
-      </div>
-      <div class="tl-item" data-reveal>
-        <span class="tl-year" data-i18n="tl.3y">Máster · UCM</span>
-        <h4 data-i18n="tl.3t">Máster en Data Science</h4>
-        <p data-i18n="tl.3d">Analítica avanzada, machine learning y sistemas de IA generativa (RAG / LLMs).</p>
-        <span class="tl-status live"><span class="d"></span><span data-i18n="tl.3s">En curso</span></span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="statement" id="statement">
-  <div class="statement-inner">
-    <div class="eyebrow mono"><span class="rule"></span><span data-i18n="statement.eyebrow">Manifiesto</span></div>
-    <blockquote id="statementQuote" data-i18n="statement.q">Los datos no cuentan historias por sí solos — <em>alguien tiene que hacer las preguntas correctas.</em></blockquote>
-    <cite data-i18n="statement.c">Alfredo Brocal · sobre analítica con propósito</cite>
-  </div>
-</div>
-
-<section id="projects">
-  <div class="sec-head" data-reveal>
-    <div class="sec-num">
-      <span class="pilcrow">§</span>
-      <span class="mono">02 / <span data-i18n="projects.tag">Trabajos seleccionados</span></span>
-    </div>
-    <h2><span data-i18n="projects.h2a">Proyectos</span> <em data-i18n="projects.h2b">recientes.</em></h2>
-  </div>
-  <div class="projects">
-    <a class="project" data-pj="co2" data-reveal>
-      <div class="mono pj-num"><span class="big">01</span><span class="yr">2026</span></div>
-      <div class="pj-title-block">
-        <h3 class="pj-title" data-i18n="pj1.title">Análisis end-to-end: <em>emisiones globales de CO₂</em></h3>
-        <svg class="pj-spark" viewBox="0 0 120 28"><path d="M 0 22 L 18 19 L 32 21 L 46 14 L 62 16 L 78 9 L 94 7 L 120 2" stroke-dasharray="200" stroke-dashoffset="200" style="transition: stroke-dashoffset 1.4s ease;"/></svg>
-      </div>
-      <div class="pj-meta">
-        <p data-i18n="pj1.desc">Pipeline de datos profesional sobre 121 años de emisiones, con insights críticos sobre descarbonización real.</p>
-        <div class="tags">
-          <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">SQL</span><span class="tag">Sheets</span>
-        </div>
-      </div>
-      <div class="pj-arrow">→</div>
-    </a>
-    <a class="project" data-pj="rag" data-reveal>
-      <div class="mono pj-num"><span class="big">02</span><span class="yr">2026</span></div>
-      <div class="pj-title-block">
-        <h3 class="pj-title" data-i18n="pj2.title">Sistema de consultas <em>inteligentes (RAG)</em></h3>
-        <svg class="pj-spark" viewBox="0 0 120 28"><path d="M 0 24 L 24 18 L 40 22 L 60 12 L 80 10 L 100 5 L 120 8" stroke-dasharray="200" stroke-dashoffset="200" style="transition: stroke-dashoffset 1.4s ease;"/></svg>
-      </div>
-      <div class="pj-meta">
-        <p data-i18n="pj2.desc">IA generativa para gestión de conocimiento mediante lenguaje natural, con citaciones trazables.</p>
-        <div class="tags">
-          <span class="tag">RAG</span><span class="tag">LLM</span><span class="tag">Python</span>
-        </div>
-      </div>
-      <div class="pj-arrow">→</div>
-    </a>
-    <a class="project" data-pj="play" data-reveal>
-      <div class="mono pj-num"><span class="big">03</span><span class="yr">2025</span></div>
-      <div class="pj-title-block">
-        <h3 class="pj-title" data-i18n="pj3.title">Análisis de mercado: <em>Google Play Store</em></h3>
-        <svg class="pj-spark" viewBox="0 0 120 28"><path d="M 0 14 L 20 10 L 40 19 L 60 14 L 80 6 L 100 12 L 120 4" stroke-dasharray="200" stroke-dashoffset="200" style="transition: stroke-dashoffset 1.4s ease;"/></svg>
-      </div>
-      <div class="pj-meta">
-        <p data-i18n="pj3.desc">Estudio integral de las métricas que definen el éxito y la valoración de apps móviles.</p>
-        <div class="tags">
-          <span class="tag">EDA</span><span class="tag">Pandas</span><span class="tag">Power BI</span>
-        </div>
-      </div>
-      <div class="pj-arrow">→</div>
-    </a>
-    <a class="project" data-pj="x" data-reveal>
-      <div class="mono pj-num"><span class="big">04</span><span class="yr">2025</span></div>
-      <div class="pj-title-block">
-        <h3 class="pj-title" data-i18n="pj4.title">Sentiment analysis: <em>limpieza masiva (X)</em></h3>
-        <svg class="pj-spark" viewBox="0 0 120 28"><path d="M 0 16 L 20 20 L 40 14 L 60 18 L 80 12 L 100 16 L 120 10" stroke-dasharray="200" stroke-dashoffset="200" style="transition: stroke-dashoffset 1.4s ease;"/></svg>
-      </div>
-      <div class="pj-meta">
-        <p data-i18n="pj4.desc">NLP y limpieza profunda de datasets masivos provenientes de redes sociales.</p>
-        <div class="tags">
-          <span class="tag">NLP</span><span class="tag">Python</span><span class="tag">Regex</span>
-        </div>
-      </div>
-      <div class="pj-arrow">→</div>
-    </a>
-  </div>
-</section>
-
-<div class="numbers" data-reveal>
-  <div class="numbers-inner">
-    <div class="numbers-head mono">
-      <span class="rule"></span>
-      <span data-i18n="num.tag">En números</span>
-    </div>
-    <div class="numbers-grid">
-      <div class="num-item">
-        <div class="num-val"><span data-count="121">121</span></div>
-        <div class="num-label" data-i18n="num.1">años de emisiones de CO₂ analizados</div>
-      </div>
-      <div class="num-item">
-        <div class="num-val"><span data-count="10000" data-sep="1">10.000</span><span class="sfx">+</span></div>
-        <div class="num-label" data-i18n="num.2">apps estudiadas en Google Play</div>
-      </div>
-      <div class="num-item">
-        <div class="num-val"><span data-count="63639" data-sep="1">63.639</span></div>
-        <div class="num-label" data-i18n="num.3">tweets procesados con NLP</div>
-      </div>
-      <div class="num-item">
-        <div class="num-val"><span data-count="4" data-pad="1">4</span></div>
-        <div class="num-label" data-i18n="num.4">empresas del IBEX en el sistema RAG</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<section id="skills">
-  <div class="sec-head" data-reveal>
-    <div class="sec-num">
-      <span class="pilcrow">§</span>
-      <span class="mono">03 / <span data-i18n="skills.tag">Stack técnico</span></span>
-    </div>
-    <h2><span data-i18n="skills.h2a">Herramientas que</span> <em data-i18n="skills.h2b">domino.</em></h2>
-  </div>
-
-  <div class="tools-grid" data-reveal>
-    <div class="tool-card">
-      <div class="tool-logo"><img src="./assets/logos/python.svg" alt="Python" loading="lazy" /></div>
-      <div class="tool-info"><span class="tname">Python</span><span class="tref">CO₂ · RAG · X</span></div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo"><img src="./assets/logos/sql.svg" alt="SQL" loading="lazy" /></div>
-      <div class="tool-info"><span class="tname">SQL</span><span class="tref">CO₂</span></div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo"><img src="./assets/logos/pandas.svg" alt="Pandas" loading="lazy" /></div>
-      <div class="tool-info"><span class="tname">Pandas</span><span class="tref">CO₂ · Play</span></div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo"><img src="./assets/logos/numpy.svg" alt="NumPy" loading="lazy" /></div>
-      <div class="tool-info"><span class="tname">NumPy</span><span class="tref">CO₂</span></div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo"><img src="./assets/logos/matplotlib.svg" alt="Matplotlib" loading="lazy" /></div>
-      <div class="tool-info"><span class="tname">Matplotlib</span><span class="tref">RAG</span></div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo"><img src="./assets/logos/dbeaver.svg" alt="DBeaver" loading="lazy" /></div>
-      <div class="tool-info"><span class="tname">DBeaver</span><span class="tref">CO₂</span></div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo"><img src="./assets/logos/powerbi.svg" alt="Power BI" loading="lazy" /></div>
-      <div class="tool-info"><span class="tname">Power BI</span><span class="tref">Play</span></div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo"><img src="./assets/logos/tableau.svg" alt="Tableau" loading="lazy" /></div>
-      <div class="tool-info"><span class="tname">Tableau</span><span class="tref">Play</span></div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo"><img src="./assets/logos/googlesheets.svg" alt="Google Sheets" loading="lazy" /></div>
-      <div class="tool-info"><span class="tname">Google Sheets</span><span class="tref">CO₂ · Play</span></div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo"><img src="./assets/logos/langchain.svg" alt="LangChain" loading="lazy" /></div>
-      <div class="tool-info"><span class="tname">LangChain</span><span class="tref">RAG</span></div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo"><img src="./assets/logos/huggingface.svg" alt="HuggingFace" loading="lazy" /></div>
-      <div class="tool-info"><span class="tname">HuggingFace</span><span class="tref">RAG</span></div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo"><img src="./assets/logos/groq.svg" alt="Groq" loading="lazy" /></div>
-      <div class="tool-info"><span class="tname">Groq · LLM</span><span class="tref">RAG</span></div>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="sec-head" data-reveal>
-    <div class="sec-num">
-      <span class="pilcrow">§</span>
-      <span class="mono">04 / <span data-i18n="contact.tag">Hablemos</span></span>
-    </div>
-    <h2><span data-i18n="contact.h2a">Construyamos algo</span><br/><em data-i18n="contact.h2b">juntos.</em></h2>
-  </div>
-  <div class="contact-grid">
-    <p class="contact-text" data-reveal data-i18n="contact.text">
-      Finalizando mi formación en la UCM y abierto a colaborar en proyectos de <em>Data Science, Análisis de Datos e IA</em>.
+<section class="hero grid" id="top" aria-labelledby="hero-name">
+  <div class="hero__text">
+    <h1 id="hero-name"><span>Alfredo</span><span>Brocal</span><span>Serrano</span></h1>
+    <p class="hero__role">
+      <span data-en="MSc Data Science student at UCM,">Estudiante del Máster en Data Science en la UCM.</span>
+      <strong data-en="looking for an internship">Busco prácticas</strong>
+      <span data-en="in data science or analytics. Elche (Alicante) · Madrid · remote.">en ciencia y análisis de datos. Elche (Alicante) · Madrid · remoto.</span>
     </p>
-    <div class="contact-list" data-reveal>
-      <a class="contact-item" href="tel:+34644446991">
-        <div class="mono ckey">Tel</div>
-        <div class="cval">+34 644 44 69 91</div>
-        <div class="carr">→</div>
-      </a>
-      <a class="contact-item" href="https://www.linkedin.com/in/alfredo-brocal-serrano-a0b1a73ab/" target="_blank" rel="noopener">
-        <div class="mono ckey">LinkedIn</div>
-        <div class="cval">/in/alfredo-brocal-serrano</div>
-        <div class="carr">→</div>
-      </a>
-      <a class="contact-item" href="https://github.com/alfredobrocalserrano" target="_blank" rel="noopener">
-        <div class="mono ckey">GitHub</div>
-        <div class="cval">@alfredobrocalserrano</div>
-        <div class="carr">→</div>
-      </a>
+    <div class="hero__cta">
+      <a class="btn" href="./assets/CV_Alfredo_Brocal_Serrano.pdf" download><svg aria-hidden="true"><use href="#i-down"/></svg><span data-en="Download CV (PDF)">Descargar CV (PDF)</span></a>
+      <a class="btn btn--red" href="#proyectos"><span data-en="See the projects">Ver los proyectos</span><svg aria-hidden="true"><use href="#i-right"/></svg></a>
     </div>
   </div>
-  <div class="contact-mega" data-reveal>
-    <span class="mono" data-i18n="contact.megaLabel">¿Un proyecto en mente? Escríbeme —</span>
-    <a class="mega-mail" href="mailto:alfredobrocalserrano@gmail.com">alfredobrocalserrano@gmail.com</a>
+
+  <figure class="hero__fig fig">
+    <svg class="chart scrub" viewBox="0 0 820 500" preserveAspectRatio="xMinYMid meet" tabindex="0" role="img" aria-labelledby="fig1-t" aria-describedby="fig1-d"><title id="fig1-t" data-en="Global CO₂ emissions by source, 1900–2021">Emisiones globales de CO₂ por fuente, 1900–2021</title><desc id="fig1-d" data-en="Stacked area chart. Total emissions rise from 1,952 Mt in 1900 to 36,828 Mt in 2021. In 2021: coal 14,980, oil 11,837, gas 7,922, cement 1,673 and flaring 417 Mt. Use the left and right arrow keys to read each year.">Áreas apiladas. El total pasa de 1.952 Mt en 1900 a 36.828 Mt en 2021. En 2021: carbón 14.980, petróleo 11.837, gas 7.922, cemento 1.673 y gas quemado en antorcha 417 Mt. Usa las flechas izquierda y derecha para leer cada año.</desc><defs><pattern id="h-ink" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="2.6" height="7" fill="#111111"/></pattern><pattern id="h-red" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><rect width="2.6" height="7" fill="#d0201a"/></pattern></defs><line class="grid-l" x1="0" x2="620" y1="350.5" y2="350.5"/><text class="t-s t-dim" x="4" y="344.5">10 Gt</text><line class="grid-l" x1="0" x2="620" y1="241.0" y2="241.0"/><text class="t-s t-dim" x="4" y="235.0">20 Gt</text><line class="grid-l" x1="0" x2="620" y1="131.5" y2="131.5"/><text class="t-s t-dim" x="4" y="125.5">30 Gt</text><line class="grid-l" x1="0" x2="620" y1="22.0" y2="22.0"/><text class="t-s t-dim" x="4" y="16.0">40 Gt</text><g class="wipe" data-wipe><path d="M0.0,439.5 5.1,438.9 10.2,438.4 15.4,436.4 20.5,436.3 25.6,434.7 30.7,433.5 35.9,429.9 41.0,431.2 46.1,430.1 51.2,428.7 56.4,428.3 61.5,426.6 66.6,424.0 71.7,427.6 76.9,428.2 82.0,425.7 87.1,424.3 92.2,424.9 97.4,430.3 102.5,425.8 107.6,430.8 112.7,429.7 117.9,425.5 123.0,425.5 128.1,425.5 133.2,426.3 138.3,423.2 143.5,423.8 148.6,421.4 153.7,424.8 158.8,429.0 164.0,432.4 169.1,431.1 174.2,428.5 179.3,427.2 184.5,424.0 189.6,422.1 194.7,424.7 199.8,422.4 205.0,418.5 210.1,417.5 215.2,417.2 220.3,417.0 225.5,417.6 230.6,427.2 235.7,424.6 240.8,420.3 246.0,419.1 251.1,421.2 256.2,417.8 261.3,415.5 266.4,416.1 271.6,415.7 276.7,415.8 281.8,412.1 286.9,409.7 292.1,408.7 297.2,407.9 302.3,405.8 307.4,403.6 312.6,405.9 317.7,406.0 322.8,404.1 327.9,402.9 333.1,402.0 338.2,401.4 343.3,402.3 348.4,401.7 353.6,399.5 358.7,397.6 363.8,397.6 368.9,397.7 374.0,395.8 379.2,395.8 384.3,393.9 389.4,391.4 394.5,389.7 399.7,388.5 404.8,385.1 409.9,383.1 415.0,383.3 420.2,382.0 425.3,379.9 430.4,376.0 435.5,370.0 440.7,368.7 445.8,365.6 450.9,362.4 456.0,362.4 461.2,364.9 466.3,365.8 471.4,368.0 476.5,366.9 481.7,366.4 486.8,363.7 491.9,361.3 497.0,361.8 502.1,364.5 507.3,363.0 512.4,359.2 517.5,358.7 522.6,354.0 527.8,344.8 532.9,341.0 538.0,333.6 543.1,326.5 548.3,320.1 553.4,315.5 558.5,317.5 563.6,307.5 568.8,298.6 573.9,296.6 579.0,295.5 584.1,295.2 589.3,298.9 594.4,302.8 599.5,301.1 604.6,298.5 609.8,298.8 614.9,304.8 620.0,296.0 L620.0,460.0 614.9,460.0 609.8,460.0 604.6,460.0 599.5,460.0 594.4,460.0 589.3,460.0 584.1,460.0 579.0,460.0 573.9,460.0 568.8,460.0 563.6,460.0 558.5,460.0 553.4,460.0 548.3,460.0 543.1,460.0 538.0,460.0 532.9,460.0 527.8,460.0 522.6,460.0 517.5,460.0 512.4,460.0 507.3,460.0 502.1,460.0 497.0,460.0 491.9,460.0 486.8,460.0 481.7,460.0 476.5,460.0 471.4,460.0 466.3,460.0 461.2,460.0 456.0,460.0 450.9,460.0 445.8,460.0 440.7,460.0 435.5,460.0 430.4,460.0 425.3,460.0 420.2,460.0 415.0,460.0 409.9,460.0 404.8,460.0 399.7,460.0 394.5,460.0 389.4,460.0 384.3,460.0 379.2,460.0 374.0,460.0 368.9,460.0 363.8,460.0 358.7,460.0 353.6,460.0 348.4,460.0 343.3,460.0 338.2,460.0 333.1,460.0 327.9,460.0 322.8,460.0 317.7,460.0 312.6,460.0 307.4,460.0 302.3,460.0 297.2,460.0 292.1,460.0 286.9,460.0 281.8,460.0 276.7,460.0 271.6,460.0 266.4,460.0 261.3,460.0 256.2,460.0 251.1,460.0 246.0,460.0 240.8,460.0 235.7,460.0 230.6,460.0 225.5,460.0 220.3,460.0 215.2,460.0 210.1,460.0 205.0,460.0 199.8,460.0 194.7,460.0 189.6,460.0 184.5,460.0 179.3,460.0 174.2,460.0 169.1,460.0 164.0,460.0 158.8,460.0 153.7,460.0 148.6,460.0 143.5,460.0 138.3,460.0 133.2,460.0 128.1,460.0 123.0,460.0 117.9,460.0 112.7,460.0 107.6,460.0 102.5,460.0 97.4,460.0 92.2,460.0 87.1,460.0 82.0,460.0 76.9,460.0 71.7,460.0 66.6,460.0 61.5,460.0 56.4,460.0 51.2,460.0 46.1,460.0 41.0,460.0 35.9,460.0 30.7,460.0 25.6,460.0 20.5,460.0 15.4,460.0 10.2,460.0 5.1,460.0 0.0,460.0 Z" fill="#111111"/><path d="M0.0,438.7 5.1,438.1 10.2,437.5 15.4,435.5 20.5,435.2 25.6,433.6 30.7,432.5 35.9,428.6 41.0,429.8 46.1,428.6 51.2,427.1 56.4,426.6 61.5,424.9 66.6,422.0 71.7,425.5 76.9,426.1 82.0,423.4 87.1,421.7 92.2,422.2 97.4,427.3 102.5,421.9 107.6,426.6 112.7,425.0 117.9,420.4 123.0,420.3 128.1,420.1 133.2,420.9 138.3,417.3 143.5,417.8 148.6,414.8 153.7,418.5 158.8,422.9 164.0,426.5 169.1,424.7 174.2,421.7 179.3,419.9 184.5,416.0 189.6,413.1 194.7,415.9 199.8,413.3 205.0,408.9 210.1,407.8 215.2,408.0 220.3,407.3 225.5,406.5 230.6,416.1 235.7,412.1 240.8,407.0 246.0,404.4 251.1,406.5 256.2,399.7 261.3,396.5 266.4,396.0 271.6,394.3 276.7,393.1 281.8,386.8 286.9,382.2 292.1,380.0 297.2,378.1 302.3,374.0 307.4,369.3 312.6,369.6 317.7,367.0 322.8,362.4 327.9,357.9 333.1,353.7 338.2,349.3 343.3,346.7 348.4,341.2 353.6,334.0 358.7,323.2 363.8,318.7 368.9,312.6 374.0,305.7 379.2,307.0 384.3,305.9 389.4,297.9 394.5,292.9 399.7,288.2 404.8,283.5 409.9,285.1 415.0,289.7 420.2,290.6 425.3,289.5 430.4,284.8 435.5,278.8 440.7,274.8 445.8,270.9 450.9,264.2 456.0,262.5 461.2,263.6 466.3,259.3 471.4,267.0 476.5,265.8 481.7,264.9 486.8,261.2 491.9,255.7 497.0,254.6 502.1,256.2 507.3,252.3 512.4,246.4 517.5,244.9 522.6,240.3 527.8,227.9 532.9,220.0 538.0,211.6 543.1,203.4 548.3,196.5 553.4,192.3 558.5,197.1 563.6,183.1 568.8,173.9 573.9,170.2 579.0,168.2 584.1,167.3 589.3,168.3 594.4,171.1 599.5,167.1 604.6,164.2 609.8,163.6 614.9,182.2 620.0,166.4 L620.0,296.0 614.9,304.8 609.8,298.8 604.6,298.5 599.5,301.1 594.4,302.8 589.3,298.9 584.1,295.2 579.0,295.5 573.9,296.6 568.8,298.6 563.6,307.5 558.5,317.5 553.4,315.5 548.3,320.1 543.1,326.5 538.0,333.6 532.9,341.0 527.8,344.8 522.6,354.0 517.5,358.7 512.4,359.2 507.3,363.0 502.1,364.5 497.0,361.8 491.9,361.3 486.8,363.7 481.7,366.4 476.5,366.9 471.4,368.0 466.3,365.8 461.2,364.9 456.0,362.4 450.9,362.4 445.8,365.6 440.7,368.7 435.5,370.0 430.4,376.0 425.3,379.9 420.2,382.0 415.0,383.3 409.9,383.1 404.8,385.1 399.7,388.5 394.5,389.7 389.4,391.4 384.3,393.9 379.2,395.8 374.0,395.8 368.9,397.7 363.8,397.6 358.7,397.6 353.6,399.5 348.4,401.7 343.3,402.3 338.2,401.4 333.1,402.0 327.9,402.9 322.8,404.1 317.7,406.0 312.6,405.9 307.4,403.6 302.3,405.8 297.2,407.9 292.1,408.7 286.9,409.7 281.8,412.1 276.7,415.8 271.6,415.7 266.4,416.1 261.3,415.5 256.2,417.8 251.1,421.2 246.0,419.1 240.8,420.3 235.7,424.6 230.6,427.2 225.5,417.6 220.3,417.0 215.2,417.2 210.1,417.5 205.0,418.5 199.8,422.4 194.7,424.7 189.6,422.1 184.5,424.0 179.3,427.2 174.2,428.5 169.1,431.1 164.0,432.4 158.8,429.0 153.7,424.8 148.6,421.4 143.5,423.8 138.3,423.2 133.2,426.3 128.1,425.5 123.0,425.5 117.9,425.5 112.7,429.7 107.6,430.8 102.5,425.8 97.4,430.3 92.2,424.9 87.1,424.3 82.0,425.7 76.9,428.2 71.7,427.6 66.6,424.0 61.5,426.6 56.4,428.3 51.2,428.7 46.1,430.1 41.0,431.2 35.9,429.9 30.7,433.5 25.6,434.7 20.5,436.3 15.4,436.4 10.2,438.4 5.1,438.9 0.0,439.5 Z" fill="#d0201a"/><path d="M0.0,438.6 5.1,437.9 10.2,437.4 15.4,435.3 20.5,435.1 25.6,433.4 30.7,432.3 35.9,428.4 41.0,429.6 46.1,428.4 51.2,426.8 56.4,426.3 61.5,424.6 66.6,421.6 71.7,425.2 76.9,425.7 82.0,423.0 87.1,421.3 92.2,421.8 97.4,426.9 102.5,421.5 107.6,426.2 112.7,424.6 117.9,419.8 123.0,419.7 128.1,419.4 133.2,420.1 138.3,416.5 143.5,416.9 148.6,413.7 153.7,417.3 158.8,421.8 164.0,425.6 169.1,423.7 174.2,420.6 179.3,418.6 184.5,414.7 189.6,411.5 194.7,414.4 199.8,411.7 205.0,407.2 210.1,406.1 215.2,406.2 220.3,405.3 225.5,404.3 230.6,413.8 235.7,409.7 240.8,404.3 246.0,401.3 251.1,403.2 256.2,395.9 261.3,391.9 266.4,391.1 271.6,389.1 276.7,387.6 281.8,380.8 286.9,375.8 292.1,373.0 297.2,370.4 302.3,365.7 307.4,360.2 312.6,359.9 317.7,356.4 322.8,350.9 327.9,345.3 333.1,340.2 338.2,334.6 343.3,331.1 348.4,324.1 353.6,315.3 358.7,303.5 363.8,297.5 368.9,290.1 374.0,281.6 379.2,282.3 384.3,281.2 389.4,271.7 394.5,266.2 399.7,260.3 404.8,254.1 409.9,254.9 415.0,259.1 420.2,260.7 425.3,259.2 430.4,251.9 435.5,244.7 440.7,241.5 445.8,234.7 450.9,226.2 456.0,222.6 461.2,221.6 466.3,216.5 471.4,223.7 476.5,221.3 481.7,220.0 486.8,215.1 491.9,207.5 497.0,206.3 502.1,207.1 507.3,201.7 512.4,194.6 517.5,192.6 522.6,186.6 527.8,172.2 532.9,162.5 538.0,152.7 543.1,143.1 548.3,134.2 553.4,128.1 558.5,134.1 563.6,115.3 568.8,104.2 573.9,99.0 579.0,96.5 584.1,94.4 589.3,94.0 594.4,94.7 599.5,88.9 604.6,81.8 609.8,79.8 614.9,99.5 620.0,79.6 L620.0,166.4 614.9,182.2 609.8,163.6 604.6,164.2 599.5,167.1 594.4,171.1 589.3,168.3 584.1,167.3 579.0,168.2 573.9,170.2 568.8,173.9 563.6,183.1 558.5,197.1 553.4,192.3 548.3,196.5 543.1,203.4 538.0,211.6 532.9,220.0 527.8,227.9 522.6,240.3 517.5,244.9 512.4,246.4 507.3,252.3 502.1,256.2 497.0,254.6 491.9,255.7 486.8,261.2 481.7,264.9 476.5,265.8 471.4,267.0 466.3,259.3 461.2,263.6 456.0,262.5 450.9,264.2 445.8,270.9 440.7,274.8 435.5,278.8 430.4,284.8 425.3,289.5 420.2,290.6 415.0,289.7 409.9,285.1 404.8,283.5 399.7,288.2 394.5,292.9 389.4,297.9 384.3,305.9 379.2,307.0 374.0,305.7 368.9,312.6 363.8,318.7 358.7,323.2 353.6,334.0 348.4,341.2 343.3,346.7 338.2,349.3 333.1,353.7 327.9,357.9 322.8,362.4 317.7,367.0 312.6,369.6 307.4,369.3 302.3,374.0 297.2,378.1 292.1,380.0 286.9,382.2 281.8,386.8 276.7,393.1 271.6,394.3 266.4,396.0 261.3,396.5 256.2,399.7 251.1,406.5 246.0,404.4 240.8,407.0 235.7,412.1 230.6,416.1 225.5,406.5 220.3,407.3 215.2,408.0 210.1,407.8 205.0,408.9 199.8,413.3 194.7,415.9 189.6,413.1 184.5,416.0 179.3,419.9 174.2,421.7 169.1,424.7 164.0,426.5 158.8,422.9 153.7,418.5 148.6,414.8 143.5,417.8 138.3,417.3 133.2,420.9 128.1,420.1 123.0,420.3 117.9,420.4 112.7,425.0 107.6,426.6 102.5,421.9 97.4,427.3 92.2,422.2 87.1,421.7 82.0,423.4 76.9,426.1 71.7,425.5 66.6,422.0 61.5,424.9 56.4,426.6 51.2,427.1 46.1,428.6 41.0,429.8 35.9,428.6 30.7,432.5 25.6,433.6 20.5,435.2 15.4,435.5 10.2,437.5 5.1,438.1 0.0,438.7 Z" fill="url(#h-ink)" stroke="#111111" stroke-width="1.2"/><path d="M0.0,438.6 5.1,437.9 10.2,437.4 15.4,435.3 20.5,435.1 25.6,433.4 30.7,432.3 35.9,428.4 41.0,429.6 46.1,428.4 51.2,426.8 56.4,426.3 61.5,424.6 66.6,421.6 71.7,425.2 76.9,425.7 82.0,423.0 87.1,421.3 92.2,421.8 97.4,426.9 102.5,421.5 107.6,426.2 112.7,424.6 117.9,419.8 123.0,419.7 128.1,419.2 133.2,420.0 138.3,416.3 143.5,416.5 148.6,413.3 153.7,416.9 158.8,421.5 164.0,425.3 169.1,423.5 174.2,420.3 179.3,418.3 184.5,414.2 189.6,411.1 194.7,414.0 199.8,411.4 205.0,406.9 210.1,405.7 215.2,405.8 220.3,404.9 225.5,404.1 230.6,413.5 235.7,409.3 240.8,403.8 246.0,400.8 251.1,402.6 256.2,395.1 261.3,391.1 266.4,390.2 271.6,388.2 276.7,386.6 281.8,379.6 286.9,374.5 292.1,371.6 297.2,368.9 302.3,364.1 307.4,358.5 312.6,358.1 317.7,354.5 322.8,348.9 327.9,343.0 333.1,337.9 338.2,332.0 343.3,328.4 348.4,321.3 353.6,312.4 358.7,300.4 363.8,294.2 368.9,286.6 374.0,277.9 379.2,278.5 384.3,277.5 389.4,267.9 394.5,262.1 399.7,255.9 404.8,249.7 409.9,250.5 415.0,254.7 420.2,256.3 425.3,254.7 430.4,247.3 435.5,240.0 440.7,236.6 445.8,229.7 450.9,220.9 456.0,217.2 461.2,216.2 466.3,210.9 471.4,217.9 476.5,215.2 481.7,213.6 486.8,208.3 491.9,200.6 497.0,199.1 502.1,199.9 507.3,194.1 512.4,186.7 517.5,184.3 522.6,177.9 527.8,162.9 532.9,152.5 538.0,142.1 543.1,131.6 548.3,121.8 553.4,115.6 558.5,121.2 563.6,101.5 568.8,89.4 573.9,83.9 579.0,80.7 584.1,78.0 589.3,78.1 594.4,78.4 599.5,72.3 604.6,64.6 609.8,62.1 614.9,81.6 620.0,61.3 L620.0,79.6 614.9,99.5 609.8,79.8 604.6,81.8 599.5,88.9 594.4,94.7 589.3,94.0 584.1,94.4 579.0,96.5 573.9,99.0 568.8,104.2 563.6,115.3 558.5,134.1 553.4,128.1 548.3,134.2 543.1,143.1 538.0,152.7 532.9,162.5 527.8,172.2 522.6,186.6 517.5,192.6 512.4,194.6 507.3,201.7 502.1,207.1 497.0,206.3 491.9,207.5 486.8,215.1 481.7,220.0 476.5,221.3 471.4,223.7 466.3,216.5 461.2,221.6 456.0,222.6 450.9,226.2 445.8,234.7 440.7,241.5 435.5,244.7 430.4,251.9 425.3,259.2 420.2,260.7 415.0,259.1 409.9,254.9 404.8,254.1 399.7,260.3 394.5,266.2 389.4,271.7 384.3,281.2 379.2,282.3 374.0,281.6 368.9,290.1 363.8,297.5 358.7,303.5 353.6,315.3 348.4,324.1 343.3,331.1 338.2,334.6 333.1,340.2 327.9,345.3 322.8,350.9 317.7,356.4 312.6,359.9 307.4,360.2 302.3,365.7 297.2,370.4 292.1,373.0 286.9,375.8 281.8,380.8 276.7,387.6 271.6,389.1 266.4,391.1 261.3,391.9 256.2,395.9 251.1,403.2 246.0,401.3 240.8,404.3 235.7,409.7 230.6,413.8 225.5,404.3 220.3,405.3 215.2,406.2 210.1,406.1 205.0,407.2 199.8,411.7 194.7,414.4 189.6,411.5 184.5,414.7 179.3,418.6 174.2,420.6 169.1,423.7 164.0,425.6 158.8,421.8 153.7,417.3 148.6,413.7 143.5,416.9 138.3,416.5 133.2,420.1 128.1,419.4 123.0,419.7 117.9,419.8 112.7,424.6 107.6,426.2 102.5,421.5 97.4,426.9 92.2,421.8 87.1,421.3 82.0,423.0 76.9,425.7 71.7,425.2 66.6,421.6 61.5,424.6 56.4,426.3 51.2,426.8 46.1,428.4 41.0,429.6 35.9,428.4 30.7,432.3 25.6,433.4 20.5,435.1 15.4,435.3 10.2,437.4 5.1,437.9 0.0,438.6 Z" fill="url(#h-red)" stroke="#111111" stroke-width="1.2"/><path d="M0.0,438.6 5.1,437.9 10.2,437.4 15.4,435.3 20.5,435.1 25.6,433.4 30.7,432.3 35.9,428.4 41.0,429.6 46.1,428.4 51.2,426.8 56.4,426.3 61.5,424.6 66.6,421.6 71.7,425.2 76.9,425.7 82.0,423.0 87.1,421.3 92.2,421.8 97.4,426.9 102.5,421.5 107.6,426.2 112.7,424.6 117.9,419.8 123.0,419.7 128.1,419.2 133.2,420.0 138.3,416.3 143.5,416.5 148.6,413.3 153.7,416.9 158.8,421.5 164.0,425.3 169.1,423.5 174.2,420.3 179.3,418.3 184.5,414.2 189.6,411.1 194.7,414.0 199.8,411.4 205.0,406.9 210.1,405.7 215.2,405.8 220.3,404.9 225.5,404.1 230.6,413.5 235.7,409.3 240.8,403.8 246.0,400.8 251.1,402.6 256.2,394.3 261.3,390.2 266.4,389.3 271.6,387.3 276.7,385.7 281.8,378.6 286.9,373.3 292.1,370.4 297.2,367.9 302.3,363.1 307.4,357.5 312.6,357.2 317.7,353.6 322.8,347.9 327.9,341.8 333.1,336.5 338.2,330.5 343.3,326.3 348.4,319.0 353.6,309.7 358.7,297.3 363.8,290.7 368.9,282.8 374.0,273.5 379.2,274.2 384.3,273.8 389.4,263.5 394.5,257.9 399.7,251.7 404.8,245.8 409.9,247.0 415.0,252.1 420.2,253.7 425.3,252.4 430.4,245.2 435.5,238.0 440.7,234.8 445.8,227.9 450.9,218.9 456.0,215.6 461.2,213.3 466.3,207.8 471.4,215.1 476.5,212.6 481.7,210.9 486.8,205.6 491.9,197.9 497.0,196.3 502.1,197.3 507.3,191.6 512.4,183.7 517.5,181.3 522.6,174.6 527.8,159.6 532.9,149.0 538.0,138.4 543.1,127.8 548.3,117.8 553.4,111.5 558.5,117.0 563.6,97.4 568.8,85.4 573.9,79.7 579.0,76.5 584.1,73.8 589.3,73.9 594.4,74.3 599.5,68.1 604.6,60.1 609.8,57.3 614.9,77.1 620.0,56.7 L620.0,61.3 614.9,81.6 609.8,62.1 604.6,64.6 599.5,72.3 594.4,78.4 589.3,78.1 584.1,78.0 579.0,80.7 573.9,83.9 568.8,89.4 563.6,101.5 558.5,121.2 553.4,115.6 548.3,121.8 543.1,131.6 538.0,142.1 532.9,152.5 527.8,162.9 522.6,177.9 517.5,184.3 512.4,186.7 507.3,194.1 502.1,199.9 497.0,199.1 491.9,200.6 486.8,208.3 481.7,213.6 476.5,215.2 471.4,217.9 466.3,210.9 461.2,216.2 456.0,217.2 450.9,220.9 445.8,229.7 440.7,236.6 435.5,240.0 430.4,247.3 425.3,254.7 420.2,256.3 415.0,254.7 409.9,250.5 404.8,249.7 399.7,255.9 394.5,262.1 389.4,267.9 384.3,277.5 379.2,278.5 374.0,277.9 368.9,286.6 363.8,294.2 358.7,300.4 353.6,312.4 348.4,321.3 343.3,328.4 338.2,332.0 333.1,337.9 327.9,343.0 322.8,348.9 317.7,354.5 312.6,358.1 307.4,358.5 302.3,364.1 297.2,368.9 292.1,371.6 286.9,374.5 281.8,379.6 276.7,386.6 271.6,388.2 266.4,390.2 261.3,391.1 256.2,395.1 251.1,402.6 246.0,400.8 240.8,403.8 235.7,409.3 230.6,413.5 225.5,404.1 220.3,404.9 215.2,405.8 210.1,405.7 205.0,406.9 199.8,411.4 194.7,414.0 189.6,411.1 184.5,414.2 179.3,418.3 174.2,420.3 169.1,423.5 164.0,425.3 158.8,421.5 153.7,416.9 148.6,413.3 143.5,416.5 138.3,416.3 133.2,420.0 128.1,419.2 123.0,419.7 117.9,419.8 112.7,424.6 107.6,426.2 102.5,421.5 97.4,426.9 92.2,421.8 87.1,421.3 82.0,423.0 76.9,425.7 71.7,425.2 66.6,421.6 61.5,424.6 56.4,426.3 51.2,426.8 46.1,428.4 41.0,429.6 35.9,428.4 30.7,432.3 25.6,433.4 20.5,435.1 15.4,435.3 10.2,437.4 5.1,437.9 0.0,438.6 Z" fill="#f4f4f1" stroke="#111111" stroke-width="1.2"/></g><line class="axis" x1="0" x2="620" y1="460.0" y2="460.0"/><line x1="622" x2="630" y1="59.0" y2="54.0" stroke="#111111" stroke-width="1"/><text class="t-m" x="634" y="59.0" data-en="Flaring">Gas quemado</text><text class="t-s lab-v" x="634" y="78.0" data-en="417 Mt">417 Mt</text><line x1="622" x2="630" y1="70.5" y2="100.0" stroke="#111111" stroke-width="1"/><text class="t-m t-red" x="634" y="105.0" data-en="Cement">Cemento</text><text class="t-s lab-v" x="634" y="124.0" data-en="1,673 Mt">1.673 Mt</text><line x1="622" x2="630" y1="123.0" y2="146.0" stroke="#111111" stroke-width="1"/><text class="t-m" x="634" y="151.0" data-en="Gas">Gas</text><text class="t-s lab-v" x="634" y="170.0" data-en="7,922 Mt">7.922 Mt</text><line x1="622" x2="630" y1="231.2" y2="226.2" stroke="#111111" stroke-width="1"/><text class="t-m t-red" x="634" y="231.2" data-en="Oil">Petróleo</text><text class="t-s lab-v" x="634" y="250.2" data-en="11,837 Mt">11.837 Mt</text><line x1="622" x2="630" y1="378.0" y2="373.0" stroke="#111111" stroke-width="1"/><text class="t-m" x="634" y="378.0" data-en="Coal">Carbón</text><text class="t-s lab-v" x="634" y="397.0" data-en="14,980 Mt">14.980 Mt</text><text class="t-s" x="0.0" y="486" text-anchor="start">1900</text><text class="t-s" x="256.2" y="486" text-anchor="middle">1950</text><text class="t-s" x="512.4" y="486" text-anchor="middle">2000</text><text class="t-s" x="620.0" y="486" text-anchor="end">2021</text><g class="scrub__mark" visibility="hidden"><line class="scrub__line" x1="0" x2="0" y1="22" y2="460.0"/></g></svg>
+    <div class="readout" id="readout" aria-live="polite"></div>
+    <figcaption class="fig__cap"><b data-en="Fig. 1">Fig. 1</b> — <span data-en="Global CO₂ emissions by source, 1900–2021, in million tonnes. Hover or use the arrow keys to read any year.">Emisiones globales de CO₂ por fuente, 1900–2021, en millones de toneladas. Pasa el cursor o usa las flechas para leer cada año.</span></figcaption>
+    <p class="fig__src" data-en="Source: Global Carbon Budget 2022 · evolucion_global_fuentes.csv · project 1">Fuente: Global Carbon Budget 2022 · evolucion_global_fuentes.csv · proyecto 1</p>
+  </figure>
+
+  <nav class="index" aria-label="Proyectos" data-en-aria-label="Projects">
+    <a href="#co2"><span class="index__num" data-en="36,828 Mt">36.828&nbsp;Mt</span><span class="index__lbl" data-en="Global CO₂ in 2021 · analysis of 1900–2021">CO₂ mundial en 2021 · análisis 1900–2021</span></a>
+    <a href="#rag"><span class="index__num" data-en="2,199 pages">2.199 páginas</span><span class="index__lbl" data-en="RAG assistant over IBEX annual reports">Asistente RAG sobre informes anuales del IBEX</span></a>
+    <a href="#play"><span class="index__num" data-en="+0.49 points">+0,49 puntos</span><span class="index__lbl" data-en="Rating edge of paid apps · Google Play">Ventaja de rating de las apps de pago · Google Play</span></a>
+    <a href="#x"><span class="index__num" data-en="63,639 tweets">63.639 tweets</span><span class="index__lbl" data-en="Sentiment dataset, cleaned · X">Dataset de sentimiento limpio · X</span></a>
+  </nav>
+</section>
+
+<section id="proyectos" aria-labelledby="proyectos-h">
+  <div class="sec-head grid">
+    <h2 id="proyectos-h" data-en="Four analyses, four repositories.">Cuatro análisis, cuatro repositorios.</h2>
+    <p data-en="Every chart on this page is drawn from the CSV files these projects produced. The code is public.">Cada gráfico de esta página sale de los CSV que generaron estos proyectos. El código es público.</p>
+  </div>
+
+  <!-- 1 · CO2 -->
+  <article class="plate grid" id="co2" aria-labelledby="co2-h">
+    <header class="plate__head">
+      <h3 id="co2-h" data-en-html="Global CO&lt;sub&gt;2&lt;/sub&gt; emissions, 1900–2021">Emisiones globales de CO<sub>2</sub>, 1900–2021</h3>
+      <p class="plate__meta">2026 · Python, Pandas, SQL (DBeaver), Google Sheets · Global Carbon Budget 2022</p>
+    </header>
+    <div class="plate__body">
+      <p class="key"><span class="key__num" data-en="−26.2%">−26,2&nbsp;%</span><span class="key__txt" data-en="UK emissions, 2011–2021. Europe leads decarbonisation: Italy −22.5%, Spain −18.1%.">las emisiones de Reino Unido entre 2011 y 2021. Europa lidera la descarbonización: Italia −22,5&nbsp;%, España −18,1&nbsp;%.</span></p>
+      <div>
+        <h4 data-en="Context">Contexto</h4>
+        <p data-en="I turned the Global Carbon Budget 2022 dataset (121 years, every country) into a pipeline: cleaning in Pandas, SQL queries in DBeaver and a dashboard in Google Sheets.">Convertí el dataset del Global Carbon Budget 2022 (121 años, todos los países) en un pipeline: limpieza con Pandas, consultas SQL en DBeaver y un dashboard en Google Sheets.</p>
+      </div>
+      <div>
+        <h4 data-en="Findings">Hallazgos</h4>
+        <ul class="list">
+          <li data-en="Coal is still the largest source: 14,980 Mt in 2021, 41% of the total.">El carbón sigue siendo la mayor fuente: 14.980 Mt en 2021, el 41&nbsp;% del total.</li>
+          <li data-en="2021 is the highest year in the series: 36,828 Mt worldwide.">2021 es el año más alto de la serie: 36.828 Mt en todo el mundo.</li>
+          <li data-en="In cumulative emissions, Germany (87,226 Mt) and the UK (62,185 Mt) are ahead of India (57,002 Mt): early industrialisation weighs more than population.">En emisiones acumuladas, Alemania (87.226 Mt) y Reino Unido (62.185 Mt) superan a India (57.002 Mt): pesa más la industrialización temprana que la población.</li>
+          <li data-en="Venezuela cut 54.7%, but through economic collapse, not climate policy.">Venezuela recorta un 54,7&nbsp;%, pero por colapso económico, no por política climática.</li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-en="How I did it">Cómo lo hice</h4>
+        <ol class="steps">
+          <li data-en="Cleaned the data and removed aggregate rows (World, continents) with Pandas.">Limpié los datos y eliminé las filas agregadas (mundo, continentes) con Pandas.</li>
+          <li data-en="Wrote SQL queries in DBeaver: evolution by source, historical ranking and 2011–2021 change.">Escribí consultas SQL en DBeaver: evolución por fuente, ranking histórico y variación 2011–2021.</li>
+          <li data-en="Built a Google Sheets dashboard with KPIs and area charts.">Monté un dashboard en Google Sheets con KPIs y gráficos de área.</li>
+        </ol>
+      </div>
+      <div class="plate__links">
+        <a class="btn" href="https://github.com/alfredobrocalserrano/global-co2-analysis-dashboard" target="_blank" rel="noopener"><span data-en="Code and data on GitHub">Código y datos en GitHub</span><svg aria-hidden="true"><use href="#i-out"/></svg></a>
+      </div>
+    </div>
+    <div class="plate__figs">
+      <figure class="fig">
+        <svg class="chart wipe" data-wipe viewBox="0 0 520 458" role="img" aria-labelledby="fig2-t" aria-describedby="fig2-d"><title id="fig2-t" data-en="Change in CO₂ emissions by country, 2011–2021">Variación de emisiones de CO₂ por país, 2011–2021</title><desc id="fig2-d" data-en="Horizontal bars. Venezuela −54.7%; Ukraine −34.5%; United Kingdom −26.2%; Italy −22.5%; Spain −18.1%; Germany −16.6%; Netherlands −16.2%; Mexico −15.9%; Czechia −15.7%; Japan −15.6%; France −13.7%; USA −9.7%; Belgium −8.8%; South Africa −6.4%; Canada −3.8%.">Barras horizontales. Venezuela −54,7 %; Ucrania −34,5 %; Reino Unido −26,2 %; Italia −22,5 %; España −18,1 %; Alemania −16,6 %; Países Bajos −16,2 %; México −15,9 %; Chequia −15,7 %; Japón −15,6 %; Francia −13,7 %; EE. UU. −9,7 %; Bélgica −8,8 %; Sudáfrica −6,4 %; Canadá −3,8 %.</desc><text class="t-m" x="0" y="22.6" data-en="Venezuela">Venezuela</text><rect x="132" y="9" width="266.1" height="18" fill="#111111"/><text class="t-m" x="406.1" y="22.6" data-en="−54.7%">−54,7 %</text><text class="t-m" x="0" y="52.6" data-en="Ukraine">Ucrania</text><rect x="132" y="39" width="167.7" height="18" fill="#111111"/><text class="t-m" x="307.7" y="52.6" data-en="−34.5%">−34,5 %</text><text class="t-m t-red" x="0" y="82.6" data-en="United Kingdom">Reino Unido</text><rect x="132" y="69" width="127.4" height="18" fill="#d0201a"/><text class="t-m t-red" x="267.4" y="82.6" data-en="−26.2%">−26,2 %</text><text class="t-m t-red" x="0" y="112.6" data-en="Italy">Italia</text><rect x="132" y="99" width="109.6" height="18" fill="#d0201a"/><text class="t-m t-red" x="249.6" y="112.6" data-en="−22.5%">−22,5 %</text><text class="t-m t-red" x="0" y="142.6" data-en="Spain">España</text><rect x="132" y="129" width="87.9" height="18" fill="#d0201a"/><text class="t-m t-red" x="227.9" y="142.6" data-en="−18.1%">−18,1 %</text><text class="t-m" x="0" y="172.6" data-en="Germany">Alemania</text><rect x="132" y="159" width="80.7" height="18" fill="#111111"/><text class="t-m" x="220.7" y="172.6" data-en="−16.6%">−16,6 %</text><text class="t-m" x="0" y="202.6" data-en="Netherlands">Países Bajos</text><rect x="132" y="189" width="78.7" height="18" fill="#111111"/><text class="t-m" x="218.7" y="202.6" data-en="−16.2%">−16,2 %</text><text class="t-m" x="0" y="232.6" data-en="Mexico">México</text><rect x="132" y="219" width="77.4" height="18" fill="#111111"/><text class="t-m" x="217.4" y="232.6" data-en="−15.9%">−15,9 %</text><text class="t-m" x="0" y="262.6" data-en="Czechia">Chequia</text><rect x="132" y="249" width="76.3" height="18" fill="#111111"/><text class="t-m" x="216.3" y="262.6" data-en="−15.7%">−15,7 %</text><text class="t-m" x="0" y="292.6" data-en="Japan">Japón</text><rect x="132" y="279" width="76.0" height="18" fill="#111111"/><text class="t-m" x="216.0" y="292.6" data-en="−15.6%">−15,6 %</text><text class="t-m" x="0" y="322.6" data-en="France">Francia</text><rect x="132" y="309" width="66.8" height="18" fill="#111111"/><text class="t-m" x="206.8" y="322.6" data-en="−13.7%">−13,7 %</text><text class="t-m" x="0" y="352.6" data-en="USA">EE. UU.</text><rect x="132" y="339" width="47.3" height="18" fill="#111111"/><text class="t-m" x="187.3" y="352.6" data-en="−9.7%">−9,7 %</text><text class="t-m" x="0" y="382.6" data-en="Belgium">Bélgica</text><rect x="132" y="369" width="43.1" height="18" fill="#111111"/><text class="t-m" x="183.1" y="382.6" data-en="−8.8%">−8,8 %</text><text class="t-m" x="0" y="412.6" data-en="South Africa">Sudáfrica</text><rect x="132" y="399" width="31.2" height="18" fill="#111111"/><text class="t-m" x="171.2" y="412.6" data-en="−6.4%">−6,4 %</text><text class="t-m" x="0" y="442.6" data-en="Canada">Canadá</text><rect x="132" y="429" width="18.4" height="18" fill="#111111"/><text class="t-m" x="158.4" y="442.6" data-en="−3.8%">−3,8 %</text><line class="axis" x1="132" x2="132" y1="0" y2="458"/></svg>
+        <figcaption class="fig__cap"><b data-en="Fig. 2">Fig. 2</b> — <span data-en="Change in CO₂ emissions between 2011 and 2021, the 15 countries that cut most.">Variación de las emisiones de CO₂ entre 2011 y 2021, los 15 países que más reducen.</span></figcaption>
+        <p class="fig__src" data-en="Source: paises_mejora_climatica.csv (SQL query in DBeaver)">Fuente: paises_mejora_climatica.csv (consulta SQL en DBeaver)</p>
+      </figure>
+      <figure class="fig">
+        <svg class="chart wipe" data-wipe viewBox="0 0 520 308" role="img" aria-labelledby="fig3-t" aria-describedby="fig3-d"><title id="fig3-t" data-en="Cumulative emissions by country, 1900–2021">Emisiones acumuladas por país, 1900–2021</title><desc id="fig3-d" data-en="Horizontal bars, cumulative gigatonnes 1900–2021. USA 411.9; China 249.4; Russia 117.1; Germany 87.2; Japan 66.6; United Kingdom 62.2; India 57.0; France 35.5; Canada 33.9; Ukraine 30.6.">Barras horizontales, gigatoneladas acumuladas 1900–2021. EE. UU. 411,9; China 249,4; Rusia 117,1; Alemania 87,2; Japón 66,6; Reino Unido 62,2; India 57,0; Francia 35,5; Canadá 33,9; Ucrania 30,6.</desc><text class="t-m" x="0" y="22.6" data-en="USA">EE. UU.</text><rect x="132" y="9" width="278.5" height="18" fill="#111111"/><text class="t-m" x="418.5" y="22.6" data-en="411.9 Gt">411,9 Gt</text><text class="t-m" x="0" y="52.6" data-en="China">China</text><rect x="132" y="39" width="168.6" height="18" fill="#111111"/><text class="t-m" x="308.6" y="52.6" data-en="249.4 Gt">249,4 Gt</text><text class="t-m" x="0" y="82.6" data-en="Russia">Rusia</text><rect x="132" y="69" width="79.2" height="18" fill="#111111"/><text class="t-m" x="219.2" y="82.6" data-en="117.1 Gt">117,1 Gt</text><text class="t-m t-red" x="0" y="112.6" data-en="Germany">Alemania</text><rect x="132" y="99" width="59.0" height="18" fill="#d0201a"/><text class="t-m t-red" x="199.0" y="112.6" data-en="87.2 Gt">87,2 Gt</text><text class="t-m" x="0" y="142.6" data-en="Japan">Japón</text><rect x="132" y="129" width="45.0" height="18" fill="#111111"/><text class="t-m" x="185.0" y="142.6" data-en="66.6 Gt">66,6 Gt</text><text class="t-m t-red" x="0" y="172.6" data-en="United Kingdom">Reino Unido</text><rect x="132" y="159" width="42.0" height="18" fill="#d0201a"/><text class="t-m t-red" x="182.0" y="172.6" data-en="62.2 Gt">62,2 Gt</text><text class="t-m" x="0" y="202.6" data-en="India">India</text><rect x="132" y="189" width="38.5" height="18" fill="#111111"/><text class="t-m" x="178.5" y="202.6" data-en="57.0 Gt">57,0 Gt</text><text class="t-m" x="0" y="232.6" data-en="France">Francia</text><rect x="132" y="219" width="24.0" height="18" fill="#111111"/><text class="t-m" x="164.0" y="232.6" data-en="35.5 Gt">35,5 Gt</text><text class="t-m" x="0" y="262.6" data-en="Canada">Canadá</text><rect x="132" y="249" width="22.9" height="18" fill="#111111"/><text class="t-m" x="162.9" y="262.6" data-en="33.9 Gt">33,9 Gt</text><text class="t-m" x="0" y="292.6" data-en="Ukraine">Ucrania</text><rect x="132" y="279" width="20.7" height="18" fill="#111111"/><text class="t-m" x="160.7" y="292.6" data-en="30.6 Gt">30,6 Gt</text><line class="axis" x1="132" x2="132" y1="0" y2="308"/></svg>
+        <figcaption class="fig__cap"><b data-en="Fig. 3">Fig. 3</b> — <span data-en="Cumulative emissions 1900–2021, top 10 countries, in gigatonnes.">Emisiones acumuladas 1900–2021, los 10 primeros países, en gigatoneladas.</span></figcaption>
+        <p class="fig__src" data-en="Source: ranking_historico_top10.csv">Fuente: ranking_historico_top10.csv</p>
+      </figure>
+    </div>
+  </article>
+
+  <!-- 2 · RAG -->
+  <article class="plate grid" id="rag" aria-labelledby="rag-h">
+    <header class="plate__head">
+      <h3 id="rag-h" data-en="RAG assistant over IBEX annual reports">Asistente RAG sobre informes anuales del IBEX</h3>
+      <p class="plate__meta">2026 · LangChain, ChromaDB, HuggingFace, Llama 3.3 70B (Groq), Gradio</p>
+    </header>
+    <div class="plate__body">
+      <p class="key"><span class="key__num" data-en="2,199">2.199</span><span class="key__txt" data-en="pages of Iberdrola, BBVA, Santander and Inditex annual reports you can question in plain language, with answers that cite their source.">páginas de informes anuales de Iberdrola, BBVA, Santander e Inditex a las que puedes preguntar en lenguaje natural, con respuestas que citan su fuente.</span></p>
+      <div>
+        <h4 data-en="Context">Contexto</h4>
+        <p data-en="Annual reports are long and hard to compare. I built a retrieval-augmented generation (RAG) system that finds the relevant passages and has an LLM answer only from them.">Los informes anuales son largos y difíciles de comparar. Construí un sistema de generación aumentada por recuperación (RAG) que encuentra los fragmentos relevantes y hace que un LLM responda solo a partir de ellos.</p>
+      </div>
+      <div>
+        <h4 data-en="How I did it">Cómo lo hice</h4>
+        <ol class="steps">
+          <li data-en="Loaded and split the PDFs into chunks with PyPDF and LangChain.">Cargué y dividí los PDF en fragmentos con PyPDF y LangChain.</li>
+          <li data-en="Indexed the chunks in ChromaDB with HuggingFace embeddings.">Indexé los fragmentos en ChromaDB con embeddings de HuggingFace.</li>
+          <li data-en="Retrieved with MMR (relevant and diverse passages) and generated answers with Llama 3.3 70B via the Groq API, behind a Gradio interface.">Recuperé con MMR (fragmentos relevantes y variados) y generé las respuestas con Llama 3.3 70B vía la API de Groq, con una interfaz en Gradio.</li>
+          <li data-en="Exported KPIs to CSV, scored the tone of each report and charted an EDA of the documents.">Exporté KPIs a CSV, puntué el tono de cada informe e hice un EDA de los documentos.</li>
+        </ol>
+      </div>
+      <div class="plate__links">
+        <a class="btn" href="https://github.com/alfredobrocalserrano/rag-analisis-corporativo" target="_blank" rel="noopener"><span data-en="Notebook on GitHub">Notebook en GitHub</span><svg aria-hidden="true"><use href="#i-out"/></svg></a>
+      </div>
+    </div>
+    <div class="plate__figs">
+      <figure class="fig">
+        <ol class="flow" aria-label="Flujo del sistema" data-en-aria-label="System flow">
+          <li><b>PDF</b><span data-en="2,199 pages">2.199 páginas</span></li>
+          <li><b data-en="Chunks">Fragmentos</b>PyPDF · LangChain</li>
+          <li><b>Embeddings</b>HuggingFace</li>
+          <li><b data-en="Index">Índice</b>ChromaDB</li>
+          <li><b data-en="Search">Búsqueda</b>MMR</li>
+          <li><b data-en="Answer">Respuesta</b><span data-en="Llama 3.3 70B, with citation">Llama 3.3 70B, con cita</span></li>
+        </ol>
+        <figcaption class="fig__cap"><b data-en="Fig. 4">Fig. 4</b> — <span data-en="From PDF to cited answer.">Del PDF a la respuesta citada.</span></figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="qa">
+          <div class="qa__item">
+            <span class="qa__k" data-en="Question">Pregunta</span>
+            <p class="qa__q" data-en="Santander · employees in 2024">Santander · empleados en 2024</p>
+            <span class="qa__k" data-en="Answer">Respuesta</span>
+            <p class="qa__a" lang="es">«El número de empleados de Grupo Santander al 31 de diciembre de 2024 es de <mark>206.753</mark> (Grupo Santander, 2024).»</p>
+          </div>
+          <div class="qa__item">
+            <span class="qa__k" data-en="Question">Pregunta</span>
+            <p class="qa__q" data-en="BBVA · net profit in 2024">BBVA · beneficio neto en 2024</p>
+            <span class="qa__k" data-en="Answer">Respuesta</span>
+            <p class="qa__a" lang="es">«<mark>No se proporciona información</mark> sobre el beneficio atribuido de BBVA en 2024 en los fragmentos de documentos proporcionados.»</p>
+            <p class="qa__note" data-en="When the retrieved passages do not contain the figure, the system says so instead of making one up.">Cuando los fragmentos recuperados no contienen el dato, el sistema lo dice en lugar de inventarlo.</p>
+          </div>
+        </div>
+        <figcaption class="fig__cap"><b data-en="Fig. 5">Fig. 5</b> — <span data-en="Two real system outputs, quoted in their original Spanish.">Dos salidas reales del sistema, citadas literalmente.</span></figcaption>
+        <p class="fig__src" data-en="Source: outputs/kpis_extraidos.csv">Fuente: outputs/kpis_extraidos.csv</p>
+      </figure>
+      <figure class="fig">
+        <svg class="chart wipe" data-wipe viewBox="0 0 520 200" role="img" aria-labelledby="fig5-t" aria-describedby="fig5-d"><title id="fig5-t" data-en="Tone of each annual report, scored 1 to 5 by the LLM">Tono de cada informe anual, puntuado de 1 a 5 por el LLM</title><desc id="fig5-d" data-en="Iberdrola 2022 3.6; Iberdrola 2024 4.2; Santander 2024 4.0; Inditex 2024 3.4; Inditex 2025 2.4.">Iberdrola 2022 3,6; Iberdrola 2024 4,2; Santander 2024 4,0; Inditex 2024 3,4; Inditex 2025 2,4.</desc><line class="grid-l" x1="216.8" x2="216.8" y1="0" y2="174"/><text class="t-s t-dim" x="216.8" y="192" text-anchor="middle">1</text><line class="grid-l" x1="277.6" x2="277.6" y1="0" y2="174"/><text class="t-s t-dim" x="277.6" y="192" text-anchor="middle">2</text><line class="grid-l" x1="338.4" x2="338.4" y1="0" y2="174"/><text class="t-s t-dim" x="338.4" y="192" text-anchor="middle">3</text><line class="grid-l" x1="399.2" x2="399.2" y1="0" y2="174"/><text class="t-s t-dim" x="399.2" y="192" text-anchor="middle">4</text><line class="grid-l" x1="460.0" x2="460.0" y1="0" y2="174"/><text class="t-s t-dim" x="460.0" y="192" text-anchor="middle">5</text><text class="t-m" x="0" y="22.4">Iberdrola 2022</text><rect x="156" y="8" width="218.9" height="20" fill="#111111"/><text class="t-m" x="382.9" y="22.4" data-en="3.6">3,6</text><text class="t-m" x="0" y="56.4">Iberdrola 2024</text><rect x="156" y="42" width="255.4" height="20" fill="#111111"/><text class="t-m" x="419.4" y="56.4" data-en="4.2">4,2</text><text class="t-m" x="0" y="90.4">Santander 2024</text><rect x="156" y="76" width="243.2" height="20" fill="#111111"/><text class="t-m" x="407.2" y="90.4" data-en="4.0">4,0</text><text class="t-m" x="0" y="124.4">Inditex 2024</text><rect x="156" y="110" width="206.7" height="20" fill="#111111"/><text class="t-m" x="370.7" y="124.4" data-en="3.4">3,4</text><text class="t-m" x="0" y="158.4">Inditex 2025</text><rect x="156" y="144" width="145.9" height="20" fill="#d0201a"/><text class="t-m t-red" x="309.9" y="158.4" data-en="2.4">2,4</text><line class="axis" x1="156" x2="156" y1="0" y2="174"/></svg>
+        <figcaption class="fig__cap"><b data-en="Fig. 6">Fig. 6</b> — <span data-en="Tone of each report, scored from 1 (negative) to 5 (positive) by the LLM.">Tono de cada informe, puntuado de 1 (negativo) a 5 (positivo) por el LLM.</span></figcaption>
+        <p class="fig__src" data-en="Source: outputs/sentimiento.csv">Fuente: outputs/sentimiento.csv</p>
+      </figure>
+    </div>
+  </article>
+
+  <!-- 3 · Google Play -->
+  <article class="plate grid" id="play" aria-labelledby="play-h">
+    <header class="plate__head">
+      <h3 id="play-h" data-en="Google Play Store: what makes an app succeed">Google Play Store: qué hace que una app triunfe</h3>
+      <p class="plate__meta" data-en="2025 · Python (Colab), Power BI, DAX · Google Play Store Apps (Kaggle), 1,230,299 apps after cleaning">2025 · Python (Colab), Power BI, DAX · Google Play Store Apps (Kaggle), 1.230.299 apps tras la limpieza</p>
+    </header>
+    <div class="plate__body">
+      <p class="key"><span class="key__num" data-en="+0.49">+0,49</span><span class="key__txt" data-en="rating points: paid apps score higher on average than free ones.">puntos de rating: las apps de pago puntúan más de media que las gratuitas.</span></p>
+      <div>
+        <h4 data-en="Context">Contexto</h4>
+        <p data-en="An exploratory analysis of the Google Play catalogue to find which factors drive ratings and installs. From 2,312,944 apps I kept 1,230,299 with valid ratings, categories and sizes.">Análisis exploratorio del catálogo de Google Play para encontrar qué factores explican el rating y las instalaciones. De 2.312.944 apps me quedé con 1.230.299 con rating, categoría y tamaño válidos.</p>
+      </div>
+      <div>
+        <h4 data-en="Findings">Hallazgos</h4>
+        <ul class="list">
+          <li data-en="Downloads drop past 100 MB: size works as a psychological barrier.">Las descargas caen a partir de 100 MB: el tamaño funciona como barrera psicológica.</li>
+          <li data-en="The sweet spot for mass success: a free app under 100 MB.">El punto dulce del éxito masivo: app gratuita de menos de 100 MB.</li>
+          <li data-en="Paid apps average 0.49 more rating points than free apps.">Las apps de pago tienen de media 0,49 puntos más de rating que las gratuitas.</li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-en="How I did it">Cómo lo hice</h4>
+        <ol class="steps">
+          <li data-en="Cleaned the data in Python: kept the useful columns, dropped nulls and normalised units (MB/KB).">Limpié los datos con Python: columnas útiles, eliminación de nulos y normalización de unidades (MB/KB).</li>
+          <li data-en="Created DAX measures and size segments in Power BI.">Creé medidas DAX y segmentos de tamaño en Power BI.</li>
+          <li data-en="Built a four-page dashboard: market, pricing, size and success profile.">Monté un dashboard de 4 páginas: mercado, precios, tamaño y perfil de éxito.</li>
+        </ol>
+      </div>
+      <div class="plate__links">
+        <a class="btn" href="https://github.com/alfredobrocalserrano/google-play-store-analysis" target="_blank" rel="noopener"><span data-en="Code on GitHub">Código en GitHub</span><svg aria-hidden="true"><use href="#i-out"/></svg></a>
+        <a class="btn btn--line" href="https://github.com/alfredobrocalserrano/google-play-store-analysis/blob/main/PlayStore_Analysis_Dashboard.pdf" target="_blank" rel="noopener"><span data-en="Full dashboard (PDF)">Dashboard completo (PDF)</span><svg aria-hidden="true"><use href="#i-out"/></svg></a>
+      </div>
+    </div>
+    <div class="plate__figs">
+      <figure class="fig">
+        <svg class="chart wipe" data-wipe viewBox="0 0 520 92" role="img" aria-labelledby="fig8-t" aria-describedby="fig8-d"><title id="fig8-t" data-en="Free and paid apps in the cleaned dataset">Apps gratuitas y de pago en el dataset limpio</title><desc id="fig8-d" data-en="Free 1,204,752; paid 25,547; total 1,230,299.">Gratuitas 1.204.752; de pago 25.547; total 1.230.299.</desc><text class="t-m" x="0" y="28.4" data-en="Free">Gratuitas</text><rect x="118" y="9" width="201.7" height="28" fill="#111111"/><text class="t-m" x="327.7" y="28.4" data-en="1,204,752 · 97.9%">1.204.752 · 97,9 %</text><text class="t-m t-red" x="0" y="72.4" data-en="Paid">De pago</text><rect x="118" y="53" width="4.3" height="28" fill="#d0201a"/><text class="t-m t-red" x="130.3" y="72.4" data-en="25,547 · 2.1%">25.547 · 2,1 %</text><line class="axis" x1="118" x2="118" y1="0" y2="92"/></svg>
+        <figcaption class="fig__cap"><b data-en="Fig. 7">Fig. 7</b> — <span data-en="Free and paid apps in the cleaned dataset.">Apps gratuitas y de pago en el dataset limpio.</span></figcaption>
+        <p class="fig__src" data-en="Source: output of Data_Cleaning_and_Preprocessing.ipynb">Fuente: salida de Data_Cleaning_and_Preprocessing.ipynb</p>
+      </figure>
+      <figure class="fig">
+        <div class="shot"><picture><source type="image/webp" srcset="./assets/img/project-play-400.webp 400w, ./assets/img/project-play-800.webp 800w" sizes="(max-width: 860px) 92vw, 45vw"><img src="./assets/img/project-play.jpg" width="1400" height="875" loading="lazy" decoding="async" alt="Página del dashboard de Power BI sobre el mercado de apps de Google Play" data-en-alt="Power BI dashboard page on the Google Play app market"></picture></div>
+        <figcaption class="fig__cap"><b data-en="Fig. 8">Fig. 8</b> — <span data-en="One page of the Power BI dashboard.">Una página del dashboard en Power BI.</span></figcaption>
+        <p class="fig__src" data-en="Source: PlayStore_Analysis_Dashboard.pdf">Fuente: PlayStore_Analysis_Dashboard.pdf</p>
+      </figure>
+    </div>
+  </article>
+
+  <!-- 4 · X -->
+  <article class="plate grid" id="x" aria-labelledby="x-h">
+    <header class="plate__head">
+      <h3 id="x-h" data-en="Cleaning a sentiment dataset from X">Limpieza de un dataset de sentimiento de X</h3>
+      <p class="plate__meta" data-en="2025 · Python (Pandas 2.x), Google Colab · Twitter Entity Sentiment Analysis (Kaggle), English tweets">2025 · Python (Pandas 2.x), Google Colab · Twitter Entity Sentiment Analysis (Kaggle), tweets en inglés</p>
+    </header>
+    <div class="plate__body">
+      <p class="key"><span class="key__num" data-en="63,639">63.639</span><span class="key__txt" data-en="clean, labelled tweets ready for modelling, out of 68,432 originals.">tweets limpios y etiquetados, listos para modelar, de 68.432 originales.</span></p>
+      <div>
+        <h4 data-en="Context">Contexto</h4>
+        <p data-en="Before training a sentiment model the text has to be trustworthy. I audited and cleaned the dataset and added features for later analysis.">Antes de entrenar un modelo de sentimiento, el texto tiene que ser fiable. Audité y limpié el dataset y añadí variables para el análisis posterior.</p>
+      </div>
+      <div>
+        <h4 data-en="Results">Resultados</h4>
+        <ul class="list">
+          <li data-en="4,793 rows removed, including 4,125 duplicates and 602 nulls.">4.793 filas eliminadas, entre ellas 4.125 duplicados y 602 nulos.</li>
+          <li data-en="Text normalised: lowercase, no punctuation, URLs, mentions or hashtags.">Texto normalizado: minúsculas, sin puntuación, URLs, menciones ni hashtags.</li>
+          <li data-en="New columns per tweet: original length, clean length and word count.">Nuevas columnas por tweet: longitud original, longitud limpia y número de palabras.</li>
+        </ul>
+      </div>
+      <div class="plate__links">
+        <a class="btn" href="https://github.com/alfredobrocalserrano/twitter-sentiment-cleaning" target="_blank" rel="noopener"><span data-en="Notebook on GitHub">Notebook en GitHub</span><svg aria-hidden="true"><use href="#i-out"/></svg></a>
+      </div>
+    </div>
+    <div class="plate__figs">
+      <figure class="fig">
+        <svg class="chart wipe" data-wipe viewBox="0 0 520 164" role="img" aria-labelledby="fig6-t" aria-describedby="fig6-d"><title id="fig6-t" data-en="Sentiment labels in the cleaned dataset">Etiquetas de sentimiento en el dataset limpio</title><desc id="fig6-d" data-en="Negative 19,569; Positive 17,148; Neutral 15,140; Irrelevant 11,782. Total 63,639.">Negativo 19.569; Positivo 17.148; Neutral 15.140; Irrelevante 11.782. Total 63.639.</desc><text class="t-m t-red" x="0" y="26.0" data-en="Negative">Negativo</text><rect x="118" y="8" width="225.0" height="26" fill="#d0201a"/><text class="t-m t-red" x="351.0" y="26.0" data-en="19,569 · 30.8%">19.569 · 30,8 %</text><text class="t-m" x="0" y="66.0" data-en="Positive">Positivo</text><rect x="118" y="48" width="197.2" height="26" fill="#111111"/><text class="t-m" x="323.2" y="66.0" data-en="17,148 · 26.9%">17.148 · 26,9 %</text><text class="t-m" x="0" y="106.0" data-en="Neutral">Neutral</text><rect x="118" y="88" width="174.1" height="26" fill="#111111"/><text class="t-m" x="300.1" y="106.0" data-en="15,140 · 23.8%">15.140 · 23,8 %</text><text class="t-m" x="0" y="146.0" data-en="Irrelevant">Irrelevante</text><rect x="118" y="128" width="135.5" height="26" fill="#111111"/><text class="t-m" x="261.5" y="146.0" data-en="11,782 · 18.5%">11.782 · 18,5 %</text><line class="axis" x1="118" x2="118" y1="0" y2="164"/></svg>
+        <figcaption class="fig__cap"><b data-en="Fig. 9">Fig. 9</b> — <span data-en="Sentiment labels in the cleaned dataset. The classes are reasonably balanced.">Etiquetas de sentimiento en el dataset limpio. Las clases están razonablemente equilibradas.</span></figcaption>
+        <p class="fig__src" data-en="Source: tweets_limpio.csv · README of the repository">Fuente: tweets_limpio.csv · README del repositorio</p>
+      </figure>
+    </div>
+  </article>
+</section>
+
+<section class="about-wrap" id="sobre-mi" aria-labelledby="about-h">
+  <div class="sec-head grid">
+    <h2 id="about-h" data-en="About me">Sobre mí</h2>
+  </div>
+  <div class="about grid">
+    <div class="about__photo">
+      <picture><source type="image/webp" srcset="./assets/img/portrait-400.webp 400w, ./assets/img/portrait-800.webp 800w" sizes="(max-width: 520px) 75vw, (max-width: 860px) 50vw, 32vw">
+      <img src="./assets/img/portrait.jpg" width="1179" height="1539" loading="lazy" decoding="async" alt="Retrato de Alfredo Brocal Serrano" data-en-alt="Portrait of Alfredo Brocal Serrano"></picture>
+    </div>
+    <div class="about__text">
+      <p class="about__lede" data-en="I want every conclusion to be traceable to its data: the SQL query, the cell or the cited page.">Quiero que cada conclusión se pueda rastrear hasta su dato: la consulta SQL, la celda o la página citada.</p>
+      <p data-en="I studied Information and Digital Content Management, where I learned how information is organised and how it flows. Then I earned the Google Data Analytics certificate, and I am now doing the MSc in Data Science at UCM.">Estudié Gestión de Información y Contenidos Digitales, donde aprendí cómo se organiza y circula la información. Después hice el certificado Google Data Analytics y ahora curso el Máster en Data Science de la UCM.</p>
+      <p data-en="That is why all my projects publish their code and data. I am looking for an internship in data science or analytics (Elche (Alicante) · Madrid · remote), and I am also open to small collaborations.">Por eso todos mis proyectos publican su código y sus datos. Busco prácticas en ciencia o análisis de datos (Elche (Alicante) · Madrid · remoto), y también me interesan colaboraciones puntuales.</p>
+      <ul class="edu" aria-label="Formación" data-en-aria-label="Education">
+        <li><span class="edu__t" data-en="MSc in Data Science">Máster en Data Science</span><span class="edu__d" data-en="Universidad Complutense de Madrid (UCM)">Universidad Complutense de Madrid (UCM)</span><span class="edu__s edu__s--now" data-en="In progress">En curso</span></li>
+        <li><span class="edu__t">Google Data Analytics</span><span class="edu__d" data-en="Professional certificate">Certificado profesional</span><span class="edu__s" data-en="Completed">Completado</span></li>
+        <li><span class="edu__t" data-en="Degree in Information and Digital Content Management">Grado en Gestión de Información y Contenidos Digitales</span><span class="edu__d" data-en="Bachelor's degree">Grado universitario</span><span class="edu__s" data-en="Graduated">Graduado</span></li>
+      </ul>
+      <div class="plate__links">
+        <a class="btn" href="./assets/CV_Alfredo_Brocal_Serrano.pdf" download><svg aria-hidden="true"><use href="#i-down"/></svg><span data-en="Download CV (PDF)">Descargar CV (PDF)</span></a>
+      </div>
+    </div>
   </div>
 </section>
 
-<footer class="mono">
-  <span>© 2026 Alfredo Brocal Serrano</span>
-  <span class="signature">— alfredo.</span>
-  <span data-i18n="footer.r">Diseño editorial · Madrid</span>
+<section id="herramientas" aria-labelledby="tools-h">
+  <div class="sec-head grid">
+    <h2 id="tools-h" data-en="Tools I have used">Herramientas que he usado</h2>
+    <p data-en="Grouped by job, each with the project where it was used.">Agrupadas por función, cada una con el proyecto donde la usé.</p>
+  </div>
+  <div class="stack grid">
+    <dl class="stack__table">
+      <div class="stack__row">
+        <dt data-en="Analysis and data">Análisis y datos</dt>
+        <dd class="stack__tools">Python, Pandas, NumPy, SQL (DBeaver), Google Colab</dd>
+        <dd class="stack__used"><a href="#co2">CO<sub>2</sub></a> · <a href="#play">Google Play</a> · <a href="#x">X</a></dd>
+      </div>
+      <div class="stack__row">
+        <dt data-en="Visualisation and BI">Visualización y BI</dt>
+        <dd class="stack__tools">Power BI (DAX), Google Sheets, Matplotlib</dd>
+        <dd class="stack__used"><a href="#play">Google Play</a> · <a href="#co2">CO<sub>2</sub></a> · <a href="#rag">RAG</a></dd>
+      </div>
+      <div class="stack__row">
+        <dt data-en="Generative AI">IA generativa</dt>
+        <dd class="stack__tools" data-en="LangChain, ChromaDB, HuggingFace embeddings, Llama 3.3 70B via Groq, Gradio">LangChain, ChromaDB, embeddings de HuggingFace, Llama 3.3 70B vía Groq, Gradio</dd>
+        <dd class="stack__used"><a href="#rag">RAG</a></dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+</main>
+
+<footer class="contact grid" id="contacto" aria-labelledby="contact-h">
+  <h2 id="contact-h" data-en="Let's talk.">Hablemos.</h2>
+  <p class="contact__lede" data-en="If you are hiring a data intern, or have a small project in mind, write to me.">Si buscas a alguien para unas prácticas en datos, o tienes un proyecto pequeño en mente, escríbeme.</p>
+  <a class="mail" href="mailto:alfredobrocalserrano@gmail.com">alfredobrocalserrano@gmail.com</a>
+  <div class="links">
+    <a href="https://www.linkedin.com/in/alfredo-brocal-serrano-a0b1a73ab/" target="_blank" rel="noopener"><span class="k">LinkedIn</span><span class="v">alfredo-brocal-serrano</span></a>
+    <a href="https://github.com/alfredobrocalserrano" target="_blank" rel="noopener"><span class="k">GitHub</span><span class="v">@alfredobrocalserrano</span></a>
+    <a href="./assets/CV_Alfredo_Brocal_Serrano.pdf" download><span class="k">CV</span><span class="v" data-en="Download PDF">Descargar PDF</span></a>
+  </div>
+  <div class="foot">
+    <span>© 2026 Alfredo Brocal Serrano</span>
+    <span data-en="Every chart uses data from my own repositories.">Todos los gráficos usan datos de mis propios repositorios.</span>
+  </div>
 </footer>
 
-<!-- Cursor-following project preview -->
-<div class="cursor-preview" id="cursorPreview" aria-hidden="true">
-  <img id="cursorPreviewImg" alt="" />
-  <span class="cp-label" id="cursorPreviewLabel"></span>
-</div>
-
-<!-- Modal -->
-<div class="modal" id="modal" role="dialog" aria-modal="true">
-  <div class="modal-inner">
-    <button class="modal-close" id="modalClose" aria-label="Close">×</button>
-    <div class="mono" style="color:var(--ink-soft);" id="modalNum">PJ.01 · 2026</div>
-    <h2 id="modalTitle"></h2>
-    <div class="modal-meta" id="modalMeta"></div>
-    <div class="modal-body">
-      <div>
-        <div class="modal-img" id="modalImgWrap"><span style="position:relative;z-index:1;">dashboard preview</span></div>
-        <h4 data-i18n="modal.h.context">Contexto</h4>
-        <p id="modalCtx"></p>
-        <h4 data-i18n="modal.h.results">Resultados</h4>
-        <ul id="modalRes"></ul>
-      </div>
-      <div>
-        <h4 data-i18n="modal.h.tools">Herramientas</h4>
-        <p id="modalTools"></p>
-        <h4 data-i18n="modal.h.process">Proceso</h4>
-        <ol id="modalProc"></ol>
-        <a class="btn btn-primary" id="modalGH" href="#" target="_blank" rel="noopener" style="margin-top:24px;"><span data-i18n="modal.cta">Ver en GitHub</span> <span class="arr">↗</span></a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script src="./lib/gsap.min.js?v=20260716" defer></script>
-<script src="./lib/ScrollTrigger.min.js?v=20260716" defer></script>
-<script src="./main.js?v=20260721" defer></script>
+<script type="application/json" id="fig1-data">{"y":[1900,1901,1902,1903,1904,1905,1906,1907,1908,1909,1910,1911,1912,1913,1914,1915,1916,1917,1918,1919,1920,1921,1922,1923,1924,1925,1926,1927,1928,1929,1930,1931,1932,1933,1934,1935,1936,1937,1938,1939,1940,1941,1942,1943,1944,1945,1946,1947,1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021],"k":["Carbon","Petroleo","Gas","Cemento","Quema_Gas_Exceso"],"v":[[1873,67,12,0,0],[1929,75,13,0,0],[1973,81,14,0,0],[2154,86,15,0,0],[2167,96,15,0,0],[2311,97,17,0,0],[2416,98,19,0,0],[2747,119,20,0,0],[2626,129,20,0,0],[2730,134,24,0,0],[2863,144,25,0,0],[2899,153,26,0,0],[3048,157,28,0,0],[3292,182,30,0,0],[2962,186,30,0,0],[2903,197,32,0,0],[3129,215,38,0,0],[3258,239,41,0,0],[3209,245,37,0,0],[2715,273,38,0,0],[3126,351,42,0,0],[2668,384,35,0,0],[2771,426,40,0,0],[3146,474,53,0,0],[3153,471,60,0,0],[3151,493,64,14,0],[3082,491,69,15,0],[3362,538,76,15,0],[3305,550,83,36,0],[3522,603,103,37,0],[3214,579,104,36,0],[2831,561,93,31,0],[2520,537,88,25,0],[2636,586,91,24,0],[2878,620,102,29,0],[2997,669,111,32,0],[3285,729,126,39,0],[3464,822,141,41,0],[3228,797,135,39,0],[3435,830,141,36,0],[3794,872,154,31,0],[3884,881,153,43,0],[3909,836,166,38,0],[3925,888,183,35,0],[3868,1018,198,23,0],[2998,1008,217,23,0],[3234,1140,224,36,0],[3622,1221,248,43,0],[3739,1340,280,52,0],[3546,1337,300,58,0],[3856,1648,353,67,74],[4060,1742,416,76,80],[4009,1838,447,81,85],[4044,1952,475,90,81],[4040,2069,501,97,78],[4373,2312,547,108,97],[4597,2508,587,117,108],[4682,2621,647,123,106],[4754,2726,706,130,95],[4948,2905,758,145,92],[5153,3126,835,157,89],[4943,3314,882,164,86],[4929,3562,968,176,86],[5110,3807,1047,186,91],[5215,4108,1153,206,113],[5293,4412,1231,216,130],[5351,4762,1340,233,145],[5266,5077,1433,240,191],[5323,5530,1560,255,204],[5522,5981,1709,271,244],[5696,6801,1791,288,278],[5700,7203,1933,303,321],[5694,7767,2052,322,347],[5862,8226,2204,341,402],[5866,8108,2259,341,391],[6037,8039,2256,339,337],[6264,8541,2387,354,395],[6418,8842,2441,371,381],[6532,9159,2550,395,390],[6840,9277,2689,400,360],[7024,8952,2758,403,316],[7005,8550,2794,403,237],[7127,8345,2731,401,236],[7314,8261,2761,410,213],[7669,8329,3010,418,187],[8218,8327,3121,423,181],[8336,8576,3046,440,170],[8617,8655,3305,459,163],[8911,8973,3466,484,186],[8910,9130,3640,493,151],[8689,9249,3833,494,268],[8604,9723,3910,508,283],[8399,9226,3958,529,250],[8501,9233,4067,552,244],[8549,9266,4102,588,248],[8794,9364,4210,622,245],[9016,9643,4396,635,247],[8968,9787,4412,661,251],[8726,9883,4484,659,240],[8855,10112,4622,691,233],[9203,10302,4731,722,279],[9255,10391,4774,754,281],[9679,10386,4906,796,299],[10518,10680,5081,852,299],[10872,11043,5257,911,324],[11543,11139,5381,964,345],[12189,11246,5507,1052,347],[12776,11284,5694,1129,364],[13193,11251,5864,1144,374],[13016,10997,5752,1176,379],[13927,11360,6195,1255,382],[14737,11388,6367,1350,370],[14923,11542,6501,1385,380],[15024,11626,6543,1444,388],[15052,11679,6655,1500,388],[14710,11930,6788,1444,384],[14361,12024,6974,1488,378],[14507,12243,7145,1508,392],[14747,12266,7530,1569,412],[14726,12346,7648,1618,439],[14175,11192,7556,1638,408],[14980,11837,7922,1673,417]],"t":[1952,2017,2068,2254,2278,2425,2533,2886,2775,2888,3031,3077,3233,3503,3178,3132,3383,3537,3491,3026,3519,3088,3237,3673,3683,3723,3656,3991,3973,4265,3932,3515,3169,3337,3629,3809,4179,4467,4199,4443,4851,4962,4950,5031,5106,4246,4634,5134,5411,5242,5998,6374,6460,6641,6784,7436,7917,8179,8411,8848,9360,9389,9721,10240,10795,11283,11831,12207,12872,13726,14854,15461,16181,17035,16965,17007,17942,18453,19026,19566,19453,18989,18839,18958,19613,20270,20568,21199,22019,22324,22533,23028,22363,22596,22753,23235,23937,24079,23993,24513,25237,25455,26065,27431,28406,29373,30340,31248,31826,31320,33118,34212,34730,35025,35273,35256,35224,35794,36524,36776,34968,36828],"geo":{"L":0,"pw":620,"W":820}}</script>
+<script src="./main.js" defer></script>
 </body>
 </html>

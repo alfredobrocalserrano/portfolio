@@ -1,0 +1,351 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-15T23:27:34+00:00",
+  "title": "Design System: Alfredo Brocal Serrano · Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Poster Stock",
+        "canonical": "#f4f4f1",
+        "cssVar": "--paper",
+        "tonalRamp": [
+          "#262624",
+          "#3d3d3a",
+          "#575754",
+          "#74746f",
+          "#93938e",
+          "#b3b3ae",
+          "#d4d4cf",
+          "#f4f4f1"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Press Black",
+        "canonical": "#111111",
+        "cssVar": "--ink",
+        "tonalRamp": [
+          "#111111",
+          "#262626",
+          "#3d3d3d",
+          "#575757",
+          "#757575",
+          "#969696",
+          "#bababa",
+          "#e0e0e0"
+        ]
+      },
+      "signal-red": {
+        "role": "primary",
+        "displayName": "Signal Red",
+        "canonical": "#d0201a",
+        "cssVar": "--red",
+        "tonalRamp": [
+          "#3d0806",
+          "#66100c",
+          "#931812",
+          "#d0201a",
+          "#e8473f",
+          "#f27a73",
+          "#f8afaa",
+          "#fde3e1"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "#5c5c58",
+        "cssVar": "--ink-2",
+        "tonalRamp": [
+          "#1f1f1e",
+          "#33332f",
+          "#474744",
+          "#5c5c58",
+          "#7a7a75",
+          "#9b9b96",
+          "#bfbfba",
+          "#e4e4e0"
+        ]
+      },
+      "paper-dim": {
+        "role": "neutral",
+        "displayName": "Pale Stock",
+        "canonical": "#c9c9c4",
+        "note": "Hardcoded literal in the contact band; not yet a custom property.",
+        "tonalRamp": [
+          "#2a2a28",
+          "#44443f",
+          "#60605b",
+          "#7e7e79",
+          "#9d9d98",
+          "#b6b6b1",
+          "#c9c9c4",
+          "#ecece8"
+        ]
+      },
+      "signal-red-on-ink": {
+        "role": "primary",
+        "displayName": "Signal Red on Ink",
+        "canonical": "#ff5a4e",
+        "note": "Hardcoded literal; hover text on the black band only, where #d0201a falls below AA.",
+        "tonalRamp": [
+          "#4a0c08",
+          "#7a1610",
+          "#b0231a",
+          "#e23a2f",
+          "#ff5a4e",
+          "#ff8278",
+          "#ffaea7",
+          "#ffe0dd"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The name in the hero, three stacked lines."
+      },
+      "display-key": {
+        "displayName": "Display Key",
+        "purpose": "Each plate's headline number, in Signal Red."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings and the contact heading."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Project plate titles, max 26ch."
+      },
+      "figure-number": {
+        "displayName": "Figure Number",
+        "purpose": "The four numbers in the hero project index."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Role line, key-number explanations, ledes, stack rows."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text, max 62ch, tabular lining numerals."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Figure captions, sources, metadata."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase sub-section heads on a hairline, Q&A keys, status, link keys."
+      }
+    },
+    "shadows": [],
+    "rules": [
+      {
+        "name": "rule",
+        "value": "6px solid var(--ink)",
+        "purpose": "Opens every section, plate, index and table."
+      },
+      {
+        "name": "hair",
+        "value": "1.5px solid var(--ink)",
+        "purpose": "Divides rows, underlines the nav, frames screenshots."
+      }
+    ],
+    "chartMarks": [
+      {
+        "name": "hatch-ink",
+        "value": "pattern 7x7 userSpaceOnUse, rect 2.6x7 #111111, rotate(45)",
+        "purpose": "Black hatched series."
+      },
+      {
+        "name": "hatch-red",
+        "value": "pattern 7x7 userSpaceOnUse, rect 2.6x7 #d0201a, rotate(-45)",
+        "purpose": "Red hatched series."
+      },
+      {
+        "name": "axis",
+        "value": "stroke #111111, 2px",
+        "purpose": "Chart axes."
+      },
+      {
+        "name": "gridline",
+        "value": "stroke #111111, 0.6px, opacity 0.35",
+        "purpose": "Chart gridlines."
+      },
+      {
+        "name": "scrub-line",
+        "value": "stroke #111111, 1.5px; dot fill #f4f4f1, stroke #111111 2px",
+        "purpose": "Hero chart scrub cursor."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The single easing for every transition."
+      },
+      {
+        "name": "plotter-wipe",
+        "value": "clip-path inset(0 100% 0 0) -> inset(0 0 0 0), 1.6s var(--ease)",
+        "purpose": "Left-to-right draw-in of figures on first view; visible by default; off under prefers-reduced-motion."
+      },
+      {
+        "name": "color-swap",
+        "value": "background-color, color 0.2s var(--ease)",
+        "purpose": "Button hover swap; removed under reduced motion."
+      },
+      {
+        "name": "photo-reveal",
+        "value": "filter 0.4s var(--ease)",
+        "purpose": "Screenshot returns from greyscale to colour on hover."
+      }
+    ],
+    "focus": {
+      "value": "outline: 3px solid var(--red); outline-offset: 3px",
+      "onInk": "outline-color: var(--paper)"
+    },
+    "breakpoints": [
+      {
+        "name": "plates-sticky",
+        "value": "min-width: 1101px"
+      },
+      {
+        "name": "tablet",
+        "value": "max-width: 1100px"
+      },
+      {
+        "name": "stack",
+        "value": "max-width: 860px"
+      },
+      {
+        "name": "phone",
+        "value": "max-width: 520px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Solid black square block; the default action (CV download, GitHub links).",
+      "html": "<a class=\"ds-btn\" href=\"#\">Descargar CV (PDF)<svg viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M8 2v9M4 7l4 4 4-4M2 14h12\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/></svg></a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 0.6em; min-height: 52px; padding: 0 1.25em; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 1rem; text-decoration: none; background: #111111; color: #f4f4f1; border: 0; border-radius: 0; cursor: pointer; transition: background-color 0.2s cubic-bezier(0.16,1,0.3,1), color 0.2s cubic-bezier(0.16,1,0.3,1); } .ds-btn svg { width: 1em; height: 1em; } .ds-btn:hover { background: #d0201a; color: #f4f4f1; } .ds-btn:focus-visible { outline: 3px solid #d0201a; outline-offset: 3px; }"
+    },
+    {
+      "name": "Signal Button",
+      "kind": "button",
+      "refersTo": "button-signal",
+      "description": "Solid red block for the single most important action per view.",
+      "html": "<a class=\"ds-btn-red\" href=\"#\">Ver los proyectos<svg viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M2 8h11M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/></svg></a>",
+      "css": ".ds-btn-red { display: inline-flex; align-items: center; gap: 0.6em; min-height: 52px; padding: 0 1.25em; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 1rem; text-decoration: none; background: #d0201a; color: #f4f4f1; border-radius: 0; transition: background-color 0.2s cubic-bezier(0.16,1,0.3,1); } .ds-btn-red svg { width: 1em; height: 1em; } .ds-btn-red:hover { background: #111111; } .ds-btn-red:focus-visible { outline: 3px solid #d0201a; outline-offset: 3px; }"
+    },
+    {
+      "name": "Line Button",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "Transparent with a 2px inset black stroke; fills black on hover.",
+      "html": "<a class=\"ds-btn-line\" href=\"#\">Ver demo</a>",
+      "css": ".ds-btn-line { display: inline-flex; align-items: center; min-height: 52px; padding: 0 1.25em; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 1rem; text-decoration: none; background: transparent; color: #111111; box-shadow: inset 0 0 0 2px #111111; border-radius: 0; transition: background-color 0.2s cubic-bezier(0.16,1,0.3,1), color 0.2s cubic-bezier(0.16,1,0.3,1); } .ds-btn-line:hover { background: #111111; color: #f4f4f1; } .ds-btn-line:focus-visible { outline: 3px solid #d0201a; outline-offset: 3px; }"
+    },
+    {
+      "name": "Language Toggle",
+      "kind": "chip",
+      "refersTo": "lang-toggle",
+      "description": "Two square segmented buttons; pressed state is solid black.",
+      "html": "<div class=\"ds-lang\"><button aria-pressed=\"true\">ES</button><button aria-pressed=\"false\">EN</button></div>",
+      "css": ".ds-lang { display: flex; } .ds-lang button { font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 0.875rem; min-width: 44px; min-height: 40px; padding: 0 10px; background: transparent; color: #111111; border: 2px solid #111111; border-radius: 0; cursor: pointer; } .ds-lang button + button { border-left: 0; } .ds-lang button[aria-pressed='true'] { background: #111111; color: #f4f4f1; } .ds-lang button:focus-visible { outline: 3px solid #d0201a; outline-offset: 3px; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav-bar",
+      "description": "Sticky paper bar on a hairline; current link red with a 3px inset underline.",
+      "html": "<header class=\"ds-nav\"><a class=\"ds-nav-name\" href=\"#\">Alfredo Brocal Serrano</a><nav class=\"ds-nav-links\"><a href=\"#\" aria-current=\"true\">Proyectos</a><a href=\"#\">Sobre mí</a><a href=\"#\">Contacto</a></nav></header>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 24px; min-height: 56px; padding: 0 32px; background: #f4f4f1; color: #111111; border-bottom: 1.5px solid #111111; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; } .ds-nav-name { font-weight: 800; letter-spacing: -0.01em; text-decoration: none; color: inherit; } .ds-nav-links { display: flex; gap: 28px; margin-left: auto; } .ds-nav-links a { font-weight: 600; text-decoration: none; color: inherit; padding-block: 6px; } .ds-nav-links a:hover { color: #d0201a; } .ds-nav-links a[aria-current='true'] { color: #d0201a; box-shadow: inset 0 -3px 0 #d0201a; } .ds-nav a:focus-visible { outline: 3px solid #d0201a; outline-offset: 3px; }"
+    },
+    {
+      "name": "Stamped Figure",
+      "kind": "custom",
+      "refersTo": "figure",
+      "description": "Two-ink hatched chart, labels on the shapes, caption and a red-stamped source line.",
+      "html": "<figure class=\"ds-fig\"><svg viewBox=\"0 0 320 140\" role=\"img\" aria-label=\"Two series stacked\"><defs><pattern id=\"ds-h-red\" width=\"7\" height=\"7\" patternUnits=\"userSpaceOnUse\" patternTransform=\"rotate(-45)\"><rect width=\"2.6\" height=\"7\" fill=\"#d0201a\"/></pattern></defs><line x1=\"0\" y1=\"40\" x2=\"320\" y2=\"40\" stroke=\"#111111\" stroke-width=\"0.6\" opacity=\"0.35\"/><path d=\"M0 130 L80 110 L160 80 L240 50 L320 30 L320 130 Z\" fill=\"#111111\"/><path d=\"M0 130 L80 122 L160 108 L240 92 L320 84 L320 130 Z\" fill=\"url(#ds-h-red)\"/><line x1=\"0\" y1=\"130\" x2=\"320\" y2=\"130\" stroke=\"#111111\" stroke-width=\"2\"/><text x=\"236\" y=\"70\" fill=\"#f4f4f1\" font-size=\"15\" font-weight=\"600\">Carbón</text><text x=\"20\" y=\"100\" fill=\"#d0201a\" font-size=\"15\" font-weight=\"800\">Petróleo</text></svg><figcaption class=\"ds-fig-cap\"><b>Fig. 1</b> — Emisiones globales por fuente, 1900–2021.</figcaption><p class=\"ds-fig-src\">Fuente: evolucion_global_fuentes.csv</p></figure>",
+      "css": ".ds-fig { display: flex; flex-direction: column; gap: 10px; margin: 0; max-width: 420px; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; color: #111111; } .ds-fig svg text { font-family: Archivo, sans-serif; } .ds-fig-cap { font-size: 0.875rem; line-height: 1.35; } .ds-fig-cap b { font-weight: 800; } .ds-fig-src { margin: 0; font-size: 0.875rem; line-height: 1.35; color: #5c5c58; } .ds-fig-src::before { content: ''; display: inline-block; width: 0.6em; height: 0.6em; background: #d0201a; margin-right: 0.5em; }"
+    },
+    {
+      "name": "Project Index",
+      "kind": "custom",
+      "refersTo": "index",
+      "description": "Headline numbers on a 6px rule, each linking to its plate; number turns red on hover.",
+      "html": "<nav class=\"ds-index\"><a href=\"#\"><span class=\"n\">36.828 Mt</span><span class=\"l\">CO₂ mundial en 2021</span></a><a href=\"#\"><span class=\"n\">2.199 páginas</span><span class=\"l\">Asistente RAG</span></a></nav>",
+      "css": ".ds-index { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; border-top: 6px solid #111111; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-variant-numeric: tabular-nums lining-nums; } .ds-index a { display: block; padding-top: 12px; text-decoration: none; color: #111111; } .ds-index .n { display: block; font-size: 2rem; font-weight: 820; font-stretch: 75%; letter-spacing: -0.02em; line-height: 1; } .ds-index .l { display: block; margin-top: 6px; font-size: 0.875rem; font-weight: 500; line-height: 1.3; } .ds-index a:hover .n { color: #d0201a; } .ds-index a:focus-visible { outline: 3px solid #d0201a; outline-offset: 3px; }"
+    },
+    {
+      "name": "Ruled Row List",
+      "kind": "card",
+      "refersTo": "ruled-list",
+      "description": "Rule on top, hairline-divided rows, uppercase label keys; the system's replacement for cards.",
+      "html": "<dl class=\"ds-rows\"><div><dt>Datos</dt><dd>Python, Pandas, SQL</dd></div><div><dt>Visualización</dt><dd>Power BI, Google Sheets</dd></div></dl>",
+      "css": ".ds-rows { margin: 0; border-top: 6px solid #111111; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; color: #111111; } .ds-rows div { display: grid; grid-template-columns: 9em 1fr; gap: 16px; padding-block: 14px; border-bottom: 1.5px solid #111111; } .ds-rows dt { font-size: 0.875rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; padding-top: 0.2em; } .ds-rows dd { margin: 0; font-size: 1.25rem; line-height: 1.3; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Data Poster",
+    "overview": "The site is a Swiss International Style poster printed in two inks on off-white stock, and every figure on it is plotted from the author's own CSVs. One grotesk family carries everything; it compresses and thickens for display, opens up for reading, and always sets numbers in tabular lining figures. Structure comes from a strict twelve-column grid and from black rules of two weights, never from boxes, cards or shadows.\n\nDensity is poster-like: huge condensed numbers and names, then compact captions and stamped sources underneath. Each project is a full-viewport plate opened by a thick rule, with its headline number in red on the left and its figures on the right. Red is a signal, not a decoration: it marks the one thing to act on or the one number to read.\n\nConfirmed rejections: the previous editorial look (cream paper, serif italics, marquees, manifesto, preloader), the dev-portfolio hero plus card grid, gradients, shadows and rounded corners.",
+    "keyCharacteristics": [
+      "Two inks plus paper: black for mass, red for signal, a grey only for secondary text.",
+      "One variable family (Archivo, wdth 62–125, wght 100–900), heavy and condensed for display, tabular numerals everywhere.",
+      "Strict 12-column grid, flush-left, ragged-right.",
+      "Thick 6px rules open sections; 1.5px hairlines divide rows.",
+      "Square corners on everything; flat, no shadows, no gradients.",
+      "Charts in two inks with hatching, series labelled on the shape, every figure stamped with its source file.",
+      "One motion: a left-to-right plotter wipe on figures, off under reduced motion."
+    ],
+    "rules": [
+      {
+        "name": "The Two Inks Rule",
+        "body": "Paper, black and red are the whole palette. Graphite and Pale Stock are tints of text, never fills, panels or chart series.",
+        "section": "colors"
+      },
+      {
+        "name": "The Signal Rule",
+        "body": "Red marks one thing per region: the action, the key number or the current state. If two reds compete in the same view, one of them is wrong.",
+        "section": "colors"
+      },
+      {
+        "name": "The Condensed Mass Rule",
+        "body": "The heavier the type, the narrower it gets. Display roles sit at 72–85% width and 820–860 weight with negative tracking; reading text stays at normal width and weight.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Rule",
+        "body": "Every number on the page uses tabular lining figures. Numbers are the content; they must align.",
+        "section": "typography"
+      },
+      {
+        "name": "The Ink Weight Rule",
+        "body": "Hierarchy between blocks is a rule, never a lift. A 6px rule opens a section or plate; a 1.5px hairline separates items within it. No drop shadows, glows or blur.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** limit colour to paper, Press Black and Signal Red, with Graphite only for secondary text.",
+      "**Do** open every section and project plate with a 6px black rule and divide rows with 1.5px hairlines.",
+      "**Do** set display type condensed and heavy (wdth 72–85%, weight 820–860, negative tracking) and every number in tabular lining figures.",
+      "**Do** place content on the 12-column grid, flush-left and ragged-right.",
+      "**Do** stamp every figure with a caption and a source line naming the file it came from.",
+      "**Do** label chart series on the shape and separate them with hatching, never with a third colour.",
+      "**Do** keep the plotter wipe as the only entrance motion, start from a visible state, and turn it off under reduced motion.",
+      "**Do** use Signal Red on Ink, not Signal Red, for small red text on the black band."
+    ],
+    "donts": [
+      "**Don't** round corners, add drop shadows, or use gradients anywhere.",
+      "**Don't** wrap content in cards or tinted panels; use rules and the grid.",
+      "**Don't** introduce a second typeface or a serif; the old editorial look (cream paper, serif italics, marquees, preloader) is retired.",
+      "**Don't** use red for more than one signal per region, or as a decorative fill.",
+      "**Don't** add scroll-triggered fades, parallax or other motion beyond the plotter wipe and the 0.2s colour swaps on hover.",
+      "**Don't** centre headings or body text."
+    ]
+  }
+}
