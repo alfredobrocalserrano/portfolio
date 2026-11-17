@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Alfredo Brocal Serrano · Data Science</title>
-<meta name="description" content="Estudiante del Máster en Data Science (UCM) que busca prácticas. Elche (Alicante) · Madrid · remoto. Cuatro proyectos con datos reales: CO₂, un asistente RAG, Google Play y sentimiento en X.">
+<meta name="description" content="Estudiante del Máster en Data Science (UCM) que busca prácticas. Elche (Alicante) · Madrid · remoto. Cinco proyectos con datos reales: turismo en la Costa Blanca, CO₂, un asistente RAG, Google Play y sentimiento en X.">
 <link rel="canonical" href="https://portfolio-alfredo-brocal.vercel.app/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://portfolio-alfredo-brocal.vercel.app/">
 <meta property="og:title" content="Alfredo Brocal Serrano · Data Science">
-<meta property="og:description" content="Máster en Data Science (UCM). Busco prácticas · Elche (Alicante) · Madrid · remoto. Cuatro análisis con datos reales y código en GitHub.">
+<meta property="og:description" content="Máster en Data Science (UCM). Busco prácticas · Elche (Alicante) · Madrid · remoto. Cinco análisis con datos reales y código en GitHub.">
 <meta property="og:image" content="https://portfolio-alfredo-brocal.vercel.app/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -89,10 +89,11 @@
     {{FIG1}}
     <div class="readout" id="readout" aria-live="polite"></div>
     <figcaption class="fig__cap"><b data-en="Fig. 1">Fig. 1</b> — <span data-en="Global CO₂ emissions by source, 1900–2021, in million tonnes. Hover or use the arrow keys to read any year.">Emisiones globales de CO₂ por fuente, 1900–2021, en millones de toneladas. Pasa el cursor o usa las flechas para leer cada año.</span></figcaption>
-    <p class="fig__src" data-en="Source: Global Carbon Budget 2022 · evolucion_global_fuentes.csv · project 1">Fuente: Global Carbon Budget 2022 · evolucion_global_fuentes.csv · proyecto 1</p>
+    <p class="fig__src" data-en="Source: Global Carbon Budget 2022 · evolucion_global_fuentes.csv · project 2">Fuente: Global Carbon Budget 2022 · evolucion_global_fuentes.csv · proyecto 2</p>
   </figure>
 
   <nav class="index" aria-label="Proyectos" data-en-aria-label="Projects">
+    <a href="#turismo"><span class="index__num" data-en="3.6%">3,6&nbsp;%</span><span class="index__lbl" data-en="Error of the hotel tourism forecast · Costa Blanca">Error de la previsión de turismo hotelero · Costa Blanca</span></a>
     <a href="#co2"><span class="index__num" data-en="36,828 Mt">36.828&nbsp;Mt</span><span class="index__lbl" data-en="Global CO₂ in 2021 · analysis of 1900–2021">CO₂ mundial en 2021 · análisis 1900–2021</span></a>
     <a href="#rag"><span class="index__num" data-en="2,199 pages">2.199 páginas</span><span class="index__lbl" data-en="RAG assistant over IBEX annual reports">Asistente RAG sobre informes anuales del IBEX</span></a>
     <a href="#play"><span class="index__num" data-en="+0.49 points">+0,49 puntos</span><span class="index__lbl" data-en="Rating edge of paid apps · Google Play">Ventaja de rating de las apps de pago · Google Play</span></a>
@@ -102,9 +103,58 @@
 
 <section id="proyectos" aria-labelledby="proyectos-h">
   <div class="sec-head grid">
-    <h2 id="proyectos-h" data-en="Four analyses, four repositories.">Cuatro análisis, cuatro repositorios.</h2>
+    <h2 id="proyectos-h" data-en="Five analyses, five repositories.">Cinco análisis, cinco repositorios.</h2>
     <p data-en="Every chart on this page is drawn from the CSV files these projects produced. The code is public.">Cada gráfico de esta página sale de los CSV que generaron estos proyectos. El código es público.</p>
   </div>
+
+  <!-- 0 · Turismo Costa Blanca -->
+  <article class="plate grid" id="turismo" aria-labelledby="turismo-h">
+    <header class="plate__head">
+      <h3 id="turismo-h" data-en="Hotel tourism forecast for the Costa Blanca">Previsión de turismo hotelero en la Costa Blanca</h3>
+      <p class="plate__meta" data-en="2026 · Python, pandas, DuckDB, statsmodels, LightGBM, SHAP, GitHub Actions · INE and Eurostat">2026 · Python, pandas, DuckDB, statsmodels, LightGBM, SHAP, GitHub Actions · INE y Eurostat</p>
+    </header>
+    <div class="plate__body">
+      <p class="key"><span class="key__num" data-en="3.6%">3,6&nbsp;%</span><span class="key__txt" data-en="mean forecast error 1–12 months ahead (2023–2026), with a website that updates itself every month.">de error medio de la previsión a 1–12 meses vista (2023–2026), con una web que se actualiza sola cada mes.</span></p>
+      <div>
+        <h4 data-en="Context">Contexto</h4>
+        <p data-en="A forecast of hotel overnight stays on the Costa Blanca for the next 12 months, using official INE data since 1999. I compared classical time-series models with LightGBM under a fair evaluation: rolling-origin validation, model selection on a separate period and a single final evaluation.">Previsión de las pernoctaciones hoteleras de la Costa Blanca para los próximos 12 meses con datos oficiales del INE desde 1999. Comparé modelos clásicos de series temporales con LightGBM usando una evaluación justa: validación de origen móvil, selección en un periodo aparte y evaluación final una sola vez.</p>
+      </div>
+      <div>
+        <h4 data-en="Findings">Hallazgos</h4>
+        <ul class="list">
+          <li data-en="The season is getting more concentrated, not less: August weighed 2.2 times as much as January in 2000–2004 and 3.25 times in 2022–2025.">La temporada se concentra más, no menos: agosto pesaba 2,2 veces lo que enero en 2000–2004 y 3,25 veces en 2022–2025.</li>
+          <li data-en="Foreign visitors now account for 61% of overnight stays (2025), the highest in the series.">Los extranjeros ya son el 61&nbsp;% de las pernoctaciones (2025), máximo de la serie.</li>
+          <li data-en="Machine learning ties with the classical models (4.21% vs 4.24% before COVID; 3.56% vs 3.48% after), but it is more accurate 12 months ahead and less biased.">El machine learning empata con los modelos clásicos (4,21&nbsp;% frente a 4,24&nbsp;% antes del COVID; 3,56&nbsp;% frente a 3,48&nbsp;% después), pero acierta más a 12 meses vista y tiene menos sesgo.</li>
+          <li data-en="Easter shifts about 4 points of weight between March and April depending on the month it falls in.">La Semana Santa traslada unos 4 puntos de peso entre marzo y abril según el mes en que cae.</li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-en="How I did it">Cómo lo hice</h4>
+        <ol class="steps">
+          <li data-en="Automatic API download from INE (Hotel Occupancy Survey) and Eurostat (Alicante-Elche airport) into DuckDB.">Descarga automática por API del INE (Encuesta de Ocupación Hotelera) y Eurostat (aeropuerto de Alicante-Elche) a DuckDB.</li>
+          <li data-en="Rolling-origin validation: each month the model trains only on the data available then and forecasts the next 12.">Validación de origen móvil: en cada mes se entrena solo con los datos de entonces y se prevén los 12 siguientes.</li>
+          <li data-en="LightGBM predicts year-on-year growth and is combined with SARIMAX; each forecast is explained with SHAP.">LightGBM predice el crecimiento interanual y se combina con SARIMAX; cada previsión se explica con SHAP.</li>
+          <li data-en="A website on GitHub Pages, refreshed every month by a GitHub Action.">Web en GitHub Pages actualizada cada mes por una GitHub Action.</li>
+        </ol>
+      </div>
+      <div class="plate__links">
+        <a class="btn" href="https://alfredobrocalserrano.github.io/prevision-turismo-costa-blanca/" target="_blank" rel="noopener"><span data-en="See the live forecast">Ver la previsión en vivo</span><svg aria-hidden="true"><use href="#i-out"/></svg></a>
+        <a class="btn btn--line" href="https://github.com/alfredobrocalserrano/prevision-turismo-costa-blanca" target="_blank" rel="noopener"><span data-en="Code on GitHub">Código en GitHub</span><svg aria-hidden="true"><use href="#i-out"/></svg></a>
+      </div>
+    </div>
+    <div class="plate__figs">
+      <figure class="fig">
+        {{FIGT1}}
+        <figcaption class="fig__cap"><b data-en="Fig. 2">Fig. 2</b> — <span data-en="Monthly hotel overnight stays over the last four years and the 12-month forecast with its 80% interval (red band). This is the November 2026 forecast; the updated version is on the live site.">Pernoctaciones hoteleras mensuales de los últimos cuatro años y previsión a 12 meses con su intervalo del 80&nbsp;% (banda roja). Es la previsión de noviembre de 2026; la versión actualizada está en la web en vivo.</span></figcaption>
+        <p class="fig__src" data-en="Source: INE, Hotel Occupancy Survey · own analysis">Fuente: INE, Encuesta de Ocupación Hotelera · elaboración propia</p>
+      </figure>
+      <figure class="fig">
+        {{FIGT2}}
+        <figcaption class="fig__cap"><b data-en="Fig. 3">Fig. 3</b> — <span data-en="Mean forecast error (MAPE) of each model: hatched bar 2015–2019, solid bar 2023–2026. The final model is in red. No model wins in both periods: SARIMA is the best in 2023–2026 but the worst statistical model in 2015–2019. The final model and the ETS + SARIMAX blend are the most consistent.">Error medio (MAPE) de cada modelo: barra rayada 2015–2019, barra sólida 2023–2026. En rojo, el modelo final. Ningún modelo gana en los dos periodos: SARIMA es el mejor en 2023–2026 pero el peor de los modelos estadísticos en 2015–2019. El modelo final y la combinación ETS + SARIMAX son los más regulares.</span></figcaption>
+        <p class="fig__src" data-en="Source: INE, Hotel Occupancy Survey · own analysis">Fuente: INE, Encuesta de Ocupación Hotelera · elaboración propia</p>
+      </figure>
+    </div>
+  </article>
 
   <!-- 1 · CO2 -->
   <article class="plate grid" id="co2" aria-labelledby="co2-h">
@@ -142,12 +192,12 @@
     <div class="plate__figs">
       <figure class="fig">
         {{FIG2}}
-        <figcaption class="fig__cap"><b data-en="Fig. 2">Fig. 2</b> — <span data-en="Change in CO₂ emissions between 2011 and 2021, the 15 countries that cut most.">Variación de las emisiones de CO₂ entre 2011 y 2021, los 15 países que más reducen.</span></figcaption>
+        <figcaption class="fig__cap"><b data-en="Fig. 4">Fig. 4</b> — <span data-en="Change in CO₂ emissions between 2011 and 2021, the 15 countries that cut most.">Variación de las emisiones de CO₂ entre 2011 y 2021, los 15 países que más reducen.</span></figcaption>
         <p class="fig__src" data-en="Source: paises_mejora_climatica.csv (SQL query in DBeaver)">Fuente: paises_mejora_climatica.csv (consulta SQL en DBeaver)</p>
       </figure>
       <figure class="fig">
         {{FIG3}}
-        <figcaption class="fig__cap"><b data-en="Fig. 3">Fig. 3</b> — <span data-en="Cumulative emissions 1900–2021, top 10 countries, in gigatonnes.">Emisiones acumuladas 1900–2021, los 10 primeros países, en gigatoneladas.</span></figcaption>
+        <figcaption class="fig__cap"><b data-en="Fig. 5">Fig. 5</b> — <span data-en="Cumulative emissions 1900–2021, top 10 countries, in gigatonnes.">Emisiones acumuladas 1900–2021, los 10 primeros países, en gigatoneladas.</span></figcaption>
         <p class="fig__src" data-en="Source: ranking_historico_top10.csv">Fuente: ranking_historico_top10.csv</p>
       </figure>
     </div>
@@ -188,7 +238,7 @@
           <li><b data-en="Search">Búsqueda</b>MMR</li>
           <li><b data-en="Answer">Respuesta</b><span data-en="Llama 3.3 70B, with citation">Llama 3.3 70B, con cita</span></li>
         </ol>
-        <figcaption class="fig__cap"><b data-en="Fig. 4">Fig. 4</b> — <span data-en="From PDF to cited answer.">Del PDF a la respuesta citada.</span></figcaption>
+        <figcaption class="fig__cap"><b data-en="Fig. 6">Fig. 6</b> — <span data-en="From PDF to cited answer.">Del PDF a la respuesta citada.</span></figcaption>
       </figure>
       <figure class="fig">
         <div class="qa">
@@ -206,12 +256,12 @@
             <p class="qa__note" data-en="When the retrieved passages do not contain the figure, the system says so instead of making one up.">Cuando los fragmentos recuperados no contienen el dato, el sistema lo dice en lugar de inventarlo.</p>
           </div>
         </div>
-        <figcaption class="fig__cap"><b data-en="Fig. 5">Fig. 5</b> — <span data-en="Two real system outputs, quoted in their original Spanish.">Dos salidas reales del sistema, citadas literalmente.</span></figcaption>
+        <figcaption class="fig__cap"><b data-en="Fig. 7">Fig. 7</b> — <span data-en="Two real system outputs, quoted in their original Spanish.">Dos salidas reales del sistema, citadas literalmente.</span></figcaption>
         <p class="fig__src" data-en="Source: outputs/kpis_extraidos.csv">Fuente: outputs/kpis_extraidos.csv</p>
       </figure>
       <figure class="fig">
         {{FIG5}}
-        <figcaption class="fig__cap"><b data-en="Fig. 6">Fig. 6</b> — <span data-en="Tone of each report, scored from 1 (negative) to 5 (positive) by the LLM.">Tono de cada informe, puntuado de 1 (negativo) a 5 (positivo) por el LLM.</span></figcaption>
+        <figcaption class="fig__cap"><b data-en="Fig. 8">Fig. 8</b> — <span data-en="Tone of each report, scored from 1 (negative) to 5 (positive) by the LLM.">Tono de cada informe, puntuado de 1 (negativo) a 5 (positivo) por el LLM.</span></figcaption>
         <p class="fig__src" data-en="Source: outputs/sentimiento.csv">Fuente: outputs/sentimiento.csv</p>
       </figure>
     </div>
@@ -253,12 +303,12 @@
     <div class="plate__figs">
       <figure class="fig">
         {{FIG8}}
-        <figcaption class="fig__cap"><b data-en="Fig. 7">Fig. 7</b> — <span data-en="Free and paid apps in the cleaned dataset.">Apps gratuitas y de pago en el dataset limpio.</span></figcaption>
+        <figcaption class="fig__cap"><b data-en="Fig. 9">Fig. 9</b> — <span data-en="Free and paid apps in the cleaned dataset.">Apps gratuitas y de pago en el dataset limpio.</span></figcaption>
         <p class="fig__src" data-en="Source: output of Data_Cleaning_and_Preprocessing.ipynb">Fuente: salida de Data_Cleaning_and_Preprocessing.ipynb</p>
       </figure>
       <figure class="fig">
         <div class="shot"><picture><source type="image/webp" srcset="./assets/img/project-play-400.webp 400w, ./assets/img/project-play-800.webp 800w" sizes="(max-width: 860px) 92vw, 45vw"><img src="./assets/img/project-play.jpg" width="1400" height="875" loading="lazy" decoding="async" alt="Página del dashboard de Power BI sobre el mercado de apps de Google Play" data-en-alt="Power BI dashboard page on the Google Play app market"></picture></div>
-        <figcaption class="fig__cap"><b data-en="Fig. 8">Fig. 8</b> — <span data-en="One page of the Power BI dashboard.">Una página del dashboard en Power BI.</span></figcaption>
+        <figcaption class="fig__cap"><b data-en="Fig. 10">Fig. 10</b> — <span data-en="One page of the Power BI dashboard.">Una página del dashboard en Power BI.</span></figcaption>
         <p class="fig__src" data-en="Source: PlayStore_Analysis_Dashboard.pdf">Fuente: PlayStore_Analysis_Dashboard.pdf</p>
       </figure>
     </div>
@@ -291,7 +341,7 @@
     <div class="plate__figs">
       <figure class="fig">
         {{FIG6}}
-        <figcaption class="fig__cap"><b data-en="Fig. 9">Fig. 9</b> — <span data-en="Sentiment labels in the cleaned dataset. The classes are reasonably balanced.">Etiquetas de sentimiento en el dataset limpio. Las clases están razonablemente equilibradas.</span></figcaption>
+        <figcaption class="fig__cap"><b data-en="Fig. 11">Fig. 11</b> — <span data-en="Sentiment labels in the cleaned dataset. The classes are reasonably balanced.">Etiquetas de sentimiento en el dataset limpio. Las clases están razonablemente equilibradas.</span></figcaption>
         <p class="fig__src" data-en="Source: tweets_limpio.csv · README of the repository">Fuente: tweets_limpio.csv · README del repositorio</p>
       </figure>
     </div>
@@ -332,13 +382,18 @@
     <dl class="stack__table">
       <div class="stack__row">
         <dt data-en="Analysis and data">Análisis y datos</dt>
-        <dd class="stack__tools">Python, Pandas, NumPy, SQL (DBeaver), Google Colab</dd>
-        <dd class="stack__used"><a href="#co2">CO<sub>2</sub></a> · <a href="#play">Google Play</a> · <a href="#x">X</a></dd>
+        <dd class="stack__tools">Python, Pandas, NumPy, SQL (DBeaver), DuckDB, Google Colab</dd>
+        <dd class="stack__used"><a href="#turismo" data-en="Tourism">Turismo</a> · <a href="#co2">CO<sub>2</sub></a> · <a href="#play">Google Play</a> · <a href="#x">X</a></dd>
       </div>
       <div class="stack__row">
         <dt data-en="Visualisation and BI">Visualización y BI</dt>
         <dd class="stack__tools">Power BI (DAX), Google Sheets, Matplotlib</dd>
         <dd class="stack__used"><a href="#play">Google Play</a> · <a href="#co2">CO<sub>2</sub></a> · <a href="#rag">RAG</a></dd>
+      </div>
+      <div class="stack__row">
+        <dt data-en="Time series and ML">Series temporales y ML</dt>
+        <dd class="stack__tools" data-en="statsmodels (ETS, SARIMA, SARIMAX), LightGBM, SHAP, GitHub Actions">statsmodels (ETS, SARIMA, SARIMAX), LightGBM, SHAP, GitHub Actions</dd>
+        <dd class="stack__used"><a href="#turismo" data-en="Tourism">Turismo</a></dd>
       </div>
       <div class="stack__row">
         <dt data-en="Generative AI">IA generativa</dt>

@@ -241,6 +241,131 @@ def x_classes():
     )
 
 
+# ---------------------------------------------------------------- Tourism plate
+MESES_ES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"]
+MESES_EN = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+
+def tur_forecast():
+    rows = read("turismo_historico_prevision.csv")
+    n = len(rows)
+    W, H = 520, 330
+    L, R, T, B = 52, 8, 26, 34
+    pw, ph = W - L - R, H - T - B
+    ymin, ymax = 500000, 2500000
+
+    def X(i):
+        return L + i * pw / (n - 1)
+
+    def Y(v):
+        return T + ph - (v - ymin) / (ymax - ymin) * ph
+
+    out = []
+    for g in (1000000, 1500000, 2000000, 2500000):
+        y = Y(g)
+        out.append(f'<line class="grid-l" x1="{L}" x2="{L + pw}" y1="{y:.1f}" y2="{y:.1f}"/>')
+        out.append(f'<text class="t-s t-dim" x="{L - 8}" y="{y + 4:.1f}" text-anchor="end" data-en="{en(g / 1e6, 1)} M">{es(g / 1e6, 1)} M</text>')
+
+    hist = [(i, r) for i, r in enumerate(rows) if r["tipo"] == "historico"]
+    prev = [(i, r) for i, r in enumerate(rows) if r["tipo"] == "prevision"]
+    last_i, last = hist[-1]
+    # forecast band, hatched red, anchored on the last observed month
+    top = [(X(last_i), Y(float(last["valor"])))] + [(X(i), Y(float(r["sup"]))) for i, r in prev]
+    bot = [(X(i), Y(float(r["inf"]))) for i, r in reversed(prev)] + [(X(last_i), Y(float(last["valor"])))]
+    band = " ".join(f"{x:.1f},{y:.1f}" for x, y in top + bot)
+    # 80 % interval as a light red band behind the forecast line
+    shapes = [f'<polygon points="{band}" fill="{RED}" fill-opacity="0.3"/>']
+    hl = " L".join(f"{X(i):.1f},{Y(float(r['valor'])):.1f}" for i, r in hist)
+    shapes.append(f'<path d="M{hl}" fill="none" stroke="{INK}" stroke-width="2.4" stroke-linejoin="round"/>')
+    pl = " L".join(f"{X(i):.1f},{Y(float(r['valor'])):.1f}" for i, r in [(last_i, last)] + prev)
+    shapes.append(f'<path d="M{pl}" fill="none" stroke="{RED}" stroke-width="2.8" stroke-linejoin="round"/>')
+    out.append('<g>' + "".join(shapes) + "</g>")
+    out.append(f'<line class="axis" x1="{L}" x2="{L + pw}" y1="{Y(ymin):.1f}" y2="{Y(ymin):.1f}"/>')
+
+    # "today" divider and direct labels
+    xd = X(last_i)
+    out.append(f'<line x1="{xd:.1f}" x2="{xd:.1f}" y1="{T - 4}" y2="{Y(ymin):.1f}" stroke="{INK}" stroke-width="1" stroke-dasharray="3 3"/>')
+    out.append(f'<text class="t-m" x="{xd - 8:.1f}" y="{T + 8}" text-anchor="end" data-en="Observed">Observado</text>')
+    out.append(f'<text class="t-m t-red" x="{xd + 8:.1f}" y="{T + 8}" data-en="Forecast">Previsión</text>')
+
+    for i, r in enumerate(rows):
+        yy, mm = r["fecha"].split("-")
+        if mm == "01":
+            out.append(f'<text class="t-s" x="{X(i):.1f}" y="{H - 10}" text-anchor="middle">{yy}</text>')
+            out.append(f'<line x1="{X(i):.1f}" x2="{X(i):.1f}" y1="{Y(ymin):.1f}" y2="{Y(ymin) + 5:.1f}" stroke="{INK}" stroke-width="1.5"/>')
+
+    def mlabel(f, lang):
+        yy, mm = f.split("-")
+        return (MESES_ES if lang == "es" else MESES_EN)[int(mm) - 1] + " " + yy
+
+    peak = max(prev, key=lambda p: float(p[1]["valor"]))[1]
+    first_p, last_p = prev[0][1], prev[-1][1]
+    desc_es = (f"Línea mensual de pernoctaciones hoteleras en la Costa Blanca de {mlabel(rows[0]['fecha'], 'es')} a {mlabel(last['fecha'], 'es')}, "
+               f"seguida de la previsión de {mlabel(first_p['fecha'], 'es')} a {mlabel(last_p['fecha'], 'es')} con su intervalo. "
+               f"El pico previsto es {mlabel(peak['fecha'], 'es')}: {es(float(peak['valor']))} pernoctaciones "
+               f"(entre {es(float(peak['inf']))} y {es(float(peak['sup']))}).")
+    desc_en = (f"Monthly hotel overnight stays on the Costa Blanca from {mlabel(rows[0]['fecha'], 'en')} to {mlabel(last['fecha'], 'en')}, "
+               f"followed by the forecast from {mlabel(first_p['fecha'], 'en')} to {mlabel(last_p['fecha'], 'en')} with its interval. "
+               f"The forecast peak is {mlabel(peak['fecha'], 'en')}: {en(float(peak['valor']))} stays "
+               f"(between {en(float(peak['inf']))} and {en(float(peak['sup']))}).")
+    return (
+        f'<svg class="chart wipe" data-wipe viewBox="0 0 {W} {H}" role="img" aria-labelledby="figt1-t" aria-describedby="figt1-d">'
+        '<title id="figt1-t" data-en="Hotel overnight stays and 12-month forecast">Pernoctaciones hoteleras y previsión a 12 meses</title>'
+        f'<desc id="figt1-d" data-en="{desc_en}">{desc_es}</desc>'
+        + "".join(out) + "</svg>"
+    )
+
+
+MODELOS_EN = {
+    "Ingenuo estacional": "Seasonal naive",
+    "SARIMAX + Semana Santa": "SARIMAX + Easter",
+    "Combinación ETS + SARIMAX": "ETS + SARIMAX blend",
+}
+
+
+def tur_precision():
+    rows = read("turismo_precision.csv")
+    W, label_w, row, bar_h = 520, 238, 50, 15
+    vmax = 6.0
+    bw = W - label_w - 58
+    H = row * len(rows) + 30
+    out = []
+    for g in (2, 4, 6):
+        x = label_w + g / vmax * bw
+        out.append(f'<line class="grid-l" x1="{x:.1f}" x2="{x:.1f}" y1="0" y2="{H - 26}"/>')
+        out.append(f'<text class="t-s t-dim" x="{x:.1f}" y="{H - 8}" text-anchor="middle" data-en="{g}%">{g} %</text>')
+    for i, r in enumerate(rows):
+        y = i * row + 4
+        final = r["final"] == "1"
+        col = RED if final else INK
+        name_en = MODELOS_EN.get(r["modelo"], r["modelo"])
+        cls = "t-m t-red" if final else "t-m"
+        out.append(f'<text class="{cls}" x="0" y="{y + 15}" data-en="{name_en}">{r["modelo"]}</text>')
+        if final:
+            out.append(f'<text class="t-s t-red" x="0" y="{y + 33}" data-en="final model">modelo final</text>')
+        for k, (key, hatch) in enumerate((("mape_2015_2019", True), ("mape_2023_2026", False))):
+            v = float(r[key])
+            by = y + k * (bar_h + 3)
+            w = v / vmax * bw
+            fill = (f"url(#h-{'red' if final else 'ink'}-p)") if hatch else col
+            stroke = f' stroke="{col}" stroke-width="1"' if hatch else ""
+            out.append(f'<rect x="{label_w}" y="{by}" width="{w:.1f}" height="{bar_h}" fill="{fill}"{stroke}/>')
+            out.append(f'<text class="t-s{" t-red" if final else ""}" x="{label_w + w + 6:.1f}" y="{by + bar_h - 3}" data-en="{en(v, 2)}%">{es(v, 2)} %</text>')
+    out.append(f'<line class="axis" x1="{label_w}" x2="{label_w}" y1="0" y2="{H - 26}"/>')
+    defs = (
+        f'<defs><pattern id="h-ink-p" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="2" height="6" fill="{INK}"/></pattern>'
+        f'<pattern id="h-red-p" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="2" height="6" fill="{RED}"/></pattern></defs>'
+    )
+    desc_es = "; ".join(f"{r['modelo']}: {es(float(r['mape_2015_2019']), 2)} % en 2015–2019 y {es(float(r['mape_2023_2026']), 2)} % en 2023–2026" for r in rows) + "."
+    desc_en = "; ".join(f"{MODELOS_EN.get(r['modelo'], r['modelo'])}: {en(float(r['mape_2015_2019']), 2)}% in 2015–2019 and {en(float(r['mape_2023_2026']), 2)}% in 2023–2026" for r in rows) + "."
+    return (
+        f'<svg class="chart wipe" data-wipe viewBox="0 0 {W} {H}" role="img" aria-labelledby="figt2-t" aria-describedby="figt2-d">'
+        '<title id="figt2-t" data-en="Mean forecast error (MAPE) by model">Error medio de la previsión (MAPE) por modelo</title>'
+        f'<desc id="figt2-d" data-en="{desc_en}">{desc_es}</desc>'
+        + defs + "".join(out) + "</svg>"
+    )
+
+
 # ---------------------------------------------------------------- Play plate
 def play_split():
     # counts printed by Data_Cleaning_and_Preprocessing.ipynb (Free True / False)
@@ -277,6 +402,8 @@ def main():
         "{{FIG5}}": rag_tone(),
         "{{FIG6}}": x_classes(),
         "{{FIG8}}": play_split(),
+        "{{FIGT1}}": tur_forecast(),
+        "{{FIGT2}}": tur_precision(),
     }
     with open(os.path.join(ROOT, "src", "index.html"), encoding="utf-8") as f:
         html = f.read()

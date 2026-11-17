@@ -1,0 +1,8 @@
+modelo,mape_2015_2019,mape_2023_2026,final
+Ingenuo estacional,4.74,4.5,0
+ETS,4.62,3.61,0
+SARIMA,5.28,3.34,0
+SARIMAX + Semana Santa,4.61,3.61,0
+Combinación ETS + SARIMAX,4.24,3.48,0
+LightGBM,4.26,3.83,0
+LightGBM + SARIMAX,4.21,3.56,1

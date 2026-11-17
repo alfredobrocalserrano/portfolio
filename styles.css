@@ -169,7 +169,7 @@ sub { font-size: 0.62em; vertical-align: -0.18em; line-height: 0; }
 
 .index {
   grid-column: 1 / -1;
-  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--col-gap);
+  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); column-gap: var(--col-gap);
   border-top: var(--rule) solid var(--ink);
 }
 .index a {

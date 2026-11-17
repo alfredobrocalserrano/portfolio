@@ -46,6 +46,7 @@ Visitors arrive from LinkedIn, the CV PDF, or GitHub. They compare many junior c
 
 - Education: Grado en Gestión de Información y Contenidos Digitales (completed); Google Data Analytics certificate (completed); Máster en Data Science, UCM (in progress).
 - Projects (all with public repos under github.com/alfredobrocalserrano):
+  0. **Hotel tourism forecast, Costa Blanca** (2026, added 2026-11-17, shown first) — INE Hotel Occupancy Survey since 1999 + Eurostat; DuckDB, statsmodels, LightGBM + SARIMAX, SHAP, GitHub Actions; live site on GitHub Pages. MAPE 3.56% (2023–2026). Figure data copied to data/raw/turismo_*.csv from the live datos.json (generated 2026-11-17). The 61% foreign share and the Easter effect come from the user, not from that file.
   1. **CO₂ emissions 1900–2021** (2026) — Pandas, SQL in DBeaver, Google Sheets dashboard; Global Carbon Budget 2022 data. Repo has CSV outputs (global evolution by source, top-10 ranking, countries improving).
   2. **RAG assistant over corporate annual reports** (2026) — ~2,199 pages from Iberdrola, BBVA, Santander, Inditex; LangChain, ChromaDB, HuggingFace embeddings, MMR, Llama 3.3 70B via Groq, Gradio. Repo has KPI and sentiment CSVs.
   3. **Google Play Store EDA** (2025) — 10K+ apps, Python (Colab), Power BI, DAX; paid apps +0.49 rating, 100 MB download barrier, 4-page dashboard.

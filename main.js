@@ -12,11 +12,11 @@
   var META = {
     es: {
       title: 'Alfredo Brocal Serrano · Data Science',
-      desc: 'Estudiante del Máster en Data Science (UCM) que busca prácticas. Elche (Alicante) · Madrid · remoto. Cuatro proyectos con datos reales: CO₂, un asistente RAG, Google Play y sentimiento en X.'
+      desc: 'Estudiante del Máster en Data Science (UCM) que busca prácticas. Elche (Alicante) · Madrid · remoto. Cinco proyectos con datos reales: turismo en la Costa Blanca, CO₂, un asistente RAG, Google Play y sentimiento en X.'
     },
     en: {
       title: 'Alfredo Brocal Serrano · Data Science',
-      desc: 'MSc Data Science student at UCM looking for an internship. Elche (Alicante) · Madrid · remote. Four projects with real data: CO₂, a RAG assistant, Google Play and sentiment on X.'
+      desc: 'MSc Data Science student at UCM looking for an internship. Elche (Alicante) · Madrid · remote. Five projects with real data: Costa Blanca tourism, CO₂, a RAG assistant, Google Play and sentiment on X.'
     }
   };
   var lang = 'es';
